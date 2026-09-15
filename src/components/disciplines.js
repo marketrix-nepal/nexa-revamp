@@ -1,54 +1,55 @@
 import { servicesData } from '../data/servicesData.js';
 
 /**
- * Disciplines Component (Act 3: The Discipline Engine)
- * Pinned 300vh spatial vector switcher with 6 architectural blades on left
- * and dynamic right stage with 3 focused capability cards and benchmark.
+ * Services Component (formerly Disciplines)
+ * Clean, responsive interactive service showcase with instant tab switching,
+ * scannable capability cards, and modal deep-dives.
  */
 
 let activeIndex = 0;
 
 export function renderDisciplines() {
-  const bladesHtml = servicesData
+  const tabsHtml = servicesData
     .map((service, idx) => `
       <button 
-        class="discipline-blade ${idx === 0 ? 'active' : ''}" 
+        class="service-tab-btn ${idx === 0 ? 'active' : ''}" 
         data-index="${idx}"
         data-service-id="${service.id}"
-        aria-label="Switch to ${service.title}"
+        role="tab"
+        aria-selected="${idx === 0 ? 'true' : 'false'}"
+        aria-controls="service-panel-${idx}"
+        id="service-tab-${idx}"
       >
-        <div class="blade-content-left">
-          <span class="blade-num">${service.number}</span>
-          <span class="blade-title">${service.title}</span>
-        </div>
-        <span class="blade-indicator"></span>
+        <span class="tab-num">${service.number}</span>
+        <span class="tab-title">${service.title}</span>
       </button>
     `)
     .join('');
 
   return `
     <section id="disciplines-stage" class="section">
-      <div class="disciplines-pinned-container">
-        <div class="container-wide">
-          <!-- Section Heading -->
-          <div class="section-header" style="margin-bottom: 2rem;">
-            <div class="section-label">03 // THE DISCIPLINE ENGINE</div>
-            <h2 class="section-title" style="font-size: clamp(2rem, 3.8vw, 3.4rem);">
-              Six Vectors of Defensible Enterprise Value.
-            </h2>
+      <div class="container-wide">
+        <!-- Section Heading -->
+        <div class="section-header">
+          <div class="section-label">OUR SERVICES</div>
+          <h2 class="section-title">
+            Everything You Need to Scale Your Business.
+          </h2>
+          <p class="section-desc">
+            We partner with you across six core areas—from brand positioning and high-converting websites to custom software and smart AI automation.
+          </p>
+        </div>
+
+        <!-- Services Interactive Hub Layout -->
+        <div class="services-hub-layout">
+          <!-- Navigation Tabs Rail -->
+          <div class="services-tabs-rail" id="services-tabs-list" role="tablist" aria-label="Services List">
+            ${tabsHtml}
           </div>
 
-          <!-- 2-Column Spatial Synchronization Layout -->
-          <div class="disciplines-layout">
-            <!-- Left Rail: Architectural Blades -->
-            <div class="disciplines-left-rail" id="disciplines-blade-list" role="tablist">
-              ${bladesHtml}
-            </div>
-
-            <!-- Right Canvas: Vector Stage -->
-            <div class="disciplines-right-canvas" id="disciplines-canvas-target" role="tabpanel">
-              <!-- Dynamically populated by renderVectorStageContent(0) -->
-            </div>
+          <!-- Active Service Content Canvas -->
+          <div class="service-content-canvas" id="service-canvas-target" role="tabpanel">
+            <!-- Dynamically populated by renderServiceContent(0) -->
           </div>
         </div>
       </div>
@@ -57,98 +58,101 @@ export function renderDisciplines() {
 }
 
 /**
- * Renders the right canvas content for the currently active discipline
+ * Renders the content panel for the currently selected service
  */
-export function renderVectorStageContent(index) {
+export function renderServiceContent(index) {
   const service = servicesData[index];
   if (!service) return '';
 
-  // 3 Focused Strategic Vectors (only the first 3 capabilities for pristine minimal layout)
-  const topThreeVectors = service.whatWeOffer.slice(0, 3);
-  const vectorsHtml = topThreeVectors
+  // 3 Primary Capabilities
+  const topThree = service.whatWeOffer.slice(0, 3);
+  const capabilitiesHtml = topThree
     .map((item, i) => `
-      <div class="strategic-vector-card">
-        <div class="strategic-vector-num">0${i + 1} // CAPABILITY</div>
-        <div class="strategic-vector-title">${item.name}</div>
-        <div class="strategic-vector-desc">${item.desc}</div>
+      <div class="capability-item-card">
+        <div class="capability-num-tag">0${i + 1}</div>
+        <h4 class="capability-item-title">${item.name}</h4>
+        <p class="capability-item-desc">${item.desc}</p>
       </div>
     `)
     .join('');
 
   return `
-    <div>
-      <div class="vector-stage-header">
-        <div class="badge badge-crimson">${service.number} // ${service.tagline}</div>
-        <h3 class="vector-stage-headline">${service.title}</h3>
-        <p class="vector-stage-lead">${service.shortDesc}</p>
+    <div class="service-panel-fade">
+      <!-- Service Header -->
+      <div class="service-panel-header">
+        <div class="badge badge-crimson">${service.number} · ${service.tagline}</div>
+        <h3 class="service-panel-title">${service.title}</h3>
+        <p class="service-panel-lead">${service.shortDesc}</p>
       </div>
 
-      <!-- 3 Focused Strategic Vectors (Strict Minimalist Mandate) -->
-      <div class="strategic-vectors-grid">
-        ${vectorsHtml}
-      </div>
-    </div>
-
-    <!-- Verified Commercial Benchmark & Universal Modal Trigger -->
-    <div class="benchmark-banner">
-      <div class="benchmark-info">
-        <div class="benchmark-tag">VERIFIED COMMERCIAL BENCHMARK</div>
-        <div class="benchmark-client">${service.caseHighlight.client}</div>
-        <div class="benchmark-outcome">${service.caseHighlight.outcome}</div>
+      <!-- 3 Key Features / Deliverables Grid -->
+      <div class="capability-cards-grid">
+        ${capabilitiesHtml}
       </div>
 
-      <button 
-        class="btn btn-ghost btn-sm open-service-modal-btn" 
-        data-service-id="${service.id}"
-        aria-label="Inspect full architecture for ${service.title}"
-      >
-        <span>Inspect Full Architecture →</span>
-      </button>
+      <!-- Proven Result Banner & Modal Trigger -->
+      <div class="service-result-banner">
+        <div class="result-info-block">
+          <span class="result-highlight-badge">REAL-WORLD OUTCOME</span>
+          <div class="result-client-name">${service.caseHighlight.client}</div>
+          <div class="result-metric-text">${service.caseHighlight.outcome}</div>
+        </div>
+
+        <button 
+          class="btn btn-ghost btn-sm open-service-modal-btn" 
+          data-service-id="${service.id}"
+          aria-label="View full details for ${service.title}"
+        >
+          <span>View Service Details →</span>
+        </button>
+      </div>
     </div>
   `;
 }
 
 /**
- * Sets the active discipline index, updating both blade styles and right stage content
+ * Event listeners for service tab switching
  */
-export function setActiveDisciplineIndex(index, updateScroll = false) {
-  if (index === activeIndex) return;
-  activeIndex = index;
+export function initDisciplinesEvents() {
+  const tabList = document.getElementById('services-tabs-list');
+  const canvasTarget = document.getElementById('service-canvas-target');
 
-  const blades = document.querySelectorAll('.discipline-blade');
-  blades.forEach((blade, idx) => {
-    blade.classList.toggle('active', idx === activeIndex);
-  });
+  if (!tabList || !canvasTarget) return;
 
-  const canvasTarget = document.getElementById('disciplines-canvas-target');
-  if (canvasTarget) {
-    // Smooth cross-fade transition
-    canvasTarget.style.opacity = '0.35';
-    canvasTarget.style.transform = 'translateY(6px)';
-    canvasTarget.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+  // Render initial tab content
+  canvasTarget.innerHTML = renderServiceContent(0);
 
+  // Global helper to switch service cleanly
+  window.setActiveServiceIndex = (index) => {
+    if (index === activeIndex) return;
+    activeIndex = index;
+
+    const allTabs = tabList.querySelectorAll('.service-tab-btn');
+    allTabs.forEach((tab, i) => {
+      const isActive = i === index;
+      tab.classList.toggle('active', isActive);
+      tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    // Smooth fade transition
+    canvasTarget.style.opacity = '0';
+    canvasTarget.style.transform = 'translateY(8px)';
+    
     setTimeout(() => {
-      canvasTarget.innerHTML = renderVectorStageContent(activeIndex);
+      canvasTarget.innerHTML = renderServiceContent(index);
+      canvasTarget.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
       canvasTarget.style.opacity = '1';
       canvasTarget.style.transform = 'translateY(0)';
-    }, 120);
-  }
-}
+    }, 150);
+  };
 
-// Expose globally for GSAP ScrollTrigger and click handlers
-window.setActiveDisciplineIndex = setActiveDisciplineIndex;
-
-export function initDisciplinesEvents() {
-  const canvasTarget = document.getElementById('disciplines-canvas-target');
-  if (canvasTarget) {
-    canvasTarget.innerHTML = renderVectorStageContent(0);
-  }
-
-  const blades = document.querySelectorAll('.discipline-blade');
-  blades.forEach((blade) => {
-    blade.addEventListener('click', (e) => {
-      const idx = parseInt(blade.getAttribute('data-index'), 10);
-      setActiveDisciplineIndex(idx, true);
-    });
+  // Tab click handler
+  tabList.addEventListener('click', (e) => {
+    const btn = e.target.closest('.service-tab-btn');
+    if (!btn) return;
+    const index = parseInt(btn.getAttribute('data-index'), 10);
+    if (!isNaN(index)) {
+      window.setActiveServiceIndex(index);
+    }
   });
 }

@@ -1,7 +1,7 @@
 /**
- * Concierge Component (Act 6: Strategic Engagement Concierge)
- * Split stage with 3-step high-conviction scoping terminal on left
- * and senior partner access protocol on right.
+ * Contact Component (formerly Concierge)
+ * Simple, human, and inviting inquiry form with instant validation,
+ * clear next steps, and studio direct contact details.
  */
 
 export function renderConcierge() {
@@ -10,161 +10,160 @@ export function renderConcierge() {
       <div class="container-wide">
         <!-- Section Header -->
         <div class="section-header">
-          <div class="section-label">06 // STRATEGIC ENGAGEMENT CONCIERGE</div>
+          <div class="section-label">CONTACT US</div>
           <h2 class="section-title">
-            Initiate Direct Partner Scoping.
+            Let's Build Something Great Together.
           </h2>
           <p class="section-desc">
-            We operate with a high-conviction, low-volume advisory model. Every brief is audited directly by senior strategy and deep-tech partners across Singapore and New Zealand.
+            Ready to upgrade your brand, launch a fast modern website, or automate your business operations? Tell us about your goals below, and we'll respond within 24 hours.
           </p>
         </div>
 
-        <!-- Split Terminal Grid -->
+        <!-- Split Layout: Form on Left, Direct Contact on Right -->
         <div class="grid-split-50">
-          <!-- Left: Scoping Terminal Form -->
-          <div class="concierge-form-box">
-            <form id="strategic-brief-form" novalidate>
-              <!-- Step 1: Engagement Vector -->
-              <div class="concierge-step-block">
-                <div class="concierge-step-label">01. ENGAGEMENT VECTOR</div>
-                <div class="choice-button-group" id="vector-choice-group" role="radiogroup" aria-label="Engagement Vector">
+          <!-- Left: Clean Project Inquiry Form -->
+          <div class="contact-form-card">
+            <form id="contact-inquiry-form" novalidate>
+              <!-- Step 1: Select Service -->
+              <div class="form-group-block">
+                <label class="form-block-label">1. WHAT DO YOU NEED HELP WITH?</label>
+                <div class="choice-button-group" id="service-choice-group" role="radiogroup" aria-label="Service Needed">
                   <button type="button" class="choice-btn selected" data-value="Brand Strategy" role="radio" aria-checked="true">Brand Strategy</button>
-                  <button type="button" class="choice-btn" data-value="Storytelling" role="radio" aria-checked="false">Storytelling</button>
-                  <button type="button" class="choice-btn" data-value="Digital Platform" role="radio" aria-checked="false">Digital Platform</button>
+                  <button type="button" class="choice-btn" data-value="Website Design" role="radio" aria-checked="false">Website Design</button>
+                  <button type="button" class="choice-btn" data-value="Custom App" role="radio" aria-checked="false">Custom App</button>
                   <button type="button" class="choice-btn" data-value="AI Automation" role="radio" aria-checked="false">AI Automation</button>
-                  <button type="button" class="choice-btn" data-value="Full Growth Engine" role="radio" aria-checked="false">Full Growth Engine</button>
+                  <button type="button" class="choice-btn" data-value="Full Strategy" role="radio" aria-checked="false">Full Strategy</button>
                 </div>
-                <input type="hidden" name="engagement_vector" id="input-engagement-vector" value="Brand Strategy" />
+                <input type="hidden" name="service_needed" id="input-service-needed" value="Brand Strategy" />
               </div>
 
-              <!-- Step 2: Commercial Stage -->
-              <div class="concierge-step-block">
-                <div class="concierge-step-label">02. COMMERCIAL STAGE</div>
-                <div class="choice-button-group" id="stage-choice-group" role="radiogroup" aria-label="Commercial Stage">
-                  <button type="button" class="choice-btn selected" data-value="Early-Stage (0→1)" role="radio" aria-checked="true">Early-Stage (0→1)</button>
-                  <button type="button" class="choice-btn" data-value="Scale-Up (Series A/B)" role="radio" aria-checked="false">Scale-Up (Series A/B)</button>
-                  <button type="button" class="choice-btn" data-value="Enterprise Transformation" role="radio" aria-checked="false">Enterprise Transformation</button>
+              <!-- Step 2: Estimated Budget -->
+              <div class="form-group-block">
+                <label class="form-block-label">2. ESTIMATED PROJECT BUDGET</label>
+                <div class="choice-button-group" id="budget-choice-group" role="radiogroup" aria-label="Budget Range">
+                  <button type="button" class="choice-btn" data-value="Under $10k" role="radio" aria-checked="false">Under $10k</button>
+                  <button type="button" class="choice-btn selected" data-value="$10k - $25k" role="radio" aria-checked="true">$10k - $25k</button>
+                  <button type="button" class="choice-btn" data-value="$25k - $50k" role="radio" aria-checked="false">$25k - $50k</button>
+                  <button type="button" class="choice-btn" data-value="$50k+" role="radio" aria-checked="false">$50k+</button>
                 </div>
-                <input type="hidden" name="commercial_stage" id="input-commercial-stage" value="Early-Stage (0→1)" />
+                <input type="hidden" name="budget_range" id="input-budget-range" value="$10k - $25k" />
               </div>
 
-              <!-- Step 3: Primary Hub Desk -->
-              <div class="concierge-step-block">
-                <div class="concierge-step-label">03. PRIMARY HUB DESK</div>
-                <div class="choice-button-group" id="hub-choice-group" role="radiogroup" aria-label="Primary Hub Desk">
-                  <button type="button" class="choice-btn selected" data-value="Singapore Desk" role="radio" aria-checked="true">🇸🇬 Singapore Desk</button>
-                  <button type="button" class="choice-btn" data-value="New Zealand Desk" role="radio" aria-checked="false">🇳🇿 New Zealand Desk</button>
-                  <button type="button" class="choice-btn" data-value="Global Hybrid" role="radio" aria-checked="false">Global Hybrid</button>
-                </div>
-                <input type="hidden" name="hub_desk" id="input-hub-desk" value="Singapore Desk" />
-              </div>
-
-              <!-- Contact & Venture Details -->
+              <!-- Contact Inputs -->
               <div class="form-field-group">
-                <label for="brief-name" class="form-label">Name & Executive Title</label>
+                <label for="contact-name" class="form-label">Your Name</label>
                 <input 
                   type="text" 
-                  id="brief-name" 
+                  id="contact-name" 
                   name="name" 
                   class="form-input" 
-                  placeholder="e.g. Katherine Sterling, Managing Director" 
+                  placeholder="e.g. Sarah Jenkins" 
                   required
                 />
               </div>
 
               <div class="form-field-group">
-                <label for="brief-email" class="form-label">Corporate Email</label>
+                <label for="contact-email" class="form-label">Work Email</label>
                 <input 
                   type="email" 
-                  id="brief-email" 
+                  id="contact-email" 
                   name="email" 
                   class="form-input" 
-                  placeholder="katherine@enterprise.com" 
+                  placeholder="sarah@yourcompany.com" 
                   required
                 />
               </div>
 
               <div class="form-field-group">
-                <label for="brief-summary" class="form-label">Venture Brief & Strategic Friction</label>
+                <label for="contact-company" class="form-label">Company or Website (Optional)</label>
+                <input 
+                  type="text" 
+                  id="contact-company" 
+                  name="company" 
+                  class="form-input" 
+                  placeholder="e.g. yourcompany.com" 
+                />
+              </div>
+
+              <div class="form-field-group">
+                <label for="contact-message" class="form-label">How can we help you?</label>
                 <textarea 
-                  id="brief-summary" 
-                  name="summary" 
+                  id="contact-message" 
+                  name="message" 
                   class="form-textarea" 
-                  placeholder="Describe your current commercial inflection point, core bottlenecks, and target timeline..."
+                  placeholder="Tell us a little bit about your project, timeline, and current goals..."
+                  rows="4"
                   required
                 ></textarea>
               </div>
 
-              <!-- Submit CTA with confirmation container -->
+              <!-- Submit Button -->
               <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
-                <span>Transmit Strategic Brief →</span>
+                <span>Send Message →</span>
               </button>
 
-              <div id="form-feedback" style="display: none; margin-top: 1.5rem; padding: 1.25rem; border-radius: var(--r-btn); background: rgba(229, 25, 45, 0.12); border: 1px solid var(--border-crimson);">
-                <div style="display: flex; align-items: center; gap: 0.65rem; color: #FFFFFF; font-weight: 600; margin-bottom: 0.35rem;">
-                  <span class="pulse-node"></span>
-                  <span>Brief Transmitted Successfully</span>
+              <!-- Live Submission Feedback Banner -->
+              <div class="submission-confirmation" id="contact-form-feedback" style="display: none;" role="status">
+                <div class="confirmation-icon">✓</div>
+                <div>
+                  <h4 class="confirmation-title">Thank You! Message Received.</h4>
+                  <p class="confirmation-desc">
+                    We've received your project details and will review them carefully. Expect a personal reply from our team within 24 hours.
+                  </p>
                 </div>
-                <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">
-                  Your submission has been routed directly to our Managing Partners in Singapore & Auckland. Expect a diagnostic response within 24 business hours.
-                </p>
               </div>
             </form>
           </div>
 
-          <!-- Right: Senior Partner Access Protocol -->
-          <div class="partner-protocol-box">
-            <div class="protocol-item">
-              <div class="protocol-header">
-                <span class="protocol-num">01 //</span>
-                <span>ZERO JUNIOR INTERMEDIARIES</span>
-              </div>
-              <p class="protocol-desc">
-                We don't delegate enterprise scoping to business development reps or junior account handlers. Every brief is audited directly by senior strategy principals and technical architects.
-              </p>
-            </div>
-
-            <div class="protocol-item">
-              <div class="protocol-header">
-                <span class="protocol-num">02 //</span>
-                <span>24-HOUR STRATEGIC SLA</span>
-              </div>
-              <p class="protocol-desc">
-                Qualified submissions receive a preliminary diagnostic review and confidential calendar access with our partners within 24 business hours.
-              </p>
-            </div>
-
-            <div class="protocol-item">
-              <div class="protocol-header">
-                <span class="protocol-num">03 //</span>
-                <span>STRICT INSTITUTIONAL NDA</span>
-              </div>
-              <p class="protocol-desc">
-                All preliminary venture IP and proprietary data transmissions are protected under institutional non-disclosure standards prior to initial consultation.
-              </p>
-            </div>
-
-            <!-- Hub Physical Locations Ledger -->
-            <div class="protocol-item" style="background: rgba(10, 13, 20, 0.85); border-color: var(--border-subtle);">
-              <div class="section-label" style="margin-bottom: 1rem;">BI-COASTAL EMBASSIES</div>
-              
-              <div class="hub-location-ledger">
-                <div class="location-item">
-                  <span class="pulse-node"></span>
-                  <div class="location-info">
-                    <h4>Singapore Gateway Desk</h4>
-                    <p>Marina Bay Financial Centre, Tower 2 · Singapore 018983</p>
+          <!-- Right: Studio Details & What Happens Next -->
+          <div class="contact-info-panel">
+            <!-- Studio Offices -->
+            <div class="contact-office-card">
+              <h3 class="office-card-title">Studio Locations</h3>
+              <div class="office-locations-list">
+                <div class="office-item">
+                  <div class="office-header">
+                    <span class="pulse-node"></span>
+                    <strong>Singapore Hub</strong>
                   </div>
+                  <p class="office-text">Marina Bay Financial Centre, Singapore</p>
+                  <span class="office-time">Timezone: SGT (UTC+8)</span>
                 </div>
 
-                <div class="location-item" style="margin-top: 0.75rem;">
-                  <span class="pulse-node pulse-node-amber"></span>
-                  <div class="location-info">
-                    <h4>New Zealand Frontier Desk</h4>
-                    <p>Commercial Bay Tower, 11-19 Customs St W · Auckland 1010</p>
+                <div class="office-item">
+                  <div class="office-header">
+                    <span class="pulse-node pulse-node-amber"></span>
+                    <strong>New Zealand Studio</strong>
                   </div>
+                  <p class="office-text">Britomart Precinct, Auckland, New Zealand</p>
+                  <span class="office-time">Timezone: NZST (UTC+12)</span>
                 </div>
               </div>
+            </div>
+
+            <!-- What to Expect Box -->
+            <div class="what-to-expect-card">
+              <h4 class="expect-title">What Happens Next?</h4>
+              <ol class="expect-steps-list">
+                <li>
+                  <strong>1. Project Review</strong>
+                  <p>We review your goals, industry, and requirements within 24 hours.</p>
+                </li>
+                <li>
+                  <strong>2. Strategy Consultation</strong>
+                  <p>A friendly 30-minute call to answer questions and explore the best approach.</p>
+                </li>
+                <li>
+                  <strong>3. Clear Proposal</strong>
+                  <p>A transparent roadmap with fixed timelines, deliverables, and pricing.</p>
+                </li>
+              </ol>
+            </div>
+
+            <!-- Direct Contact Link -->
+            <div class="direct-contact-note">
+              <span>Prefer direct email?</span>
+              <a href="mailto:hello@nexagrowth.com" class="direct-email-link">hello@nexagrowth.com</a>
             </div>
           </div>
         </div>
@@ -173,59 +172,72 @@ export function renderConcierge() {
   `;
 }
 
+/**
+ * Handles form validation and interactive choice selection
+ */
 export function initConciergeEvents() {
-  // Option button group selection logic
-  function setupChoiceGroup(groupId, inputId) {
+  const form = document.getElementById('contact-inquiry-form');
+  if (!form) return;
+
+  // Setup choice button group interactions
+  function setupChoiceGroup(groupId, hiddenInputId) {
     const group = document.getElementById(groupId);
-    const input = document.getElementById(inputId);
-    if (!group || !input) return;
+    const hiddenInput = document.getElementById(hiddenInputId);
+    if (!group || !hiddenInput) return;
 
-    const buttons = group.querySelectorAll('.choice-btn');
-    buttons.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        buttons.forEach((b) => {
-          b.classList.remove('selected');
-          b.setAttribute('aria-checked', 'false');
-        });
-        btn.classList.add('selected');
-        btn.setAttribute('aria-checked', 'true');
-        input.value = btn.getAttribute('data-value');
+    group.addEventListener('click', (e) => {
+      const btn = e.target.closest('.choice-btn');
+      if (!btn) return;
+
+      group.querySelectorAll('.choice-btn').forEach((b) => {
+        b.classList.remove('selected');
+        b.setAttribute('aria-checked', 'false');
       });
+
+      btn.classList.add('selected');
+      btn.setAttribute('aria-checked', 'true');
+      hiddenInput.value = btn.getAttribute('data-value') || '';
     });
   }
 
-  setupChoiceGroup('vector-choice-group', 'input-engagement-vector');
-  setupChoiceGroup('stage-choice-group', 'input-commercial-stage');
-  setupChoiceGroup('hub-choice-group', 'input-hub-desk');
+  setupChoiceGroup('service-choice-group', 'input-service-needed');
+  setupChoiceGroup('budget-choice-group', 'input-budget-range');
 
-  // Form submit handler with validation
-  const form = document.getElementById('strategic-brief-form');
-  const feedback = document.getElementById('form-feedback');
+  // Form submission handler
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-  if (form && feedback) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      const nameInput = document.getElementById('brief-name');
-      const emailInput = document.getElementById('brief-email');
-      const summaryInput = document.getElementById('brief-summary');
+    const nameInput = document.getElementById('contact-name');
+    const emailInput = document.getElementById('contact-email');
+    const messageInput = document.getElementById('contact-message');
+    const feedbackEl = document.getElementById('contact-form-feedback');
 
-      if (!nameInput.value.trim() || !emailInput.value.trim() || !summaryInput.value.trim()) {
-        alert('Please complete all fields to submit your strategic brief.');
-        return;
+    // Validation
+    let isValid = true;
+    [nameInput, emailInput, messageInput].forEach((input) => {
+      if (!input) return;
+      if (!input.value.trim()) {
+        input.style.borderColor = 'var(--crimson)';
+        isValid = false;
+      } else {
+        input.style.borderColor = 'var(--border-subtle)';
       }
-
-      // Smooth display of confirmation banner
-      feedback.style.display = 'block';
-      const submitBtn = form.querySelector('button[type="submit"]');
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.style.opacity = '0.5';
-        submitBtn.innerHTML = '<span>Brief Transmitted ✓</span>';
-      }
-
-      // Scroll smoothly to feedback if needed
-      feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
-  }
+
+    if (emailInput && !emailInput.value.includes('@')) {
+      emailInput.style.borderColor = 'var(--crimson)';
+      isValid = false;
+    }
+
+    if (!isValid) return;
+
+    // Show friendly success confirmation
+    if (feedbackEl) {
+      feedbackEl.style.display = 'flex';
+      feedbackEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // Reset fields
+    form.reset();
+  });
 }

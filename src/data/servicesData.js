@@ -3,216 +3,216 @@ export const servicesData = [
     id: "brand-strategy",
     slug: "brand-strategy",
     number: "01",
-    title: "Brand Strategy",
-    tagline: "Define Your Market Moat & Sovereign Advantage",
-    shortDesc: "Architecting distinctive brand positions, resonant messaging architectures, and scalable enterprise equity that commands institutional authority.",
-    heroLead: "A brand is not merely a visual artifact; it is the strategic gravitational pull of your business. We engineer brand architectures and market positioning systems that turn raw ambition into defensible commercial valuation.",
+    title: "Brand Strategy & Identity",
+    tagline: "Stand out and build lasting credibility in your market",
+    shortDesc: "We define your core positioning, clarify your message, and design a modern visual identity that sets you apart from competitors.",
+    heroLead: "A great brand makes selling easier. We help you uncover what makes your company truly unique, creating a distinctive visual identity and clear messaging that builds immediate trust with customers.",
     whatWeOffer: [
-      { name: "Brand Positioning", desc: "Establishing an unmistakable, defensible territory in the institutional mind relative to global alternatives." },
-      { name: "Market Moat Architecture", desc: "Formulating structural barriers to competition through proprietary narrative positioning and category creation." },
-      { name: "Audience Psychographics", desc: "Precision psychographic profiling and behavioral archetype mapping uncovering untapped enterprise demand." },
-      { name: "Radical Differentiation", desc: "Uncovering proprietary advantages and engineering stark contrast against commoditized category tropes." },
-      { name: "Executive Messaging Hierarchy", desc: "Multi-tiered communication frameworks ensuring sovereign consistency across all touchpoints." },
-      { name: "Enterprise Architecture", desc: "Structuring parent, sub-brands, and innovation units for compound enterprise valuation." }
+      { name: "Market Positioning", desc: "Clear reasons why customers should choose you over alternatives." },
+      { name: "Visual Identity & Logo", desc: "Modern, memorable logo designs, color systems, and typography." },
+      { name: "Brand Guidelines", desc: "Practical rules so your marketing and social media stay consistent." },
+      { name: "Competitor Research", desc: "Finding the white space where your business can easily stand out." },
+      { name: "Core Messaging Framework", desc: "Simple elevator pitches, mission statements, and key slogans." },
+      { name: "Brand Assets Package", desc: "Ready-to-use templates for presentations, business cards, and social." }
     ],
     approach: [
-      { step: "01. Diagnostic Immersion", detail: "Deep-dive stakeholder interviews, global landscape mapping, and perception audits across primary markets." },
-      { step: "02. Distinctive Territory", detail: "Synthesizing market white space with proprietary competencies to formulate your definitive positioning thesis." },
-      { step: "03. Strategic Architecture", detail: "Constructing the enterprise blueprint: commercial archetype, value pillars, and executive persona playbooks." },
-      { step: "04. Activation Engine", detail: "Operationalizing the positioning system across digital platforms, investor decks, and product ecosystems." }
+      { step: "01. Discovery Call", detail: "We review your business goals, target audience, and current market position." },
+      { step: "02. Strategy & Positioning", detail: "We identify your unique advantage and craft clear, simple messaging." },
+      { step: "03. Visual Design", detail: "We design logos, color palettes, and typography that fit your vision." },
+      { step: "04. Handover & Guidelines", detail: "We provide all source files and a clear guide so your team can use them easily." }
     ],
     solutionsDeliverables: [
-      "Master Brand Positioning & Sovereign Moat Blueprint",
-      "Competitive Differentiation & Cognitive Defensibility Matrix",
-      "Enterprise Buyer Archetypes & Behavioral Decision Trees",
-      "Executive Narrative Architecture & Global Messaging Guidelines",
-      "Multi-Tier Enterprise Brand Architecture Hierarchy",
-      "Commercial Growth & Market Entry Activation Playbook"
+      "Complete Logo Suite (SVG, PNG, Vector)",
+      "Official Brand Guidelines & Color System",
+      "One-Page Value Proposition & Elevator Pitch",
+      "Social Media & Presentation Templates",
+      "Typography & Font Hierarchy Guide",
+      "Commercial Brand Activation Roadmap"
     ],
     caseHighlight: {
-      client: "Aethelgard Global FinTech",
-      outcome: "Sovereign Institutional Positioning & Accelerated Velocity",
-      desc: "Repositioned an APAC cross-border payments infrastructure into the premier sovereign liquidity platform, closing a Tier-1 syndicate round."
+      client: "Fintech Scale-Up",
+      outcome: "+210% Qualified Inbound Inquiries",
+      desc: "Repositioned a complex financial platform into a clear, trusted brand, doubling inbound client inquiries in 90 days."
     }
   },
   {
-    id: "storytelling",
-    slug: "storytelling",
+    id: "web-design",
+    slug: "web-design",
     number: "02",
-    title: "Storytelling",
-    tagline: "Narrative Architecture for Sovereign Authority",
-    shortDesc: "Transforming complex technical capabilities and venture visions into compelling narratives that captivate syndicates, talent, and enterprise buyers.",
-    heroLead: "Capital flows to clear conviction. We architect high-stakes narratives that reframe industry paradigms, elevating strategic innovation from an engineering specification into an inevitable commercial reality.",
+    title: "Web Design & Development",
+    tagline: "Fast, beautiful websites engineered to convert",
+    shortDesc: "We build responsive, custom websites and web apps that look world-class, load instantly, and turn visitors into paying customers.",
+    heroLead: "Your website is your best salesperson. We design and build ultra-fast, mobile-responsive websites that look stunning and guide visitors naturally toward booking a call or buying.",
     whatWeOffer: [
-      { name: "Foundational Origin Mythos", desc: "Crafting the core conviction narrative connecting founder insight to irreversible macro market shifts." },
-      { name: "Strategic Vision Documents", desc: "Authoring institutional manifestos and white papers that shape category discourse and regulatory opinion." },
-      { name: "Syndicate Pitch Narratives", desc: "Restructuring institutional fundraising narratives for maximum valuation conviction and velocity." },
-      { name: "Keynote & Launch Theatres", desc: "Scripting landmark keynote presentations and multi-sensory digital reveals for enterprise milestones." },
-      { name: "Internal Mission Alignment", desc: "Translating board-level strategy into resonant cultural narratives that attract top-tier engineering talent." },
-      { name: "Crisis & Transition Narrative", desc: "Preserving brand equity through sovereign communications during enterprise pivots and mergers." }
+      { name: "Custom UI/UX Design", desc: "Tailor-made layouts designed specifically for your brand and users." },
+      { name: "Mobile-First Responsiveness", desc: "Flawless display across smartphones, tablets, laptops, and desktops." },
+      { name: "Ultra-Fast Loading", desc: "Clean code optimized for sub-second speeds and top Google PageSpeed scores." },
+      { name: "Built-In SEO Foundations", desc: "Proper headings, metadata, and site structure so Google indexes you easily." },
+      { name: "Conversion Funnels", desc: "Strategic button placements and inquiry forms that maximize leads." },
+      { name: "Content Management (CMS)", desc: "Simple editing tools so you can update blogs and pages without touching code." }
     ],
     approach: [
-      { step: "01. Narrative Excavation", detail: "Unearthing the authentic technological anomalies and founder convictions that define your unfair advantage." },
-      { step: "02. Paradigm Conflict", detail: "Identifying the macro crisis or market inefficiency that makes your solution the only logical inevitability." },
-      { step: "03. Scripting & Architecture", detail: "Drafting the sovereign narrative arc across investor decks, digital experiences, and keynotes." },
-      { step: "04. Omnichannel Infiltration", detail: "Cascading the master narrative across all internal and external communication vectors." }
+      { step: "01. Wireframing", detail: "Mapping out user journeys, page sections, and high-impact call-to-actions." },
+      { step: "02. Visual Interface Design", detail: "Crafting beautiful high-fidelity mockups with interactive previews." },
+      { step: "03. Modern Development", detail: "Building lightweight, clean code with smooth animations and responsive layouts." },
+      { step: "04. Launch & Optimization", detail: "Thorough browser testing, SEO validation, and fast global cloud hosting." }
     ],
     solutionsDeliverables: [
-      "Master Venture Conviction & Origin Manifesto",
-      "Institutional Investor Deck Narrative Blueprint",
-      "Category Creation Thought Leadership Suite",
-      "Enterprise Product Launch Keynote Script & Visual Deck",
-      "Executive Speechwriting & Media Briefing Portfolio",
-      "Internal Narrative Alignment & Culture Codex"
+      "Custom Responsive Website (Desktop, Tablet, Mobile)",
+      "High-Converting Landing Pages",
+      "Interactive Prototype & Design Files",
+      "Fast Global Cloud Hosting Setup",
+      "Google Analytics & Conversion Tracking",
+      "Video Walkthrough & CMS Training"
     ],
     caseHighlight: {
-      client: "Solaria Marine Propulsion",
-      outcome: "Category Reframing & Pacific Fleet Adoption",
-      desc: "Reframed hydrogen maritime tech from an unproven alternative into the sovereign standard for zero-emission Pacific oceanic transit."
+      client: "Pacific Marine Tech",
+      outcome: "$4.2M in Signed Contracts",
+      desc: "Built a high-performance interactive website that showcased complex technology clearly, winning major oceanic enterprise contracts."
     }
   },
   {
     id: "copywriting",
     slug: "copywriting",
     number: "03",
-    title: "Copywriting",
-    tagline: "Surgical Words That Command Sovereign Pricing Power",
-    shortDesc: "Precision verbal identity, relentless sales prose, and hypnotic editorial prose that converts enterprise consideration into irrevocable commitment.",
-    heroLead: "Every word either accrues pricing power or leaks enterprise value. We write surgical, cadence-driven copy that eliminates buyer friction, dismantles objections, and elevates brand prestige.",
+    title: "Copywriting & Messaging",
+    tagline: "Words that clearly explain your value and drive action",
+    shortDesc: "We write clear, engaging copy for websites, landing pages, and pitch decks that grabs attention and convinces customers to work with you.",
+    heroLead: "Confusing text loses sales. We craft clear, persuasive copy that immediately explains what you do, why it matters, and why your target customer should take action today.",
     whatWeOffer: [
-      { name: "Sovereign Verbal Identity", desc: "Developing distinctive verbal tones, cadences, and lexicon rules that make your copy instantly recognizable." },
-      { name: "High-Ticket Enterprise Web Copy", desc: "Drafting conversion-optimized editorial copy for flagship digital experiences and SaaS platforms." },
-      { name: "Direct Executive Outreach", desc: "Crafting hyper-personalized, high-conviction communications that open doors with Fortune 500 C-suites." },
-      { name: "Product & UI Micro-Copy", desc: "Engineering frictionless, elegant interface copy that guides users through complex workflows." },
-      { name: "Commercial Proposals & Decks", desc: "Writing persuasive RFP responses and strategic proposals that command premium margins." },
-      { name: "Long-Form Thought Leadership", desc: "Authoring deeply researched essays and whitepapers published in top-tier industry periodicals." }
+      { name: "Website & Landing Page Copy", desc: "Clear, engaging headlines and sections that keep visitors reading." },
+      { name: "Value Proposition", desc: "A simple 10-second explanation that anyone can understand immediately." },
+      { name: "Sales Decks & Presentations", desc: "Persuasive pitch decks for investor meetings and corporate sales." },
+      { name: "Email Sequences", desc: "Professional emails for welcome series, follow-ups, and lead nurturing." },
+      { name: "Case Study Storytelling", desc: "Turn client success stories into powerful social proof that closes deals." },
+      { name: "Tone of Voice Guide", desc: "Consistent writing standards so all your team communications feel cohesive." }
     ],
     approach: [
-      { step: "01. Psychographic Linguistics", detail: "Analyzing the precise vocabulary, cognitive biases, and decision heuristics of your target buyers." },
-      { step: "02. Voice Calibration", detail: "Establishing the syntactic rhythm, vocabulary restrictions, and tonal boundaries of your brand." },
-      { step: "03. Surgical Drafting", detail: "Writing high-density prose where every sentence drives intellectual conviction and commercial action." },
-      { step: "04. Cadence & Conversion Audit", detail: "Rigorously testing readability, emotional resonance, and conversion velocity across devices." }
+      { step: "01. Customer Research", detail: "Understanding your customers' pain points, doubts, and main motivations." },
+      { step: "02. Message Outline", detail: "Structuring arguments logically so readers flow naturally toward action." },
+      { step: "03. Drafting & Refinement", detail: "Writing punchy, straightforward sentences with zero unnecessary jargon." },
+      { step: "04. Testing & Polishing", detail: "Reviewing cadence, clarity, and conversion flow across key touchpoints." }
     ],
     solutionsDeliverables: [
-      "Comprehensive Verbal Identity & Tone-of-Voice Codex",
-      "Flagship Digital Experience Full Copy Suite",
-      "Enterprise Sales Enablement & Proposal Templates",
-      "C-Suite Account-Based Outreach Email Sequences",
-      "Digital Product UX Micro-Copy & Design System Copy Guide",
-      "High-Impact Thought Leadership Article Series"
+      "Full Website Copywriting Suite",
+      "High-Converting Landing Page Copy",
+      "Investor & Sales Pitch Deck Narrative",
+      "Customer Follow-Up Email Sequence",
+      "Company Elevator Pitch & One-Liner",
+      "Brand Tone of Voice Guide"
     ],
     caseHighlight: {
-      client: "Meridian Logistics Global",
-      outcome: "2.4x Enterprise RFP Win Rate",
-      desc: "Overhauled commercial RFP proposals and platform copy, establishing uncontested pricing power in cross-Pacific air cargo."
+      client: "Cloud Security Platform",
+      outcome: "+65% Demo Booking Rate",
+      desc: "Replaced technical engineering jargon with clear business benefits, increasing booked demos by 65% in the first month."
     }
   },
   {
-    id: "technology-digital-innovation",
-    slug: "technology-digital-innovation",
+    id: "custom-apps",
+    slug: "custom-apps",
     number: "04",
-    title: "Technology & Digital Innovation",
-    tagline: "Bespoke Digital Platforms with Zero Performance Debt",
-    shortDesc: "Engineering monolithic digital flagships, WebGL spatial environments, and responsive web platforms optimized for 60fps velocity and brand awe.",
-    heroLead: "We discard bloated frameworks and generic component libraries. We build bespoke digital flagships engineered with mathematical precision, native browser APIs, and cinematic visual depth.",
+    title: "Custom Web Applications",
+    tagline: "Tailored software that powers your business operations",
+    shortDesc: "We engineer bespoke web applications, customer portals, and internal tools built to solve your unique operational bottlenecks.",
+    heroLead: "Off-the-shelf software often forces you to compromise. We build custom web apps and client portals that fit your exact business process, automating work and delighting your users.",
     whatWeOffer: [
-      { name: "Monolithic Web Flagships", desc: "Engineering uncompromised digital experiences that set global industry benchmarks for aesthetics and speed." },
-      { name: "Physical WebGL & Shaders", desc: "Crafting real-time 3D environments and physical lighting shaders that evoke visceral material luxury." },
-      { name: "Inertial Scroll Choreography", desc: "Designing 60fps scroll-driven motion systems synchronized to user scroll velocity and viewport physics." },
-      { name: "High-Performance Architecture", desc: "Leveraging native browser primitives and minimal JS bundles to achieve 100/100 Core Web Vitals." },
-      { name: "Headless CMS & Edge Delivery", desc: "Deploying enterprise content infrastructures that enable rapid global publishing without downtime." },
-      { name: "Interactive Data Visualizations", desc: "Transforming complex datasets into intuitive, real-time spatial dashboards and simulation tools." }
+      { name: "Client Portals", desc: "Secure spaces where your clients can submit files, track projects, and pay." },
+      { name: "SaaS MVPs & Prototypes", desc: "Quickly build and launch software products to test with real users." },
+      { name: "Internal Dashboards", desc: "Custom admin panels that centralize your data, inventory, or workflow." },
+      { name: "API & Tool Integrations", desc: "Seamlessly connecting your payment systems, CRMs, and email tools." },
+      { name: "Database Architecture", desc: "Fast, reliable, and secure database design that scales effortlessly." },
+      { name: "Automated Reporting", desc: "Generate PDF reports and analytics automatically without manual work." }
     ],
     approach: [
-      { step: "01. Architectural Scaffolding", detail: "Selecting optimal, lightweight technologies and defining modular code topologies with zero virtual DOM bloat." },
-      { step: "02. Spatial Interaction Prototyping", detail: "Choreographing camera journeys, physics inertia, and micro-interactions in native WebGL and CSS." },
-      { step: "03. Production Engineering", detail: "Writing modular, strict-typed ES modules with rigorous responsive breakpoints and semantic HTML." },
-      { step: "04. 60fps Performance Profiling", detail: "Scrutinizing GPU memory allocation, draw calls, and layout shifts to guarantee flawless 60fps scrubbing." }
+      { step: "01. Requirements Scoping", detail: "Defining exact features, user roles, and business goals to prevent scope creep." },
+      { step: "02. UX Architecture", detail: "Designing intuitive screens and testing user flows before writing code." },
+      { step: "03. Agile Development", detail: "Building in clean iterative sprints with regular demos and updates." },
+      { step: "04. Deployment & Support", detail: "Deploying to secure cloud servers with automated backups and maintenance." }
     ],
     solutionsDeliverables: [
-      "Production-Ready Flagship Digital Experience Codebase",
-      "Custom Three.js / WebGL Real-Time Shader Pipeline",
-      "Full Design System Token Engine & Component Library",
-      "Headless CMS Architecture & Multi-Region Edge Deployment",
-      "Sub-100ms Core Web Vitals Optimization Audit",
-      "Automated Continuous Integration & Deployment Pipeline"
+      "Production-Ready Web Application",
+      "Secure Client & Admin Authentication",
+      "Custom Database & API Integrations",
+      "Automated Testing & Security Review",
+      "Hosting & Deployment Setup",
+      "Technical Documentation & Training"
     ],
     caseHighlight: {
-      client: "Kauri AI Intelligence",
-      outcome: "Awwwards Site of the Day Recognition",
-      desc: "Delivered a zero-latency WebGL spatial platform showcasing Pacific enterprise machine intelligence with sub-50ms paint times."
+      client: "Meridian Logistics",
+      outcome: "92% Faster Customer Onboarding",
+      desc: "Built a custom client booking and shipment dashboard that cut onboarding time from 4 days to 18 minutes."
     }
   },
   {
     id: "ai-automation",
     slug: "ai-automation",
     number: "05",
-    title: "AI Automation",
-    tagline: "Autonomous Intelligence Systems Compounding Efficiency",
-    shortDesc: "Architecting multi-agent workflows, autonomous content engines, and custom cognitive pipelines that liberate human strategic intellect.",
-    heroLead: "Plastic prompt wrappers are a dead end. We architect autonomous, deterministic AI pipelines that integrate into enterprise workflows, compounding output velocity while preserving rigorous quality controls.",
+    title: "AI Automation & Smart Workflows",
+    tagline: "Automate repetitive tasks and scale your business",
+    shortDesc: "We implement practical AI tools and automated pipelines that answer inquiries, process data, and save your team dozens of hours each week.",
+    heroLead: "AI shouldn't be a gimmick. We build practical AI automations that handle repetitive administrative tasks, reply to customer inquiries 24/7, and let your team focus on high-value work.",
     whatWeOffer: [
-      { name: "Multi-Agent Workflow Swarms", desc: "Deploying specialized LLM agent swarms that autonomously research, synthesize, and draft strategic assets." },
-      { name: "Cognitive Knowledge Retrieval (RAG)", desc: "Engineering vector databases and semantic indexing systems over proprietary enterprise documentation." },
-      { name: "Automated Content Adaptation Engines", desc: "Building pipelines that automatically re-architect core thought leadership into 20+ platform variations." },
-      { name: "Autonomous Client Concierge", desc: "Deploying sophisticated conversational agents that qualify leads and scope engagements 24/7." },
-      { name: "Process Automation Pipelines", desc: "Eliminating manual operational friction through seamless integrations between CRMs, ERPs, and AI models." },
-      { name: "Algorithmic Market Intelligence", desc: "Continuous sentiment and competitor radar scanning digital ecosystems for strategic opportunities." }
+      { name: "24/7 AI Customer Assistants", desc: "Smart chat agents trained on your business data to answer inquiries instantly." },
+      { name: "Automated Lead Routing", desc: "Automatically qualify leads and sync them straight into your CRM or email." },
+      { name: "Document Extraction", desc: "Read invoices, contracts, or forms automatically and extract key data." },
+      { name: "Smart Email Automation", desc: "Draft responses and categorize client emails automatically." },
+      { name: "Workflow Integration", desc: "Connecting your favorite apps via Zapier, Make, and custom webhooks." },
+      { name: "Team Training & Strategy", desc: "Hands-on workshops to help your team leverage modern AI tools safely." }
     ],
     approach: [
-      { step: "01. Operational Friction Audit", detail: "Pinpointing the high-friction, repetitive workflows that drain senior executive bandwidth." },
-      { step: "02. Cognitive Agent Topology", detail: "Designing deterministic multi-agent architectures with validation loops and strict guardrails." },
-      { step: "03. System Integration", detail: "Connecting proprietary data sources, API gateways, and enterprise software stacks." },
-      { step: "04. Feedback & Self-Correction", detail: "Implementing telemetry monitors that evaluate output fidelity and continuously refine prompts." }
+      { step: "01. Workflow Audit", detail: "Identifying where your team wastes time on repetitive, manual tasks." },
+      { step: "02. Solution Blueprint", detail: "Selecting the right AI models and automation triggers for highest ROI." },
+      { step: "03. Building & Testing", detail: "Configuring and testing automations with real data to guarantee accuracy." },
+      { step: "04. Deployment & Monitoring", detail: "Going live with error monitoring and simple dashboards to verify time saved." }
     ],
     solutionsDeliverables: [
-      "Enterprise Multi-Agent Workflow Engine & Orchestration Codebase",
-      "Proprietary Semantic Retrieval (RAG) Architecture",
-      "Autonomous Multi-Format Content Generation Pipeline",
-      "Custom Strategic Inquiry Concierge Terminal",
-      "API Integration & Webhook Middleware Infrastructure",
-      "Enterprise AI Security, Governance & Audit Protocols"
+      "Custom AI Chat Assistant for Your Website",
+      "Automated CRM & Lead Notification Pipelines",
+      "Document & Data Processing Automation",
+      "Zapier / Make Automation Architecture",
+      "Security & Data Privacy Safeguards",
+      "Team SOPs & Automation Playbook"
     ],
     caseHighlight: {
-      client: "Venture Synthetics APAC",
-      outcome: "82% Reduction in Research Cycle Time",
-      desc: "Deployed an autonomous intelligence swarm auditing APAC market trends, reducing institutional analysis time from 14 days to 4 hours."
+      client: "Kauri Healthcare",
+      outcome: "14+ Hours Saved Per Doctor Weekly",
+      desc: "Implemented an automated patient intake and summary system that saved doctors 14 hours of paperwork each week."
     }
   },
   {
-    id: "ideas-development",
-    slug: "ideas-development",
+    id: "growth-marketing",
+    slug: "growth-marketing",
     number: "06",
-    title: "Ideas Development",
-    tagline: "From Speculative Spark to Defensible Commercial Venture",
-    shortDesc: "Incubating contrarian business models, de-risking high-yield bets, and architecting commercial mechanics from zero to sovereign launch.",
-    heroLead: "The greatest risk is building something commoditized. We act as an entrepreneurial co-architect, stress-testing hypotheses, engineering uncopyable product mechanics, and guiding ideas into compounding ventures.",
+    title: "Growth & Performance Marketing",
+    tagline: "Consistent traffic, better leads, and higher ROI",
+    shortDesc: "We design data-driven lead generation campaigns and conversion funnels to systematically acquire your ideal clients.",
+    heroLead: "Traffic is useless without conversions. We build predictable marketing systems combining organic search, paid advertising, and conversion rate optimization to consistently generate qualified leads.",
     whatWeOffer: [
-      { name: "Contrarian Opportunity Mapping", desc: "Uncovering non-consensus, high-conviction market niches before consensus catches up." },
-      { name: "Commercial Mechanism Design", desc: "Engineering pricing tiers, network incentives, and virality loops that compound enterprise value." },
-      { name: "Rapid Architectural Prototyping", desc: "Validating core hypotheses through functional proof-of-concepts built in weeks, not quarters." },
-      { name: "Go-to-Market Blueprinting", desc: "Designing unfair distribution channels and initial wedge strategies to capture early market share." },
-      { name: "Venture Capital Packaging", desc: "Structuring capitalization tables, pitch materials, and data rooms for seed and Series A syndicates." },
-      { name: "Pacific-APAC Bridge Strategy", desc: "Leveraging New Zealand IP and Singapore capital to build global-first sovereign technologies." }
+      { name: "Conversion Rate Optimization (CRO)", desc: "Testing headlines, buttons, and layouts to turn more visitors into leads." },
+      { name: "High-Intent SEO", desc: "Targeting keywords that actual buyers search for when ready to hire." },
+      { name: "Paid Advertising Campaigns", desc: "Setting up profitable Google Ads and LinkedIn lead generation campaigns." },
+      { name: "Lead Magnet Funnels", desc: "Creating valuable guides or tools that capture high-quality email leads." },
+      { name: "Analytics & Attribution", desc: "Crystal-clear dashboards showing exactly where your customers come from." },
+      { name: "Ongoing Growth Strategy", desc: "Monthly experiments and iterations to keep scaling your customer base." }
     ],
     approach: [
-      { step: "01. Hypothesis Stress-Testing", detail: "Deconstructing assumptions through red-team reviews, unit economics models, and customer interviews." },
-      { step: "02. Commercial Architecture", detail: "Formulating business models, defensible pricing structures, and defensible technology moats." },
-      { step: "03. Rapid MVP Sprints", detail: "Building high-fidelity working prototypes that demonstrate core value propositions to early users." },
-      { step: "04. Syndicate Launch Execution", detail: "Orchestrating launch campaigns, media placement, and institutional investor introductions." }
+      { step: "01. Funnel Audit", detail: "Analyzing your current website traffic, drop-off points, and conversion rates." },
+      { step: "02. Strategy Roadmap", detail: "Defining priority growth channels based on your budget and industry." },
+      { step: "03. Campaign Launch", detail: "Deploying high-converting landing pages, ad creatives, and tracking tags." },
+      { step: "04. Iterate & Scale", detail: "Analyzing performance weekly and doubling down on what drives real revenue." }
     ],
     solutionsDeliverables: [
-      "Comprehensive Venture Thesis & Commercial Blueprint",
-      "Financial Unit Economics & Valuation Forecast Model",
-      "Interactive Functional Prototype Specification",
-      "Targeted Go-To-Market Wedge & Distribution Strategy",
-      "Institutional Investor Syndicate Memorandum",
-      "Cross-Border Sovereign Tax & Entity Structure Roadmap"
+      "Comprehensive Conversion Rate Audit",
+      "Full SEO Keyword & Content Strategy",
+      "Ad Campaign Setup & Creative Assets",
+      "Real-Time Analytics & Reporting Dashboard",
+      "Lead Capture Funnel & Automation",
+      "Monthly Growth Experiment Roadmap"
     ],
     caseHighlight: {
-      client: "NEXA Speculative Ventures",
-      outcome: "2 Spin-Out Ventures Seed Funded",
-      desc: "Incubated and spun out two frontier deep-tech ventures leveraging sovereign New Zealand IP and Singapore institutional backing."
+      client: "B2B SaaS Provider",
+      outcome: "3.4x Return on Ad Spend",
+      desc: "Optimized landing page conversion rates and targeted search ads to achieve a 3.4x return on advertising spend."
     }
   }
 ];

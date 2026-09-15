@@ -1,6 +1,5 @@
 import puppeteer from 'puppeteer-core';
 import path from 'path';
-import fs from 'fs';
 
 const CHROME_PATH = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
 const ARTIFACT_DIR = 'C:\\Users\\Lenovo\\.gemini\\antigravity-ide\\brain\\057f9890-6df3-4a70-ae1c-9a1f57bbb073';
@@ -16,8 +15,7 @@ async function runAudit() {
   const page = await browser.newPage();
   
   // Listen for console logs and errors
-  const consoleLogs = [];
-  page.on('console', msg => consoleLogs.push(`[${msg.type()}] ${msg.text()}`));
+  page.on('console', msg => console.log(`[Browser ${msg.type()}]: ${msg.text()}`));
   page.on('pageerror', err => console.error('PAGE ERROR:', err));
 
   // Set desktop viewport
@@ -26,7 +24,7 @@ async function runAudit() {
   console.log('Navigating to http://localhost:3000/...');
   await page.goto('http://localhost:3000/', { waitUntil: 'domcontentloaded' });
 
-  // Wait for WebGL and clocks to initialize
+  // Wait for WebGL and fonts to settle
   await new Promise(r => setTimeout(r, 2000));
 
   // 1. Capture Desktop Hero
@@ -34,37 +32,28 @@ async function runAudit() {
   await page.screenshot({ path: heroPath });
   console.log(`Saved: ${heroPath}`);
 
-  // 2. Scroll to Manifesto and capture
+  // 2. Scroll to About Us and capture
   await page.evaluate(() => {
     const el = document.getElementById('manifesto-stage');
-    if (el) {
-      window.scrollTo(0, el.offsetTop);
-      // Simulate scrub progress
-      const words = el.querySelectorAll('.scrub-word');
-      words.forEach((w, i) => {
-        if (i < words.length * 0.8) {
-          w.classList.add('illuminated');
-        }
-      });
-    }
+    if (el) window.scrollTo(0, el.offsetTop);
   });
-  await new Promise(r => setTimeout(r, 600));
-  const manifestoPath = path.join(ARTIFACT_DIR, '02_manifesto_scrub.png');
-  await page.screenshot({ path: manifestoPath });
-  console.log(`Saved: ${manifestoPath}`);
+  await new Promise(r => setTimeout(r, 800));
+  const aboutPath = path.join(ARTIFACT_DIR, '02_about_pillars.png');
+  await page.screenshot({ path: aboutPath });
+  console.log(`Saved: ${aboutPath}`);
 
-  // 3. Scroll to Disciplines, click blade 2 (Storytelling)
+  // 3. Scroll to Services and capture
   await page.evaluate(() => {
     const el = document.getElementById('disciplines-stage');
     if (el) window.scrollTo(0, el.offsetTop);
-    if (window.setActiveDisciplineIndex) window.setActiveDisciplineIndex(1, false);
+    if (window.setActiveServiceIndex) window.setActiveServiceIndex(1);
   });
-  await new Promise(r => setTimeout(r, 600));
-  const disciplinesPath = path.join(ARTIFACT_DIR, '03_disciplines_stage.png');
-  await page.screenshot({ path: disciplinesPath });
-  console.log(`Saved: ${disciplinesPath}`);
+  await new Promise(r => setTimeout(r, 800));
+  const servicesPath = path.join(ARTIFACT_DIR, '03_services_interactive.png');
+  await page.screenshot({ path: servicesPath });
+  console.log(`Saved: ${servicesPath}`);
 
-  // 4. Open Universal Modal for Service
+  // 4. Open Modal for Service
   await page.evaluate(() => {
     if (window.openServiceModalById) window.openServiceModalById('brand-strategy');
   });
@@ -79,76 +68,56 @@ async function runAudit() {
   });
   await new Promise(r => setTimeout(r, 400));
 
-  // 5. Scroll to Dossiers and expand drawer
+  // 5. Scroll to Case Studies
   await page.evaluate(() => {
     const el = document.getElementById('dossiers-stage');
     if (el) window.scrollTo(0, el.offsetTop);
-    const firstDrawerBtn = document.querySelector('.toggle-dossier-drawer-btn');
-    if (firstDrawerBtn) firstDrawerBtn.click();
   });
   await new Promise(r => setTimeout(r, 800));
-  const dossiersPath = path.join(ARTIFACT_DIR, '05_dossiers_drawer.png');
-  await page.screenshot({ path: dossiersPath });
-  console.log(`Saved: ${dossiersPath}`);
+  const casesPath = path.join(ARTIFACT_DIR, '05_case_studies.png');
+  await page.screenshot({ path: casesPath });
+  console.log(`Saved: ${casesPath}`);
 
-  // 5b. Scroll to Ideas Lab and expand blueprint
+  // 5b. Scroll to Insights
   await page.evaluate(() => {
     const el = document.getElementById('ideas-lab-stage');
     if (el) window.scrollTo(0, el.offsetTop);
-    const firstLabBtn = document.querySelector('.toggle-lab-drawer-btn');
-    if (firstLabBtn) firstLabBtn.click();
   });
-  await new Promise(r => setTimeout(r, 600));
-  const labPath = path.join(ARTIFACT_DIR, '05b_ideas_lab.png');
-  await page.screenshot({ path: labPath });
-  console.log(`Saved: ${labPath}`);
+  await new Promise(r => setTimeout(r, 800));
+  const insightsPath = path.join(ARTIFACT_DIR, '05b_insights.png');
+  await page.screenshot({ path: insightsPath });
+  console.log(`Saved: ${insightsPath}`);
 
-  // 6. Scroll to Concierge, select choices and submit test form
+  // 6. Scroll to Contact section
   await page.evaluate(() => {
     const el = document.getElementById('concierge-stage');
     if (el) window.scrollTo(0, el.offsetTop);
-    
-    // Fill form
-    const nameInput = document.getElementById('brief-name');
-    const emailInput = document.getElementById('brief-email');
-    const summaryInput = document.getElementById('brief-summary');
-    if (nameInput) nameInput.value = 'Evelyn Reed, Managing Director';
-    if (emailInput) emailInput.value = 'evelyn@reedventures.com';
-    if (summaryInput) summaryInput.value = 'Seeking sovereign market positioning and AI workflow automation across Singapore and Australasia.';
-
-    const form = document.getElementById('strategic-brief-form');
-    if (form) {
-      form.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
-    }
-  });
-  await new Promise(r => setTimeout(r, 600));
-  const conciergePath = path.join(ARTIFACT_DIR, '06_concierge_terminal.png');
-  await page.screenshot({ path: conciergePath });
-  console.log(`Saved: ${conciergePath}`);
-
-  // 7. Mobile Viewport Audit (504x754)
-  await page.setViewport({ width: 504, height: 754, deviceScaleFactor: 2 });
-  await page.evaluate(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
   });
   await new Promise(r => setTimeout(r, 800));
+  const contactPath = path.join(ARTIFACT_DIR, '06_contact_section.png');
+  await page.screenshot({ path: contactPath });
+  console.log(`Saved: ${contactPath}`);
+
+  // 7. Mobile Viewport
+  await page.setViewport({ width: 414, height: 896, deviceScaleFactor: 2 });
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await new Promise(r => setTimeout(r, 600));
   const mobileHeroPath = path.join(ARTIFACT_DIR, '07_mobile_hero.png');
   await page.screenshot({ path: mobileHeroPath });
   console.log(`Saved: ${mobileHeroPath}`);
 
-  // Open mobile drawer
+  // 8. Open Mobile Drawer
   await page.evaluate(() => {
     const toggle = document.getElementById('mobile-nav-toggle');
     if (toggle) toggle.click();
   });
-  await new Promise(r => setTimeout(r, 400));
+  await new Promise(r => setTimeout(r, 600));
   const mobileDrawerPath = path.join(ARTIFACT_DIR, '08_mobile_drawer.png');
   await page.screenshot({ path: mobileDrawerPath });
   console.log(`Saved: ${mobileDrawerPath}`);
 
   await browser.close();
-  console.log('Audit completed successfully. All screenshots saved to artifact directory.');
-  console.log('Console Logs count:', consoleLogs.length);
+  console.log('Audit completed successfully.');
 }
 
 runAudit().catch(err => {

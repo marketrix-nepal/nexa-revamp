@@ -8,11 +8,11 @@ export function renderHero() {
   return `
     <section id="hero-stage" class="section section-full">
       <div class="container-wide">
-        <!-- Telemetry Status Bar with Atomic Clocks -->
+        <!-- Status Bar with Atomic Clocks -->
         <div class="hero-telemetry-bar">
           <div class="badge badge-crimson">
             <span class="pulse-node"></span>
-            <span>STRATEGIC CONVERGENCE DESK</span>
+            <span>Global Creative & Tech Studio</span>
           </div>
 
           <div class="atomic-clocks-wrapper" id="atomic-clocks-container">
@@ -27,9 +27,9 @@ export function renderHero() {
           </div>
         </div>
 
-        <!-- Sub-Label Hierarchy -->
+        <!-- Category Kicker -->
         <div class="hero-sublabel">
-          THE STRATEGIC CONVERGENCE
+          Strategy · Web Design · Software · AI Automation
         </div>
 
         <!-- Master Kinetic Headline -->
@@ -38,32 +38,31 @@ export function renderHero() {
           <span class="hero-title-accent">Into Growth.</span>
         </h1>
 
-        <!-- Strategic Disciplines Strip -->
+        <!-- Service Capability Pills -->
         <div class="hero-disciplines-strip">
-          <span class="hero-discipline-tag">Strategy</span>
-          <span class="hero-discipline-tag">Story</span>
-          <span class="hero-discipline-tag">Copywriting</span>
-          <span class="hero-discipline-tag">Technology</span>
-          <span class="hero-discipline-tag">AI Automation</span>
-          <span class="hero-discipline-tag">Ideas Lab</span>
+          <span class="hero-discipline-tag">Brand Strategy</span>
+          <span class="hero-discipline-tag">Web Design</span>
+          <span class="hero-discipline-tag">Custom Apps</span>
+          <span class="hero-discipline-tag">AI Workflows</span>
+          <span class="hero-discipline-tag">Growth Marketing</span>
         </div>
 
         <!-- Lead Executive Synthesis -->
         <p class="hero-executive-lead">
-          We engineer defensible market positioning, hypnotic narrative architecture, bespoke digital platforms, and autonomous intelligence systems—turning raw ambition into compounding enterprise equity.
+          We partner with ambitious founders and businesses to build distinctive brands, high-performing websites, and smart AI systems that drive real, measurable revenue.
         </p>
 
-        <!-- Primary CTA Array (Strict Anti-Pill Mandate: 6px) -->
+        <!-- Primary CTA Array -->
         <div class="hero-cta-group">
           <a href="#concierge-stage" class="btn btn-primary btn-lg">
-            <span>Initiate Consultation</span>
+            <span>Start a Project</span>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
 
           <a href="#disciplines-stage" class="btn btn-ghost btn-lg">
-            <span>Explore Disciplines</span>
+            <span>Explore Services</span>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M7 3V11M7 11L10.5 7.5M7 11L3.5 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>

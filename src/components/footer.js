@@ -1,7 +1,7 @@
 /**
  * Footer Component
- * Bi-coastal institutional coordinate ledger, high-res logo integration,
- * sitemap, and return-to-summit trigger.
+ * Clean, modern footer with studio locations, contact links,
+ * and back-to-top trigger.
  */
 
 export function renderFooter() {
@@ -14,7 +14,7 @@ export function renderFooter() {
         <div class="footer-top">
           <!-- Brand Column -->
           <div class="footer-brand">
-            <a href="#hero-stage" aria-label="Return to Hero">
+            <a href="#hero-stage" aria-label="NEXA GROWTH Home">
               <img 
                 src="/logo.png" 
                 alt="NEXA GROWTH" 
@@ -24,47 +24,46 @@ export function renderFooter() {
                 loading="lazy"
               />
             </a>
-            <p style="font-size: 0.94rem; line-height: 1.65; color: var(--text-secondary); margin-top: 1rem; max-width: 380px;">
-              An international Creative Strategy & Innovation Company engineering defensible market positions, narrative architecture, and bespoke digital platforms.
+            <p style="font-size: 0.95rem; line-height: 1.65; color: var(--text-secondary); margin-top: 1rem; max-width: 400px;">
+              An international Creative Strategy & Innovation Studio operating across Singapore and New Zealand. We turn ambitious ideas into measurable business growth.
             </p>
           </div>
 
-          <!-- Bi-Coastal Coordinates Ledger -->
+          <!-- Studio Locations & Inquiries -->
           <div class="footer-coords-strip">
             <div class="footer-coord-block">
-              <h5>SINGAPORE GATEWAY</h5>
-              <p>1.3521° N, 103.8198° E</p>
-              <p style="margin-top: 0.25rem;">Marina Bay Financial Centre, Tower 2</p>
-              <p style="color: var(--crimson); margin-top: 0.25rem;">UTC+08:00 · APAC Institutional Desk</p>
+              <h5>SINGAPORE HUB</h5>
+              <p style="font-weight: 500; color: #FFFFFF;">Marina Bay Financial Centre</p>
+              <p style="color: var(--crimson); margin-top: 0.25rem;">Timezone: SGT (UTC+8)</p>
             </div>
 
             <div class="footer-coord-block">
-              <h5>NEW ZEALAND FRONTIER</h5>
-              <p>-36.8485° S, 174.7633° E</p>
-              <p style="margin-top: 0.25rem;">Commercial Bay Tower, Customs St W</p>
-              <p style="color: var(--amber); margin-top: 0.25rem;">UTC+12:00 · Pacific Innovation Desk</p>
+              <h5>NEW ZEALAND STUDIO</h5>
+              <p style="font-weight: 500; color: #FFFFFF;">Britomart, Auckland Central</p>
+              <p style="color: var(--amber); margin-top: 0.25rem;">Timezone: NZST (UTC+12)</p>
             </div>
 
             <div class="footer-coord-block">
-              <h5>STRATEGIC INQUIRIES</h5>
-              <p>partner@nexagrowth.com</p>
-              <p style="margin-top: 0.25rem;">Direct Partner SLA: 24 Hours</p>
-              <p style="color: var(--text-muted); margin-top: 0.25rem;">Institutional NDA Standard</p>
+              <h5>DIRECT INQUIRIES</h5>
+              <p style="font-weight: 500; color: #FFFFFF;">hello@nexagrowth.com</p>
+              <p style="color: var(--text-muted); margin-top: 0.25rem;">Response time: Within 24 hours</p>
             </div>
           </div>
         </div>
 
-        <!-- Bottom Tier: Legal & Return to Summit -->
+        <!-- Bottom Tier: Legal & Back to Top -->
         <div class="footer-bottom">
           <div>
-            © ${currentYear} NEXA GROWTH PTE. LTD. & NEXA INNOVATION NZ. ALL RIGHTS RESERVED.
+            © ${currentYear} NEXA GROWTH. All rights reserved.
           </div>
 
-          <div style="display: flex; align-items: center; gap: 2rem;">
-            <span>CONFIDENTIAL ADVISORY</span>
-            <span>RESTRICTED ACCESS</span>
-            <a href="#hero-stage" class="btn-ghost btn-sm" id="return-to-summit-btn" style="padding: 0.35rem 0.85rem;">
-              <span>Return to Summit ↑</span>
+          <div style="display: flex; align-items: center; gap: 1.5rem;">
+            <a href="#manifesto-stage" style="color: var(--text-muted); font-size: 0.85rem;">About</a>
+            <a href="#disciplines-stage" style="color: var(--text-muted); font-size: 0.85rem;">Services</a>
+            <a href="#dossiers-stage" style="color: var(--text-muted); font-size: 0.85rem;">Case Studies</a>
+            <a href="#concierge-stage" style="color: var(--text-muted); font-size: 0.85rem;">Contact</a>
+            <a href="#hero-stage" class="btn-ghost btn-sm" id="return-to-summit-btn" style="padding: 0.4rem 0.9rem;">
+              <span>Back to Top ↑</span>
             </a>
           </div>
         </div>
@@ -79,7 +78,7 @@ export function initFooterEvents() {
     returnBtn.addEventListener('click', (e) => {
       e.preventDefault();
       if (window.lenis) {
-        window.lenis.scrollTo(0, { duration: 1.6 });
+        window.lenis.scrollTo(0, { duration: 1.2 });
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }

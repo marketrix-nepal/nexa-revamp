@@ -30,8 +30,8 @@
 /* Sections */
 .section {
   position: relative;
-  padding-top: clamp(5rem, 10vw, 9rem);
-  padding-bottom: clamp(5rem, 10vw, 9rem);
+  padding-top: clamp(4.5rem, 8vw, 8rem);
+  padding-bottom: clamp(4.5rem, 8vw, 8rem);
   width: 100%;
 }
 
@@ -44,45 +44,46 @@
 
 /* Section Headers */
 .section-header {
-  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
 }
 
 .section-label {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--crimson);
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
 }
 
 .section-label::before {
   content: "";
   display: inline-block;
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   background-color: var(--crimson);
-  border-radius: 1px;
+  border-radius: 2px;
 }
 
 .section-title {
-  font-size: clamp(2.2rem, 4.5vw, 4.2rem);
-  line-height: 1.05;
+  font-size: clamp(2.2rem, 4.2vw, 3.8rem);
+  line-height: 1.15;
   letter-spacing: -0.03em;
   color: var(--text-primary);
   max-width: 900px;
+  font-weight: 800;
 }
 
 .section-desc {
-  margin-top: 1.25rem;
-  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  margin-top: 1rem;
+  font-size: clamp(1.05rem, 1.5vw, 1.22rem);
   line-height: 1.65;
   color: var(--text-secondary);
-  max-width: 720px;
+  max-width: 740px;
 }
 
 /* Grids */
@@ -108,7 +109,7 @@
 .grid-split-50 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 5vw, 4.5rem);
+  gap: clamp(2rem, 4.5vw, 4rem);
   align-items: start;
 }
 
@@ -119,63 +120,49 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: calc(var(--nav-height) + 2rem);
+  padding-top: calc(var(--nav-height) + 2.5rem);
   padding-bottom: 4rem;
   overflow: hidden;
 }
 
-/* Act 2: Manifesto Layout */
+/* Act 2: Manifesto / About Us Layout */
 #manifesto-stage {
   position: relative;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: 100%;
 }
 
-/* Act 3: Disciplines Stage */
+/* Act 3: Services Hub Layout */
 #disciplines-stage {
   position: relative;
   width: 100%;
 }
 
-.disciplines-pinned-container {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.disciplines-layout {
+.services-hub-layout {
   display: grid;
-  grid-template-columns: 360px 1fr;
-  gap: clamp(2rem, 4vw, 3.5rem);
-  align-items: stretch;
-  height: 72vh;
-  max-height: 680px;
+  grid-template-columns: 340px 1fr;
+  gap: clamp(1.75rem, 3vw, 3rem);
+  align-items: start;
 }
 
-/* Act 4: Transformation Dossiers Layout */
+/* Act 4: Case Studies Layout */
 #dossiers-stage {
   position: relative;
   width: 100%;
-  overflow: hidden;
 }
 
-.dossiers-container {
+.case-studies-list {
   display: flex;
   flex-direction: column;
-  gap: clamp(2rem, 3.5vw, 3.5rem);
+  gap: clamp(2rem, 3.5vw, 3rem);
 }
 
-/* Act 5: Ideas Lab Layout */
+/* Act 5: Insights Layout */
 #ideas-lab-stage {
   position: relative;
   width: 100%;
 }
 
-/* Act 6: Concierge Layout */
+/* Act 6: Contact Layout */
 #concierge-stage {
   position: relative;
   width: 100%;
@@ -186,8 +173,8 @@
 #footer-stage {
   position: relative;
   width: 100%;
-  padding-top: clamp(4rem, 6vw, 6rem);
-  padding-bottom: 3rem;
+  padding-top: clamp(3.5rem, 5vw, 5rem);
+  padding-bottom: 2.5rem;
   border-top: 1px solid var(--border-hairline);
   background: var(--bg-deep);
 }
@@ -200,17 +187,9 @@
     gap: 2.5rem;
   }
 
-  .disciplines-layout {
+  .services-hub-layout {
     grid-template-columns: 1fr;
-    height: auto;
-    max-height: none;
-  }
-
-  .disciplines-pinned-container {
-    height: auto;
-    min-height: 100vh;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    gap: 2rem;
   }
 
   .grid-3 {
@@ -225,7 +204,12 @@
   }
 
   .section {
-    padding-top: 4.5rem;
-    padding-bottom: 4.5rem;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  #hero-stage {
+    padding-top: calc(var(--nav-height) + 1.5rem);
+    padding-bottom: 3rem;
   }
 }

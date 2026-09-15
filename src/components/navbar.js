@@ -29,18 +29,18 @@ export function renderNavbar() {
         <!-- Navigation Links -->
         <nav aria-label="Primary Navigation">
           <ul class="nav-links">
-            <li><a href="#manifesto-stage" class="nav-link">Manifesto</a></li>
-            <li><a href="#disciplines-stage" class="nav-link">Disciplines</a></li>
-            <li><a href="#dossiers-stage" class="nav-link">Dossiers</a></li>
-            <li><a href="#ideas-lab-stage" class="nav-link">Ideas Lab</a></li>
-            <li><a href="#concierge-stage" class="nav-link">Concierge</a></li>
+            <li><a href="#manifesto-stage" class="nav-link">About Us</a></li>
+            <li><a href="#disciplines-stage" class="nav-link">Services</a></li>
+            <li><a href="#dossiers-stage" class="nav-link">Case Studies</a></li>
+            <li><a href="#ideas-lab-stage" class="nav-link">Insights</a></li>
+            <li><a href="#concierge-stage" class="nav-link">Contact</a></li>
           </ul>
         </nav>
 
         <!-- Right Actions -->
         <div class="nav-actions">
           <a href="#concierge-stage" class="btn btn-primary btn-sm">
-            <span>Initiate Consultation</span>
+            <span>Get in Touch</span>
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
               <path d="M2.5 6H9.5M9.5 6L6.5 3M9.5 6L6.5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -57,19 +57,19 @@ export function renderNavbar() {
       <!-- Mobile Menu Drawer -->
       <div class="mobile-drawer" id="mobile-drawer">
         <ul class="mobile-nav-list">
-          <li><a href="#manifesto-stage" class="mobile-nav-link">01 // Manifesto</a></li>
-          <li><a href="#disciplines-stage" class="mobile-nav-link">02 // Disciplines</a></li>
-          <li><a href="#dossiers-stage" class="mobile-nav-link">03 // Dossiers</a></li>
-          <li><a href="#ideas-lab-stage" class="mobile-nav-link">04 // Ideas Lab</a></li>
-          <li><a href="#concierge-stage" class="mobile-nav-link">05 // Concierge</a></li>
+          <li><a href="#manifesto-stage" class="mobile-nav-link">About Us</a></li>
+          <li><a href="#disciplines-stage" class="mobile-nav-link">Services</a></li>
+          <li><a href="#dossiers-stage" class="mobile-nav-link">Case Studies</a></li>
+          <li><a href="#ideas-lab-stage" class="mobile-nav-link">Insights</a></li>
+          <li><a href="#concierge-stage" class="mobile-nav-link">Contact</a></li>
         </ul>
 
         <div style="padding-top: 2rem; border-top: 1px solid var(--border-subtle);">
-          <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-bottom: 1rem;">
-            BI-COASTAL AXIS: SINGAPORE · NEW ZEALAND
+          <p style="font-family: var(--font-body); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+            Singapore & New Zealand · Global Creative & Tech Studio
           </p>
           <a href="#concierge-stage" class="btn btn-primary" style="width: 100%;">
-            <span>Initiate Consultation →</span>
+            <span>Get in Touch →</span>
           </a>
         </div>
       </div>
