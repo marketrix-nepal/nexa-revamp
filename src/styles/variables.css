@@ -1,0 +1,62 @@
+:root {
+  /* Surface Depths */
+  --bg-void:       #020305;   /* Absolute space black */
+  --bg-deep:       #05070B;   /* Deepest background */
+  --bg-surface:    #090C12;   /* Elevated backdrop */
+  --bg-card:       #0D111A;   /* Structured component surface */
+  --bg-overlay:    rgba(5, 7, 11, 0.94);
+  --bg-glass:      rgba(13, 17, 26, 0.65);
+  --bg-glass-card: rgba(13, 17, 26, 0.75);
+
+  /* Brand Accents */
+  --crimson:       #E5192D;   /* Razor crimson (precision/energy) */
+  --crimson-hover: #FF2B41;
+  --crimson-glow:  rgba(229, 25, 45, 0.28);
+  --amber:         #FF6A00;   /* Smoldering amber (warmth/transition) */
+  --amber-hover:   #FF7E24;
+  --amber-glow:    rgba(255, 106, 0, 0.22);
+  --grad-brand:    linear-gradient(135deg, #E5192D 0%, #FF6A00 100%);
+  --grad-brand-h:  linear-gradient(90deg, #E5192D 0%, #FF6A00 100%);
+  --grad-text:     linear-gradient(180deg, #FFFFFF 0%, #D6DCE8 60%, #9EA7BC 100%);
+  --grad-accent:   linear-gradient(90deg, #FFFFFF 0%, #FFB088 40%, #E5192D 100%);
+
+  /* Editorial Typography Tones */
+  --text-primary:   #FFFFFF;
+  --text-secondary: #C4CAD8;  /* High-legibility neutral */
+  --text-muted:     #788094;  /* Subordinate context */
+  --text-dim:       #404656;  /* Architectural indices */
+
+  /* Structural Borders & Glass */
+  --border-hairline: rgba(255, 255, 255, 0.05);
+  --border-subtle:   rgba(255, 255, 255, 0.10);
+  --border-strong:   rgba(255, 255, 255, 0.22);
+  --border-crimson:  rgba(229, 25, 45, 0.40);
+  --border-amber:    rgba(255, 106, 0, 0.40);
+
+  /* Geometry Standard (The Anti-Pill Mandate) */
+  --r-badge:  4px;    /* Micro status tags */
+  --r-btn:    6px;    /* Primary & secondary interactive triggers */
+  --r-card:   10px;   /* Content panels & dossiers */
+  --r-modal:  14px;   /* Deep-dive spatial modals */
+  --r-pill:   6px;    /* Explicitly override pills to soft-rectangles */
+
+  /* Architectural Grid */
+  --container-max:  1380px;
+  --container-wide: 1600px;
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+
+  /* Typography Families */
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:    'JetBrains Mono', 'SF Mono', Consolas, monospace;
+
+  /* Header Height */
+  --nav-height: 80px;
+
+  /* Transitions & Timing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.2s var(--ease-out-expo);
+  --transition-med:  0.35s var(--ease-out-expo);
+  --transition-slow: 0.6s var(--ease-out-expo);
+}
