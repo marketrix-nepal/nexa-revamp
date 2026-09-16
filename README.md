@@ -95,5 +95,5 @@ npm run preview
 npm run build
 
 # Deploy to Cloudflare Pages
-npx wrangler pages deploy dist --project-name nexa-growth --branch main
+npx wrangler pages deploy dist --project-name nexa-revamp --branch main
 ```
