@@ -2,8 +2,8 @@
 
 > Bi-Coastal Creative Strategy & Innovation Company operating across Singapore and New Zealand.
 
-[![Live Site](https://img.shields.io/badge/Live%20Platform-nexa--growth.pages.dev-crimson?style=for-the-badge&logo=cloudflare)](https://nexa-growth.pages.dev)
-[![Repository](https://img.shields.io/badge/GitHub-marketrix--nepal%2Fnexa--growth-181717?style=for-the-badge&logo=github)](https://github.com/marketrix-nepal/nexa-growth)
+[![Live Site](https://img.shields.io/badge/Live%20Platform-nexa--revamp.pages.dev-crimson?style=for-the-badge&logo=cloudflare)](https://nexa-revamp.pages.dev)
+[![Repository](https://img.shields.io/badge/GitHub-marketrix--nepal%2Fnexa--revamp-181717?style=for-the-badge&logo=github)](https://github.com/marketrix-nepal/nexa-revamp)
 
 ---
 
@@ -11,9 +11,9 @@
 
 An uncompromised, 60fps scroll-choreographed digital platform constructed with pure Vanilla JavaScript (ES Modules), physical WebGL 3D glass rendering, and strict progressive disclosure ergonomics.
 
-- **Production URL**: [https://nexa-growth.pages.dev](https://nexa-growth.pages.dev)
+- **Production URL**: [https://nexa-revamp.pages.dev](https://nexa-revamp.pages.dev)
 - **Deployment Platform**: Cloudflare Pages
-- **GitHub Repository**: [https://github.com/marketrix-nepal/nexa-growth](https://github.com/marketrix-nepal/nexa-growth)
+- **GitHub Repository**: [https://github.com/marketrix-nepal/nexa-revamp](https://github.com/marketrix-nepal/nexa-revamp)
 
 ---
 

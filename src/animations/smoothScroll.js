@@ -10,13 +10,13 @@ export function initSmoothScroll() {
   if (lenisInstance) return lenisInstance;
 
   lenisInstance = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Exponential ease-out
+    duration: 1.35, // Responsive sweet spot: eliminates drag while maintaining high-end cushioning
+    easing: (t) => 1 - Math.pow(1 - t, 3), // Smooth cubic ease-out for lively yet buttery motion
     orientation: 'vertical',
     gestureOrientation: 'vertical',
     smoothWheel: true,
-    wheelMultiplier: 1.0,
-    touchMultiplier: 1.5,
+    wheelMultiplier: 0.72, // Middle ground between 0.82 (fast) and 0.58 (slow)
+    touchMultiplier: 1.15,
     infinite: false
   });
 

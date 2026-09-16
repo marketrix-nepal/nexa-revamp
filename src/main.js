@@ -1,6 +1,5 @@
 import './styles/main.css';
 
-import { initWebGLScene } from './webgl/scene.js';
 import { initSmoothScroll } from './animations/smoothScroll.js';
 import { initScrollTimeline } from './animations/scrollTimeline.js';
 import { initCursor } from './animations/cursor.js';
@@ -24,8 +23,9 @@ function bootstrapApp() {
     <!-- Film Grain Microscopic Overlay -->
     <div class="film-grain-overlay" aria-hidden="true"></div>
 
-    <!-- WebGL Ambient 3D Dark Glass Canvas -->
-    <div id="webgl-canvas-container" aria-hidden="true"></div>
+    <!-- Persistent Ambient 3D Neural Monolith Background (Video Last Frame) -->
+    <div class="site-ambient-bg" aria-hidden="true"></div>
+    <div class="site-ambient-scrim" aria-hidden="true"></div>
 
     <!-- Navigation Header -->
     ${renderNavbar()}
@@ -45,10 +45,7 @@ function bootstrapApp() {
     ${renderDetailModalContainer()}
   `;
 
-  // 1. Initialize ambient WebGL 3D physical glass canvas
-  initWebGLScene(document.getElementById('webgl-canvas-container'));
-
-  // 2. Initialize smooth inertia scrolling (Lenis)
+  // 1. Initialize smooth inertia scrolling (Lenis)
   initSmoothScroll();
 
   // 3. Initialize 6-Act choreographed GSAP ScrollTrigger timeline

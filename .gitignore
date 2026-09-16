@@ -37,3 +37,7 @@ Thumbs.db
 
 # Cloudflare Wrangler
 .wrangler/
+
+# Large raw video assets (hero-video.mp4 is the active production asset)
+public/hero-video-hq.mp4
+public/hero-video-optimized.mp4
