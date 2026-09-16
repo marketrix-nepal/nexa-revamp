@@ -146,7 +146,7 @@
 #hero-stage {
   position: relative;
   width: 100%;
-  height: 620vh; /* Balanced sweet spot: unhurried yet brisk storytelling */
+  height: 450vh; /* Optimal responsive pacing: crisp frame scrubbing without drag */
   margin: 0;
   padding: 0;
   background: transparent;
@@ -172,7 +172,8 @@
 #manifesto-stage {
   position: relative;
   width: 100%;
-  padding-top: clamp(2.5rem, 5vw, 4.5rem);
+  padding-top: clamp(1.25rem, 2.5vw, 2rem);
+  padding-bottom: clamp(3rem, 5vw, 5rem);
 }
 
 /* Act 3: Services Hub Layout */

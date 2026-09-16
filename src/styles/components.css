@@ -346,7 +346,8 @@
   letter-spacing: 0.02em;
 }
 
-/* Full-Bleed 3D Animation Video & Scrims */
+/* Full-Bleed 3D Animation Canvas, Video & Scrims */
+.hero-canvas-wrapper,
 .hero-video-wrapper {
   position: absolute;
   inset: 0;
@@ -357,18 +358,17 @@
   z-index: 1;
 }
 
+.hero-canvas-monolith,
 .hero-video-monolith {
   position: absolute;
   top: 50%;
   left: 50%;
   width: 100%;
   height: 100%;
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
   transform: translate(-50%, -50%) translateZ(0);
   will-change: transform;
-  backface-visibility: hidden;
+  display: block;
+  pointer-events: none;
 }
 
 .hero-vignette-scrim {
@@ -398,7 +398,7 @@
   pointer-events: none;
 }
 
-/* Persistent Telemetry Header (Clocks & Status) */
+/* Persistent Telemetry Header (Clocks) */
 .hero-persistent-header {
   position: absolute;
   top: calc(var(--nav-height) + 1.25rem);
@@ -411,9 +411,13 @@
 .hero-telemetry-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+.hero-status-spacer {
+  flex: 1;
 }
 
 .atomic-clocks-wrapper {
@@ -438,6 +442,18 @@
   border-radius: var(--r-badge);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+}
+
+.atomic-clock-item .clock-city {
+  color: #D1D5DB;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.atomic-clock-item .clock-city::after {
+  content: "·";
+  margin-left: 0.45rem;
+  color: var(--crimson-bright);
 }
 
 .atomic-clock-item .clock-time {
@@ -844,17 +860,24 @@
 /* Responsive Overrides for Hero */
 @media (max-width: 768px) {
   .hero-persistent-header {
-    top: calc(var(--nav-height) + 0.75rem);
+    top: calc(var(--nav-height) + 0.65rem);
   }
 
   .hero-telemetry-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.6rem;
+    justify-content: center;
+    align-items: center;
   }
 
   .atomic-clocks-wrapper {
-    gap: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .atomic-clock-item {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.55rem;
   }
 
   .atomic-clock-item {
@@ -928,9 +951,12 @@
   border-radius: var(--r-card);
   padding: clamp(1.75rem, 3vw, 2.5rem);
   backdrop-filter: blur(16px);
-  transition: all var(--transition-fast);
+  -webkit-backdrop-filter: blur(16px);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
   display: flex;
   flex-direction: column;
+  opacity: 1;
+  visibility: visible;
 }
 
 .value-pillar-card:hover {
@@ -1005,7 +1031,10 @@
   border-radius: var(--r-card);
   padding: clamp(1.75rem, 3vw, 2.5rem);
   backdrop-filter: blur(16px);
-  transition: all var(--transition-fast);
+  -webkit-backdrop-filter: blur(16px);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+  opacity: 1;
+  visibility: visible;
 }
 
 .hub-ledger-card:hover {

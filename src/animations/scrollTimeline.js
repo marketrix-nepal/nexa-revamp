@@ -13,23 +13,34 @@ export function initScrollTimeline() {
 
   if (!heroStage) return;
 
-  // 1. KINETIC NEURAL MONOLITH: 3D VIDEO SCROLL SCRUBBING & CHOREOGRAPHY
-  initHeroVideoScrubbing(heroStage);
+  // 1. HIGH-PERFORMANCE CANVAS SCROLL SCRUBBING & CHOREOGRAPHY
+  initHeroCanvasScrubbing(heroStage);
 
-  // 2. ABOUT US SECTION REVEAL (Clean crossfade & card stagger)
+  // 2. ABOUT US SECTION REVEAL (Guaranteed visible cards with smooth stagger)
   if (manifestoStage) {
-    gsap.from(manifestoStage.querySelectorAll('.section-header, .value-pillar-card, .hub-ledger-card'), {
-      scrollTrigger: {
-        trigger: manifestoStage,
-        start: 'top 80%',
-        toggleActions: 'play none none none'
-      },
-      y: 35,
-      opacity: 0,
-      stagger: 0.08,
-      duration: 0.8,
-      ease: 'power2.out'
+    const revealTargets = manifestoStage.querySelectorAll('.section-header, .value-pillar-card, .hub-ledger-card');
+    
+    // Ensure all cards are visible by default so no layout is ever stuck invisible
+    revealTargets.forEach(el => {
+      el.style.visibility = 'visible';
     });
+
+    gsap.fromTo(revealTargets, 
+      { y: 32, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.07,
+        duration: 0.75,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: manifestoStage,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+          fastScrollEnd: true
+        }
+      }
+    );
   }
 
   // 3. SERVICES SECTION REVEAL (Fluid, unpinned)
@@ -111,10 +122,11 @@ export function initScrollTimeline() {
 }
 
 /**
- * High-performance, lerped video scrubbing and 3-phase choreographed story engine
+ * 60fps Canvas Image Sequence Engine: 100 high-res WebP frames, lerped scrub,
+ * zero network stalls, and 3-phase choreographed story engine.
  */
-function initHeroVideoScrubbing(heroStage) {
-  const video = heroStage.querySelector('#hero-monolith-video');
+function initHeroCanvasScrubbing(heroStage) {
+  const canvas = heroStage.querySelector('#hero-monolith-canvas');
   const loader = heroStage.querySelector('#hero-video-loader');
   const scrubBar = heroStage.querySelector('#hero-scrub-bar');
   const introBlock = heroStage.querySelector('#hero-phase-intro');
@@ -125,106 +137,150 @@ function initHeroVideoScrubbing(heroStage) {
   const hudCounter = heroStage.querySelector('#services-hud-counter');
   const manifestoJumpBtn = heroStage.querySelector('#hero-manifesto-jump-btn');
 
-  let videoDuration = 10.0;
-  let isVideoReady = false;
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d', { alpha: false });
+  const TOTAL_FRAMES = 100;
+  const frames = new Array(TOTAL_FRAMES);
+  let loadedCount = 0;
+  let isFirstFrameReady = false;
 
   function dismissLoader() {
     if (loader && !loader.classList.contains('loader-dismissed')) {
       loader.classList.add('loader-dismissed');
       setTimeout(() => {
         if (loader && loader.parentNode) loader.remove();
-      }, 700);
+      }, 500);
     }
   }
 
-  if (video) {
-    const handleLoaded = () => {
-      if (isVideoReady) return;
-      isVideoReady = true;
-      if (video.duration && !isNaN(video.duration) && video.duration > 0) {
-        videoDuration = video.duration;
-      }
-      try {
-        video.currentTime = 0.001;
-      } catch (e) {
-        // Handled silently for browser auto-seek policies
-      }
-      dismissLoader();
-      ScrollTrigger.refresh();
-    };
+  // High-performance canvas drawing with aspect-ratio cover
+  function drawFrameCover(img) {
+    if (!ctx || !canvas || !img) return;
+    const cw = canvas.width;
+    const ch = canvas.height;
+    const iw = img.naturalWidth || 1600;
+    const ih = img.naturalHeight || 900;
 
-    if (video.readyState >= 2) {
-      handleLoaded();
+    const canvasRatio = cw / ch;
+    const imageRatio = iw / ih;
+
+    let dw, dh, dx, dy;
+    if (canvasRatio > imageRatio) {
+      dw = cw;
+      dh = cw / imageRatio;
+      dx = 0;
+      dy = (ch - dh) * 0.5;
     } else {
-      video.addEventListener('loadedmetadata', handleLoaded, { once: true });
-      video.addEventListener('canplay', handleLoaded, { once: true });
+      dh = ch;
+      dw = ch * imageRatio;
+      dx = (cw - dw) * 0.5;
+      dy = 0;
     }
 
-    // Fail-safe timeout
-    setTimeout(dismissLoader, 2000);
-  } else {
+    ctx.drawImage(img, dx, dy, dw, dh);
+  }
+
+  // Fallback finder so canvas never blinks or flashes black
+  function getClosestAvailableFrame(idx) {
+    if (frames[idx]) return frames[idx];
+    for (let offset = 1; offset < TOTAL_FRAMES; offset++) {
+      if (idx - offset >= 0 && frames[idx - offset]) return frames[idx - offset];
+      if (idx + offset < TOTAL_FRAMES && frames[idx + offset]) return frames[idx + offset];
+    }
+    return null;
+  }
+
+  // Canvas resize with retina sharpness
+  function resizeCanvas() {
+    if (!canvas) return;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const rect = canvas.getBoundingClientRect();
+    const w = Math.round(rect.width * dpr);
+    const h = Math.round(rect.height * dpr);
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width = w;
+      canvas.height = h;
+    }
+    const targetIdx = Math.round(Math.max(0, Math.min(TOTAL_FRAMES - 1, currentFrameIndex)));
+    const img = getClosestAvailableFrame(targetIdx);
+    if (img) drawFrameCover(img);
+  }
+
+  window.addEventListener('resize', resizeCanvas, { passive: true });
+
+  // 1. Preload frame 0 immediately for instant first paint (<50ms)
+  const initialImg = new Image();
+  initialImg.src = '/frames/frame_000.webp';
+  initialImg.onload = () => {
+    frames[0] = initialImg;
+    isFirstFrameReady = true;
+    resizeCanvas();
+    drawFrameCover(initialImg);
     dismissLoader();
-  }
+    ScrollTrigger.refresh();
+  };
 
-  // Smooth lerped video scrubbing loop with non-blocking seek queue
-  let targetVideoTime = 0;
-  let currentVideoTime = 0;
-  let isSeeking = false;
-  let pendingTime = null;
-  let scrubRafId = null;
-
-  function requestVideoSeek(time) {
-    if (!video || !isVideoReady || video.readyState < 2) return;
-    if (isSeeking) {
-      pendingTime = time;
-      return;
-    }
-    isSeeking = true;
-    try {
-      video.currentTime = Math.max(0.001, Math.min(videoDuration - 0.001, time));
-    } catch (e) {
-      isSeeking = false;
+  // 2. Progressively preload the remaining sequence in background
+  function preloadRemainingFrames() {
+    for (let i = 1; i < TOTAL_FRAMES; i++) {
+      const img = new Image();
+      const numStr = String(i).padStart(3, '0');
+      img.src = `/frames/frame_${numStr}.webp`;
+      img.onload = () => {
+        frames[i] = img;
+        loadedCount++;
+      };
     }
   }
 
-  if (video) {
-    video.addEventListener('seeked', () => {
-      isSeeking = false;
-      if (pendingTime !== null) {
-        const nextTime = pendingTime;
-        pendingTime = null;
-        requestVideoSeek(nextTime);
+  // Kick off background sequence load
+  preloadRemainingFrames();
+
+  // Fail-safe loader timeout
+  setTimeout(dismissLoader, 1500);
+
+  // Smooth lerp render loop
+  let targetFrameIndex = 0;
+  let currentFrameIndex = 0;
+  let lastDrawnIndex = -1;
+
+  function loopCanvasRender() {
+    const diff = targetFrameIndex - currentFrameIndex;
+    if (Math.abs(diff) > 0.01) {
+      currentFrameIndex += diff * 0.28; // Responsive, snappy lerp
+    } else {
+      currentFrameIndex = targetFrameIndex;
+    }
+
+    const frameToDraw = Math.round(Math.max(0, Math.min(TOTAL_FRAMES - 1, currentFrameIndex)));
+    if (frameToDraw !== lastDrawnIndex) {
+      const img = getClosestAvailableFrame(frameToDraw);
+      if (img) {
+        drawFrameCover(img);
+        lastDrawnIndex = frameToDraw;
       }
-    });
-  }
-
-  function loopVideoScrub() {
-    if (video && isVideoReady && video.readyState >= 2) {
-      const diff = targetVideoTime - currentVideoTime;
-      if (Math.abs(diff) > 0.002) {
-        currentVideoTime += diff * 0.22; // Snappier response while maintaining silky interpolation
-        requestVideoSeek(currentVideoTime);
-      }
     }
-    scrubRafId = requestAnimationFrame(loopVideoScrub);
-  }
-  scrubRafId = requestAnimationFrame(loopVideoScrub);
 
-  // Choreography Phase Engine (calibrated for 780vh track)
+    requestAnimationFrame(loopCanvasRender);
+  }
+  requestAnimationFrame(loopCanvasRender);
+
+  // 3-Phase Choreography Engine
   function applyChoreography(progress) {
     // 1. Progress Bar
     if (scrubBar) {
       scrubBar.style.transform = `scaleX(${progress})`;
     }
 
-    // 2. Phase 1: Intro (0% - 14%)
+    // 2. Phase 1: Intro (0% - 15%)
     if (introBlock) {
       if (progress <= 0.05) {
         introBlock.style.opacity = '1';
         introBlock.style.visibility = 'visible';
         introBlock.style.transform = 'translateY(0) scale(1)';
-      } else if (progress > 0.05 && progress <= 0.14) {
-        const p = (progress - 0.05) / 0.09;
+      } else if (progress > 0.05 && progress <= 0.15) {
+        const p = (progress - 0.05) / 0.10;
         introBlock.style.opacity = Math.max(0, 1 - p).toFixed(3);
         introBlock.style.transform = `translateY(${-p * 35}px) scale(${1 - p * 0.05})`;
         introBlock.style.visibility = 'visible';
@@ -235,19 +291,19 @@ function initHeroVideoScrubbing(heroStage) {
       }
     }
 
-    // 3. Phase 2: 6 Core Services (14% - 84%)
+    // 3. Phase 2: 6 Core Services (15% - 82%)
     if (servicesBlock) {
-      if (progress < 0.12 || progress > 0.85) {
+      if (progress < 0.13 || progress > 0.84) {
         servicesBlock.style.opacity = '0';
         servicesBlock.style.visibility = 'hidden';
         servicesBlock.style.transform = 'translateY(25px)';
-      } else if (progress >= 0.12 && progress <= 0.16) {
-        const enterP = (progress - 0.12) / 0.04;
+      } else if (progress >= 0.13 && progress <= 0.17) {
+        const enterP = (progress - 0.13) / 0.04;
         servicesBlock.style.opacity = enterP.toFixed(3);
         servicesBlock.style.visibility = 'visible';
         servicesBlock.style.transform = `translateY(${(1 - enterP) * 25}px)`;
-      } else if (progress >= 0.81 && progress <= 0.85) {
-        const exitP = (progress - 0.81) / 0.04;
+      } else if (progress >= 0.80 && progress <= 0.84) {
+        const exitP = (progress - 0.80) / 0.04;
         servicesBlock.style.opacity = Math.max(0, 1 - exitP).toFixed(3);
         servicesBlock.style.visibility = 'visible';
         servicesBlock.style.transform = `translateY(${-exitP * 25}px)`;
@@ -257,8 +313,8 @@ function initHeroVideoScrubbing(heroStage) {
         servicesBlock.style.transform = 'translateY(0)';
       }
 
-      if (progress >= 0.12 && progress <= 0.85 && serviceCards.length > 0) {
-        const normalized = Math.max(0, Math.min(0.999, (progress - 0.15) / 0.66));
+      if (progress >= 0.13 && progress <= 0.84 && serviceCards.length > 0) {
+        const normalized = Math.max(0, Math.min(0.999, (progress - 0.16) / 0.65));
         const totalCards = serviceCards.length;
         const rawIdx = Math.floor(normalized * totalCards);
         const activeIdx = Math.min(totalCards - 1, Math.max(0, rawIdx));
@@ -289,14 +345,14 @@ function initHeroVideoScrubbing(heroStage) {
       }
     }
 
-    // 4. Phase 3: Climax CTA (84% - 100%)
+    // 4. Phase 3: Climax CTA & Smooth Bridge to About Us (82% - 100%)
     if (ctaBlock) {
-      if (progress < 0.84) {
+      if (progress < 0.82) {
         ctaBlock.style.opacity = '0';
         ctaBlock.style.visibility = 'hidden';
         ctaBlock.style.transform = 'translateY(35px) scale(0.96)';
-      } else if (progress >= 0.84 && progress <= 0.89) {
-        const p = (progress - 0.84) / 0.05;
+      } else if (progress >= 0.82 && progress <= 0.88) {
+        const p = (progress - 0.82) / 0.06;
         ctaBlock.style.opacity = p.toFixed(3);
         ctaBlock.style.visibility = 'visible';
         ctaBlock.style.transform = `translateY(${(1 - p) * 35}px) scale(${0.96 + p * 0.04})`;
@@ -319,15 +375,15 @@ function initHeroVideoScrubbing(heroStage) {
     });
   }
 
-  // Master GSAP ScrollTrigger for Hero Video Scrubbing
+  // Master GSAP ScrollTrigger for Hero Canvas Scrubbing
   ScrollTrigger.create({
     trigger: heroStage,
     start: 'top top',
     end: 'bottom bottom',
-    scrub: 0.4,
+    scrub: 0.35,
     onUpdate: (self) => {
       const p = Math.max(0, Math.min(1, self.progress));
-      targetVideoTime = p * (video && video.duration && !isNaN(video.duration) ? video.duration : videoDuration);
+      targetFrameIndex = p * (TOTAL_FRAMES - 1);
       applyChoreography(p);
     }
   });

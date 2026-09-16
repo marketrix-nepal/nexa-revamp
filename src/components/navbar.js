@@ -20,12 +20,6 @@ export function renderNavbar() {
           />
         </a>
 
-        <!-- Hub Desk Status Telemetry -->
-        <div class="nav-hub-indicator" title="Live Bi-Coastal Connectivity">
-          <span class="pulse-node"></span>
-          <span>SG · NZ ACTIVE</span>
-        </div>
-
         <!-- Navigation Links -->
         <nav aria-label="Primary Navigation">
           <ul class="nav-links">

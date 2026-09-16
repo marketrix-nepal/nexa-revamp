@@ -75,44 +75,35 @@ export function renderHero() {
         <div class="hero-video-loader" id="hero-video-loader" aria-hidden="true">
           <div class="hero-loader-spinner"></div>
           <div class="hero-loader-status">
-            <span class="loader-mono-tag">SYS // MONOLITH-INITIALIZE</span>
-            <span class="loader-sub">Synchronizing 3D Neural Assets...</span>
+            <span class="loader-mono-tag">INITIALIZING EXPERIENCE</span>
+            <span class="loader-sub">Preparing high-resolution sequence...</span>
           </div>
         </div>
 
-        <!-- Full-Bleed 3D Animation Background Video -->
-        <div class="hero-video-wrapper">
-          <video
-            id="hero-monolith-video"
-            class="hero-video-monolith"
-            muted
-            playsinline
-            preload="auto"
-            tabindex="-1"
-            aria-hidden="true"
-          >
-            <source src="/hero-video.mp4" type="video/mp4" />
-          </video>
+        <!-- Full-Bleed 3D Animation Background Canvas -->
+        <div class="hero-canvas-wrapper" id="hero-canvas-wrapper">
+          <canvas
+            id="hero-monolith-canvas"
+            class="hero-canvas-monolith"
+            aria-label="3D Neural Experience"
+          ></canvas>
           <!-- Multi-tier Cinematic Scrims & Vignettes -->
           <div class="hero-vignette-scrim" aria-hidden="true"></div>
           <div class="hero-radial-gradient-scrim" aria-hidden="true"></div>
         </div>
 
-        <!-- Persistent Telemetry Header (Clocks & Status) -->
-        <header class="hero-persistent-header" aria-label="Global Status">
+        <!-- Persistent Telemetry Header (Clocks) -->
+        <header class="hero-persistent-header" aria-label="Global Studio Status">
           <div class="container-wide hero-telemetry-row">
-            <div class="badge badge-crimson">
-              <span class="pulse-node"></span>
-              <span>Kinetic Neural Monolith · Active</span>
-            </div>
+            <div class="hero-status-spacer"></div>
 
             <div class="atomic-clocks-wrapper" id="atomic-clocks-container">
               <div class="atomic-clock-item">
-                <span>🇸🇬 Singapore</span>
+                <span class="clock-city">Singapore</span>
                 <span class="clock-time" id="clock-singapore">--:--:-- SGT</span>
               </div>
               <div class="atomic-clock-item">
-                <span>🇳🇿 New Zealand</span>
+                <span class="clock-city">New Zealand</span>
                 <span class="clock-time" id="clock-newzealand">--:--:-- NZST</span>
               </div>
             </div>
@@ -150,7 +141,7 @@ export function renderHero() {
               <div class="scroll-mouse-pill">
                 <span class="scroll-wheel-dot"></span>
               </div>
-              <span class="scroll-prompt-label">SCROLL TO ENGAGE MONOLITH</span>
+              <span class="scroll-prompt-label">SCROLL TO EXPLORE</span>
             </div>
           </div>
 
@@ -158,7 +149,7 @@ export function renderHero() {
           <div class="hero-phase-block hero-phase-services" id="hero-phase-services" aria-hidden="true">
             <div class="services-hud-header">
               <div class="services-hud-left">
-                <span class="services-hud-badge">CAPABILITY MATRIX</span>
+                <span class="services-hud-badge">CORE DISCIPLINES</span>
                 <span class="services-hud-counter" id="services-hud-counter">01 / 06</span>
               </div>
               <div class="services-hud-dots" id="services-hud-dots">

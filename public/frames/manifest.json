@@ -1,0 +1,9 @@
+{
+  "frameCount": 100,
+  "width": 1600,
+  "height": 900,
+  "format": "webp",
+  "totalSizeBytes": 5879750,
+  "totalSizeMB": 5.61,
+  "framePattern": "/frames/frame_%03d.webp"
+}
