@@ -35,11 +35,6 @@ export function renderNavbar() {
 
         <!-- Right Actions -->
         <div class="nav-actions">
-          <a href="/admin.html" class="btn btn-ghost btn-sm nav-admin-btn" title="Internal Operations Portal">
-            <span class="pulse-indicator-dot"></span>
-            <span>Console</span>
-          </a>
-
           <a href="#concierge-stage" class="btn btn-primary btn-sm">
             <span>Start a Project</span>
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -65,7 +60,6 @@ export function renderNavbar() {
           <li><a href="#training-stage" class="mobile-nav-link">Training & Consulting</a></li>
           <li><a href="#ideas-lab-stage" class="mobile-nav-link">Insights & Guides</a></li>
           <li><a href="#concierge-stage" class="mobile-nav-link">Contact & Inquiries</a></li>
-          <li><a href="/admin.html" class="mobile-nav-link" style="color: var(--amber);">Internal Operations Console →</a></li>
         </ul>
 
         <div style="padding-top: 2rem; border-top: 1px solid var(--border-subtle);">
@@ -88,25 +82,43 @@ export function initNavbarEvents() {
   const toggleBtn = document.getElementById('mobile-nav-toggle');
   const drawer = document.getElementById('mobile-drawer');
 
-  if (!toggleBtn || !drawer) return;
+  if (toggleBtn && drawer) {
+    toggleBtn.addEventListener('click', () => {
+      const isOpen = drawer.classList.toggle('open');
+      toggleBtn.setAttribute('aria-expanded', isOpen);
+      if (isOpen) {
+        if (window.lenis) window.lenis.stop();
+      } else {
+        if (window.lenis) window.lenis.start();
+      }
+    });
 
-  toggleBtn.addEventListener('click', () => {
-    const isOpen = drawer.classList.toggle('open');
-    toggleBtn.setAttribute('aria-expanded', isOpen);
-    if (isOpen) {
-      if (window.lenis) window.lenis.stop();
-    } else {
-      if (window.lenis) window.lenis.start();
-    }
-  });
+    // Close drawer on link click
+    const mobileLinks = drawer.querySelectorAll('a');
+    mobileLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        drawer.classList.remove('open');
+        toggleBtn.setAttribute('aria-expanded', false);
+        if (window.lenis) window.lenis.start();
+      });
+    });
+  }
 
-  // Close drawer on link click
-  const mobileLinks = drawer.querySelectorAll('a');
-  mobileLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      drawer.classList.remove('open');
-      toggleBtn.setAttribute('aria-expanded', false);
-      if (window.lenis) window.lenis.start();
+  // Smooth anchor navigation with generous offset to prevent navbar clipping
+  const allNavAnchors = document.querySelectorAll('a[href^="#"]');
+  allNavAnchors.forEach((anchor) => {
+    anchor.addEventListener('click', (e) => {
+      const href = anchor.getAttribute('href');
+      if (!href || href === '#' || href === '#!') return;
+      const targetEl = document.querySelector(href);
+      if (targetEl) {
+        e.preventDefault();
+        if (window.lenis) {
+          window.lenis.scrollTo(targetEl, { offset: -96, duration: 1.2 });
+        } else {
+          targetEl.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
     });
   });
 }

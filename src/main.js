@@ -6,7 +6,7 @@ import { initCursor } from './animations/cursor.js';
 
 import { renderNavbar, initNavbarEvents } from './components/navbar.js';
 import { renderHero, initAtomicClocks } from './components/hero.js';
-import { renderManifesto } from './components/manifesto.js';
+import { renderManifesto, initManifestoEvents } from './components/manifesto.js';
 import { renderMethodology, initMethodologyEvents } from './components/methodology.js';
 import { renderDisciplines, initDisciplinesEvents } from './components/disciplines.js';
 import { renderDossiers, initDossierEvents } from './components/dossiers.js';
@@ -63,6 +63,7 @@ function bootstrapApp() {
 
   // 5. Initialize interactive component event listeners
   initNavbarEvents();
+  initManifestoEvents();
   initMethodologyEvents();
   initDisciplinesEvents();
   initDossierEvents();

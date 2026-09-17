@@ -58,11 +58,6 @@ export function renderFooter() {
                 </a>
               </p>
               <p style="color: var(--text-muted); margin-top: 0.25rem;">Response time: Within 24 hours</p>
-              <div style="margin-top: 0.75rem;">
-                <a href="/admin.html" class="footer-console-link">
-                  <span>Internal Operations Console →</span>
-                </a>
-              </div>
             </div>
           </div>
         </div>
