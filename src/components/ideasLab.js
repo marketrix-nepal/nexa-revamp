@@ -1,15 +1,15 @@
 import { ideasLabData } from '../data/ideasLabData.js';
 
 /**
- * Insights Component (formerly Ideas Lab)
- * Clean, modern cards highlighting practical thinking on brand strategy,
- * web development, and AI automation.
+ * Insights & Practical Guides Component (Ideas Lab)
+ * Practical thinking on connected growth systems, AI workflows,
+ * and strategic market positioning.
  */
 
 export function renderIdeasLab() {
   const cardsHtml = ideasLabData
     .map((item) => `
-      <article class="insight-article-card" id="insight-${item.id}">
+      <article class="insight-article-card glass-panel" id="insight-${item.id}">
         <div class="insight-top-meta">
           <span class="insight-category-tag">${item.category}</span>
           <span class="badge badge-amber">${item.badge}</span>
@@ -22,9 +22,9 @@ export function renderIdeasLab() {
           <button 
             class="btn btn-ghost btn-sm open-lab-modal-btn" 
             data-exp-id="${item.id}"
-            aria-label="Read article: ${item.title}"
+            aria-label="Read strategic insight: ${item.title}"
           >
-            <span>Read Article →</span>
+            <span>Read Strategic Insight →</span>
           </button>
         </div>
       </article>
@@ -36,12 +36,12 @@ export function renderIdeasLab() {
       <div class="container-wide">
         <!-- Section Header -->
         <div class="section-header">
-          <div class="section-label">INSIGHTS & INNOVATION</div>
+          <div class="section-label">PRACTICAL THINKING & INSIGHTS</div>
           <h2 class="section-title">
-            Practical Thinking for Modern Businesses.
+            Architectural Insights for Modern Business.
           </h2>
           <p class="section-desc">
-            Bite-sized guides and breakdowns on how to clarify your messaging, optimize website speed, and save hours each week with smart automation.
+            Bite-sized strategic frameworks on why connected growth systems outperform isolated vendors, how to launch MVPs in 90 days, and where to apply practical AI.
           </p>
         </div>
 
@@ -55,5 +55,5 @@ export function renderIdeasLab() {
 }
 
 export function initIdeasLabEvents() {
-  // Modal triggers are handled centrally by detailModal.js
+  // Modal triggers handled centrally by detailModal.js
 }

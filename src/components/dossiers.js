@@ -1,9 +1,9 @@
 import { caseStudiesData } from '../data/caseStudiesData.js';
 
 /**
- * Case Studies Component (formerly Dossiers)
- * Clean, modern editorial cards with bold metrics, plain-English summaries,
- * and client quotes.
+ * Intervention Models & Case Studies Component
+ * Demonstrates the 4 authentic intervention archetypes from the NEXA GROWTH charter:
+ * SME Transformation, App Idea-to-Market, Institutional Modernization, and Omnichannel CRM.
  */
 
 export function renderDossiers() {
@@ -14,7 +14,7 @@ export function renderDossiers() {
         .join('');
 
       return `
-        <article class="case-study-card" id="case-study-${item.id}">
+        <article class="case-study-card glass-panel" id="case-study-${item.id}">
           <div class="case-card-header">
             <div class="case-card-meta">
               <span class="case-sector-badge">${item.sector}</span>
@@ -43,7 +43,7 @@ export function renderDossiers() {
               <p class="pillar-text">${item.solution}</p>
             </div>
             <div class="case-pillar-item">
-              <span class="pillar-label">The Outcome</span>
+              <span class="pillar-label">The Measured Outcome</span>
               <p class="pillar-text">${item.result}</p>
             </div>
           </div>
@@ -63,9 +63,9 @@ export function renderDossiers() {
             <button 
               class="btn btn-primary btn-sm open-case-modal-btn" 
               data-case-id="${item.id}"
-              aria-label="View full case study for ${item.client}"
+              aria-label="View full intervention details for ${item.client}"
             >
-              <span>View Case Details →</span>
+              <span>View Intervention Details →</span>
             </button>
           </div>
         </article>
@@ -78,12 +78,12 @@ export function renderDossiers() {
       <div class="container-wide">
         <!-- Section Header -->
         <div class="section-header">
-          <div class="section-label">CASE STUDIES</div>
+          <div class="section-label">EXAMPLES OF INTERVENTION</div>
           <h2 class="section-title">
-            Real Work. Measurable Results.
+            Structured Execution. Measurable Growth.
           </h2>
           <p class="section-desc">
-            Explore how we've helped founders and growing businesses clarify their message, launch modern websites, and automate key operations.
+            Explore how NEXA's connected systems transform struggling SMEs, fast-track entrepreneurs to market, modernize institutions, and compound repeat customer loyalty.
           </p>
         </div>
 
@@ -96,7 +96,6 @@ export function renderDossiers() {
   `;
 }
 
-export function initDossiersEvents() {
-  // Modal triggers are handled centrally by detailModal.js
+export function initDossierEvents() {
+  // Modal triggers handled centrally by detailModal.js
 }
-export const initDossierEvents = initDossiersEvents;

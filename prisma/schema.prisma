@@ -1,0 +1,143 @@
+// NEXA GROWTH — Operational Database Schema (PostgreSQL / Prisma Dialect)
+// Engine for Internal Strategy, CRM, CMS, Discovery, and Autonomous Intelligence Operations
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  SUPER_ADMIN
+  STRATEGIC_CONSULTANT
+  CREATIVE_EDITOR
+  TECH_ENGINEER
+}
+
+enum UserStatus {
+  ACTIVE
+  SUSPENDED
+  INVITED
+}
+
+enum PipelineStage {
+  DIAGNOSE
+  STRATEGY
+  DESIGN
+  TECH
+  MARKETING
+  MEASUREMENT
+}
+
+enum AutomationStatus {
+  SUCCESS
+  FAILED
+  WARNING
+}
+
+/// Core internal consultancy operators and administrators
+model User {
+  id            String       @id @default(uuid())
+  email         String       @unique
+  password_hash String
+  role          UserRole     @default(STRATEGIC_CONSULTANT)
+  status        UserStatus   @default(ACTIVE)
+  created_at    DateTime     @default(now())
+
+  // Relations
+  assigned_diagnostics ClientDiagnostic[] @relation("ConsultantAssignments")
+  audit_logs           AuditTrail[]       @relation("UserAuditTrails")
+
+  @@map("users")
+}
+
+/// Inbound diagnostic submissions and client pipeline triage
+model ClientDiagnostic {
+  id                     String        @id @default(uuid())
+  company_name           String
+  contact_email          String
+  selected_bottleneck    String
+  operational_data_json  Json          // Includes budget, company size, target timeline, client profile
+  lead_score             Int           @default(50) // 0 - 100 calculated by automated corporate metrics
+  pipeline_stage         PipelineStage @default(DIAGNOSE)
+  assigned_consultant_id String?
+  created_at             DateTime      @default(now())
+  updated_at             DateTime      @updatedAt
+
+  // Strategy attachments and interaction timeline
+  strategy_notes         String?       @db.Text
+  attachments_json       Json?         // Array of uploaded strategy PDFs, diagnostic briefs
+  timeline_events_json   Json?         // Audit log of client interactions, calls, and milestone shifts
+
+  assigned_consultant User? @relation("ConsultantAssignments", fields: [assigned_consultant_id], references: [id])
+
+  @@index([pipeline_stage])
+  @@index([lead_score])
+  @@map("client_diagnostics")
+}
+
+/// The 8 interconnected Core Service Pillars of NEXA GROWTH
+model EcosystemPillar {
+  id                     String    @id @default(uuid())
+  pillar_number          Int       @unique // 1 - 8
+  title                  String
+  tagline                String
+  description            String    @db.Text
+  capabilities_list_text String[]  // Array of specific offerings
+  dependent_pillar_ids   Int[]     // Numbers 1-8 representing architectural system dependencies
+  target_audiences_json  Json?     // Tailored copy variants: Entrepreneurs, SMEs, Institutions, Enterprises
+  updated_at             DateTime  @updatedAt
+
+  @@map("ecosystem_pillars")
+}
+
+/// Modern Discovery Suite: Traditional SEO, AEO (LLM structured schema), and GEO (Spatial Citation)
+model DiscoveryMetadata {
+  id                         String    @id @default(uuid())
+  page_route                 String    @unique // e.g. "/", "/methodology", "/pillars/ai-automation"
+  meta_title                 String
+  meta_description           String    @db.Text
+  og_tags_json               Json      // og:title, og:description, og:image, twitter:card
+  json_ld_schema_json        Json      // Dynamic JSON-LD structured data for LLMs (Perplexity, ChatGPT, Claude)
+  structured_faq_json        Json      // Array of { question: string, answer: string }
+  brand_citations_list_text  String[]  // Directory citations, Auckland/Singapore NAP consistency nodes
+  spatial_geotags_json       Json?     // Geotag coordinates: Auckland HQ (-36.8485, 174.7633), Singapore Hub (1.2801, 103.8540)
+  sitemap_excluded           Boolean   @default(false)
+  updated_at                 DateTime  @updatedAt
+
+  @@map("discovery_metadata")
+}
+
+/// Autonomous agent run logs and webhook integration states
+model AutomationLog {
+  id              String           @id @default(uuid())
+  agent_name      String           // e.g. "LeadQualifierAgent", "AucklandSmsDispatch", "CrmWebhookRelay"
+  status          AutomationStatus @default(SUCCESS)
+  payload_summary String           @db.Text
+  error_message   String?          @db.Text
+  retry_count     Int              @default(0)
+  executed_at     DateTime         @default(now())
+
+  @@index([status])
+  @@index([executed_at])
+  @@map("automation_logs")
+}
+
+/// Immutable regulatory and operational audit trail
+model AuditTrail {
+  id                String   @id @default(uuid())
+  user_id           String
+  action_performed  String   // e.g. "MUTATE_PIPELINE_STAGE", "UPDATE_PILLAR_DEPENDENCIES", "AEO_SCHEMA_REGEN"
+  resource_targeted String   // e.g. "ClientDiagnostic:9d3b4e...", "DiscoveryMetadata:/pillars/ai"
+  ip_address        String
+  timestamp         DateTime @default(now())
+
+  user User @relation("UserAuditTrails", fields: [user_id], references: [id])
+
+  @@index([user_id])
+  @@index([timestamp])
+  @@map("audit_trails")
+}

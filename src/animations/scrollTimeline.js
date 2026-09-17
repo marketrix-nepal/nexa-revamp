@@ -6,8 +6,10 @@ gsap.registerPlugin(ScrollTrigger);
 export function initScrollTimeline() {
   const heroStage = document.getElementById('hero-stage');
   const manifestoStage = document.getElementById('manifesto-stage');
+  const methodologyStage = document.getElementById('methodology-stage');
   const disciplinesStage = document.getElementById('disciplines-stage');
   const dossiersStage = document.getElementById('dossiers-stage');
+  const trainingStage = document.getElementById('training-stage');
   const labStage = document.getElementById('ideas-lab-stage');
   const conciergeStage = document.getElementById('concierge-stage');
 
@@ -18,9 +20,8 @@ export function initScrollTimeline() {
 
   // 2. ABOUT US SECTION REVEAL (Guaranteed visible cards with smooth stagger)
   if (manifestoStage) {
-    const revealTargets = manifestoStage.querySelectorAll('.section-header, .value-pillar-card, .hub-ledger-card');
+    const revealTargets = manifestoStage.querySelectorAll('.section-header, .vision-statement-banner, .value-pillar-card, .target-client-card, .hub-ledger-card');
     
-    // Ensure all cards are visible by default so no layout is ever stuck invisible
     revealTargets.forEach(el => {
       el.style.visibility = 'visible';
     });
@@ -30,7 +31,7 @@ export function initScrollTimeline() {
       {
         y: 0,
         opacity: 1,
-        stagger: 0.07,
+        stagger: 0.06,
         duration: 0.75,
         ease: 'power2.out',
         scrollTrigger: {
@@ -41,6 +42,22 @@ export function initScrollTimeline() {
         }
       }
     );
+  }
+
+  // 2.5 METHODOLOGY SECTION REVEAL
+  if (methodologyStage) {
+    gsap.from(methodologyStage.querySelectorAll('.section-header, .methodology-step-card, .value-model-container'), {
+      scrollTrigger: {
+        trigger: methodologyStage,
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      },
+      y: 35,
+      opacity: 0,
+      stagger: 0.08,
+      duration: 0.8,
+      ease: 'power2.out'
+    });
   }
 
   // 3. SERVICES SECTION REVEAL (Fluid, unpinned)
@@ -54,6 +71,22 @@ export function initScrollTimeline() {
       y: 35,
       opacity: 0,
       stagger: 0.1,
+      duration: 0.8,
+      ease: 'power2.out'
+    });
+  }
+
+  // 3.5 TRAINING & CONSULTING SECTION REVEAL
+  if (trainingStage) {
+    gsap.from(trainingStage.querySelectorAll('.section-header, .training-card, .training-advisory-banner'), {
+      scrollTrigger: {
+        trigger: trainingStage,
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      },
+      y: 35,
+      opacity: 0,
+      stagger: 0.08,
       duration: 0.8,
       ease: 'power2.out'
     });

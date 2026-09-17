@@ -7,8 +7,10 @@ import { initCursor } from './animations/cursor.js';
 import { renderNavbar, initNavbarEvents } from './components/navbar.js';
 import { renderHero, initAtomicClocks } from './components/hero.js';
 import { renderManifesto } from './components/manifesto.js';
+import { renderMethodology, initMethodologyEvents } from './components/methodology.js';
 import { renderDisciplines, initDisciplinesEvents } from './components/disciplines.js';
 import { renderDossiers, initDossierEvents } from './components/dossiers.js';
+import { renderTraining, initTrainingEvents } from './components/training.js';
 import { renderIdeasLab, initIdeasLabEvents } from './components/ideasLab.js';
 import { renderConcierge, initConciergeEvents } from './components/concierge.js';
 import { renderDetailModalContainer, initDetailModalEvents } from './components/detailModal.js';
@@ -23,7 +25,7 @@ function bootstrapApp() {
     <!-- Film Grain Microscopic Overlay -->
     <div class="film-grain-overlay" aria-hidden="true"></div>
 
-    <!-- Persistent Ambient 3D Neural Monolith Background (Video Last Frame) -->
+    <!-- Persistent Ambient 3D Neural Monolith Background -->
     <div class="site-ambient-bg" aria-hidden="true"></div>
     <div class="site-ambient-scrim" aria-hidden="true"></div>
 
@@ -34,8 +36,10 @@ function bootstrapApp() {
     <main id="app-content">
       ${renderHero()}
       ${renderManifesto()}
+      ${renderMethodology()}
       ${renderDisciplines()}
       ${renderDossiers()}
+      ${renderTraining()}
       ${renderIdeasLab()}
       ${renderConcierge()}
       ${renderFooter()}
@@ -48,19 +52,21 @@ function bootstrapApp() {
   // 1. Initialize smooth inertia scrolling (Lenis)
   initSmoothScroll();
 
-  // 3. Initialize 6-Act choreographed GSAP ScrollTrigger timeline
+  // 2. Initialize choreographed GSAP ScrollTrigger timeline
   initScrollTimeline();
 
-  // 4. Initialize live microsecond atomic clocks (SGT / NZST)
+  // 3. Initialize live microsecond atomic clocks (Auckland NZST / Singapore SGT)
   initAtomicClocks();
 
-  // 5. Initialize custom magnetic difference cursor
+  // 4. Initialize custom magnetic cursor
   initCursor();
 
-  // 6. Initialize interactive component event listeners
+  // 5. Initialize interactive component event listeners
   initNavbarEvents();
+  initMethodologyEvents();
   initDisciplinesEvents();
   initDossierEvents();
+  initTrainingEvents();
   initIdeasLabEvents();
   initConciergeEvents();
   initDetailModalEvents();

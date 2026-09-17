@@ -1,218 +1,290 @@
 export const servicesData = [
   {
-    id: "brand-strategy",
-    slug: "brand-strategy",
+    id: "strategy-growth",
+    slug: "strategy-growth",
     number: "01",
-    title: "Brand Strategy & Identity",
-    tagline: "Stand out and build lasting credibility in your market",
-    shortDesc: "We define your core positioning, clarify your message, and design a modern visual identity that sets you apart from competitors.",
-    heroLead: "A great brand makes selling easier. We help you uncover what makes your company truly unique, creating a distinctive visual identity and clear messaging that builds immediate trust with customers.",
+    title: "Strategy & Business Growth",
+    tagline: "Define clear direction and engineer defensible growth",
+    shortDesc: "We help businesses understand their market, define clear positioning, and build structured strategies for sustainable, scalable growth.",
+    heroLead: "Growth is never accidental; it is engineered. We evaluate market dynamics, dissect competitive landscapes, and craft actionable go-to-market strategies that position your enterprise for commercial leadership.",
     whatWeOffer: [
-      { name: "Market Positioning", desc: "Clear reasons why customers should choose you over alternatives." },
-      { name: "Visual Identity & Logo", desc: "Modern, memorable logo designs, color systems, and typography." },
-      { name: "Brand Guidelines", desc: "Practical rules so your marketing and social media stay consistent." },
-      { name: "Competitor Research", desc: "Finding the white space where your business can easily stand out." },
-      { name: "Core Messaging Framework", desc: "Simple elevator pitches, mission statements, and key slogans." },
-      { name: "Brand Assets Package", desc: "Ready-to-use templates for presentations, business cards, and social." }
+      { name: "Business & Growth Strategy", desc: "Formulate resilient corporate strategies aligned with scalable commercial objectives." },
+      { name: "Market Research & Competitive Analysis", desc: "Identify untapped market white-space and uncover deep competitive advantages." },
+      { name: "Go-to-Market (GTM) Strategy", desc: "End-to-end launch roadmaps designed for rapid adoption and defensible market capture." },
+      { name: "Business Model Innovation", desc: "Structure recurring monetization engines, unit economics, and high-margin value propositions." },
+      { name: "Lead Generation Strategy", desc: "Architect repeatable inbound and outbound acquisition channels that feed sales pipelines." },
+      { name: "Sales Strategy & Positioning", desc: "Arm leadership and sales teams with strategic narratives that close high-ticket contracts." }
     ],
     approach: [
-      { step: "01. Discovery Call", detail: "We review your business goals, target audience, and current market position." },
-      { step: "02. Strategy & Positioning", detail: "We identify your unique advantage and craft clear, simple messaging." },
-      { step: "03. Visual Design", detail: "We design logos, color palettes, and typography that fit your vision." },
-      { step: "04. Handover & Guidelines", detail: "We provide all source files and a clear guide so your team can use them easily." }
+      { step: "01. Commercial Diagnostic", detail: "Deep dive into your market landscape, historical revenue metrics, and customer acquisition friction." },
+      { step: "02. Opportunity Mapping", detail: "Model competitor vulnerabilities, customer segments, and high-margin expansion vectors." },
+      { step: "03. Strategy Architecture", detail: "Draft the comprehensive growth blueprint, GTM timeline, and target commercial KPIs." },
+      { step: "04. Execution & Governance", detail: "Align executive leadership, deploy operational cadences, and measure milestone velocity." }
     ],
     solutionsDeliverables: [
-      "Complete Logo Suite (SVG, PNG, Vector)",
-      "Official Brand Guidelines & Color System",
-      "One-Page Value Proposition & Elevator Pitch",
-      "Social Media & Presentation Templates",
-      "Typography & Font Hierarchy Guide",
-      "Commercial Brand Activation Roadmap"
+      "Enterprise Strategic Growth Blueprint & Roadmap",
+      "Comprehensive Market Opportunity & Competitor Dossier",
+      "Target Customer Personas & Value Proposition Architecture",
+      "Go-to-Market (GTM) Launch & Commercialization Plan",
+      "Sales Pipeline & Lead Generation Playbook",
+      "Executive KPI & Unit Economic Dashboard"
     ],
     caseHighlight: {
-      client: "Fintech Scale-Up",
-      outcome: "+210% Qualified Inbound Inquiries",
-      desc: "Repositioned a complex financial platform into a clear, trusted brand, doubling inbound client inquiries in 90 days."
+      client: "B2B SaaS & Tech Scale-up",
+      outcome: "+280% Qualified Pipeline Value",
+      desc: "Restructured positioning and go-to-market strategy, pivoting from commoditized IT services to enterprise recurring software."
     }
   },
   {
-    id: "web-design",
-    slug: "web-design",
+    id: "brand-communication",
+    slug: "brand-communication",
     number: "02",
-    title: "Web Design & Development",
-    tagline: "Fast, beautiful websites engineered to convert",
-    shortDesc: "We build responsive, custom websites and web apps that look world-class, load instantly, and turn visitors into paying customers.",
-    heroLead: "Your website is your best salesperson. We design and build ultra-fast, mobile-responsive websites that look stunning and guide visitors naturally toward booking a call or buying.",
+    title: "Brand & Communication",
+    tagline: "Build commanding brands and persuasive communication systems",
+    shortDesc: "We build strong brands and communication systems that clearly express the identity, value, and positioning of a business.",
+    heroLead: "A powerful brand transforms passive audiences into loyal advocates. We create distinctive visual identities, persuasive storytelling frameworks, and precise copywriting that command authority in any market.",
     whatWeOffer: [
-      { name: "Custom UI/UX Design", desc: "Tailor-made layouts designed specifically for your brand and users." },
-      { name: "Mobile-First Responsiveness", desc: "Flawless display across smartphones, tablets, laptops, and desktops." },
-      { name: "Ultra-Fast Loading", desc: "Clean code optimized for sub-second speeds and top Google PageSpeed scores." },
-      { name: "Built-In SEO Foundations", desc: "Proper headings, metadata, and site structure so Google indexes you easily." },
-      { name: "Conversion Funnels", desc: "Strategic button placements and inquiry forms that maximize leads." },
-      { name: "Content Management (CMS)", desc: "Simple editing tools so you can update blogs and pages without touching code." }
+      { name: "Brand Strategy & Positioning", desc: "Carve out distinctive positioning so clients immediately recognize why you are superior." },
+      { name: "Visual Identity & Design Systems", desc: "Memorable logos, typographic hierarchies, color systems, and modern asset suites." },
+      { name: "Corporate Communication", desc: "Unified internal and external communication frameworks for leadership and teams." },
+      { name: "Executive & Personal Branding", desc: "Elevate founders and C-level leaders as recognized industry thought leaders." },
+      { name: "Storytelling & Narrative Architecture", desc: "Construct compelling brand mythologies that emotionally resonate with ideal buyers." },
+      { name: "High-Conversion Copywriting", desc: "Linguistic precision for websites, pitch decks, proposals, and digital campaigns." }
     ],
     approach: [
-      { step: "01. Wireframing", detail: "Mapping out user journeys, page sections, and high-impact call-to-actions." },
-      { step: "02. Visual Interface Design", detail: "Crafting beautiful high-fidelity mockups with interactive previews." },
-      { step: "03. Modern Development", detail: "Building lightweight, clean code with smooth animations and responsive layouts." },
-      { step: "04. Launch & Optimization", detail: "Thorough browser testing, SEO validation, and fast global cloud hosting." }
+      { step: "01. Brand Immersion", detail: "Analyze your founding ethos, stakeholder perceptions, and category aesthetic conventions." },
+      { step: "02. Strategic Positioning", detail: "Define the core promise, brand archetypes, tone of voice, and value pillars." },
+      { step: "03. Creative Execution", detail: "Design complete visual identities, design tokens, typography, and brand design guidelines." },
+      { step: "04. Touchpoint Rollout", detail: "Deploy cohesive messaging across pitch decks, corporate websites, and collateral." }
     ],
     solutionsDeliverables: [
-      "Custom Responsive Website (Desktop, Tablet, Mobile)",
-      "High-Converting Landing Pages",
-      "Interactive Prototype & Design Files",
-      "Fast Global Cloud Hosting Setup",
-      "Google Analytics & Conversion Tracking",
-      "Video Walkthrough & CMS Training"
+      "Full Visual Identity System (Logos, Vectors, Export Suites)",
+      "Comprehensive Brand Guidelines & Editorial Styleguide",
+      "Corporate Storytelling & Value Proposition Framework",
+      "Executive Pitch Deck & Investor Presentation Suite",
+      "High-Converting Website Copywriting Package",
+      "Omnichannel Brand Asset & Collateral Library"
     ],
     caseHighlight: {
-      client: "Pacific Marine Tech",
-      outcome: "$4.2M in Signed Contracts",
-      desc: "Built a high-performance interactive website that showcased complex technology clearly, winning major oceanic enterprise contracts."
+      client: "Trans-Tasman Capital Venture",
+      outcome: "$14M Series A Secured",
+      desc: "Engineered high-conviction narrative architecture and re-branded institutional presence for cross-border funding."
     }
   },
   {
-    id: "copywriting",
-    slug: "copywriting",
+    id: "digital-transformation",
+    slug: "digital-transformation",
     number: "03",
-    title: "Copywriting & Messaging",
-    tagline: "Words that clearly explain your value and drive action",
-    shortDesc: "We write clear, engaging copy for websites, landing pages, and pitch decks that grabs attention and convinces customers to work with you.",
-    heroLead: "Confusing text loses sales. We craft clear, persuasive copy that immediately explains what you do, why it matters, and why your target customer should take action today.",
+    title: "Digital Transformation",
+    tagline: "Move from manual friction to high-velocity digital ecosystems",
+    shortDesc: "We help businesses move from traditional, disconnected processes to efficient, integrated digital systems and modern customer experiences.",
+    heroLead: "Digital transformation is not about buying more software—it is about designing seamless experiences. We engineer high-performance web platforms, digitalize legacy operations, and build intuitive online customer journeys.",
     whatWeOffer: [
-      { name: "Website & Landing Page Copy", desc: "Clear, engaging headlines and sections that keep visitors reading." },
-      { name: "Value Proposition", desc: "A simple 10-second explanation that anyone can understand immediately." },
-      { name: "Sales Decks & Presentations", desc: "Persuasive pitch decks for investor meetings and corporate sales." },
-      { name: "Email Sequences", desc: "Professional emails for welcome series, follow-ups, and lead nurturing." },
-      { name: "Case Study Storytelling", desc: "Turn client success stories into powerful social proof that closes deals." },
-      { name: "Tone of Voice Guide", desc: "Consistent writing standards so all your team communications feel cohesive." }
+      { name: "Website Strategy & Architecture", desc: "Blueprint modern digital touchpoints built for speed, SEO, and conversions." },
+      { name: "High-Performance Websites & Portals", desc: "Ultra-fast, mobile-first responsive web platforms engineered to convert." },
+      { name: "Custom Digital Platforms & Apps", desc: "Bespoke web applications, self-service client portals, and cloud systems." },
+      { name: "Digital Customer Experience (CX)", desc: "Frictionless interactive journeys that delight users and reduce support overhead." },
+      { name: "Process Digitalization", desc: "Transition manual paperwork, spreadsheets, and approvals into digital workflows." },
+      { name: "Transformation Roadmaps", desc: "Phase-by-phase implementation plans that mitigate operational disruption." }
     ],
     approach: [
-      { step: "01. Customer Research", detail: "Understanding your customers' pain points, doubts, and main motivations." },
-      { step: "02. Message Outline", detail: "Structuring arguments logically so readers flow naturally toward action." },
-      { step: "03. Drafting & Refinement", detail: "Writing punchy, straightforward sentences with zero unnecessary jargon." },
-      { step: "04. Testing & Polishing", detail: "Reviewing cadence, clarity, and conversion flow across key touchpoints." }
+      { step: "01. Ecosystem Audit", detail: "Map legacy workflows, software bottlenecks, and customer friction points." },
+      { step: "02. Platform Architecture", detail: "Specify modern cloud stacks, API integrations, and intuitive UX/UI designs." },
+      { step: "03. Agile Development", detail: "Build responsive, lightweight web platforms with sub-second page performance." },
+      { step: "04. Migration & Adoption", detail: "Seamless data cutover, team training, and performance monitoring." }
     ],
     solutionsDeliverables: [
-      "Full Website Copywriting Suite",
-      "High-Converting Landing Page Copy",
-      "Investor & Sales Pitch Deck Narrative",
-      "Customer Follow-Up Email Sequence",
-      "Company Elevator Pitch & One-Liner",
-      "Brand Tone of Voice Guide"
+      "Custom Enterprise Web Platform (Vite/React, 60fps, Mobile-First)",
+      "Interactive Client Self-Service Portal & Dashboard",
+      "Complete User Journey Maps & Wireframe Blueprints",
+      "Sub-second Cloud Infrastructure & Edge Deployment",
+      "Core Web Vitals & Google SEO Technical Optimization",
+      "Admin Operations Manual & Internal Team Training"
     ],
     caseHighlight: {
-      client: "Cloud Security Platform",
-      outcome: "+65% Demo Booking Rate",
-      desc: "Replaced technical engineering jargon with clear business benefits, increasing booked demos by 65% in the first month."
-    }
-  },
-  {
-    id: "custom-apps",
-    slug: "custom-apps",
-    number: "04",
-    title: "Custom Web Applications",
-    tagline: "Tailored software that powers your business operations",
-    shortDesc: "We engineer bespoke web applications, customer portals, and internal tools built to solve your unique operational bottlenecks.",
-    heroLead: "Off-the-shelf software often forces you to compromise. We build custom web apps and client portals that fit your exact business process, automating work and delighting your users.",
-    whatWeOffer: [
-      { name: "Client Portals", desc: "Secure spaces where your clients can submit files, track projects, and pay." },
-      { name: "SaaS MVPs & Prototypes", desc: "Quickly build and launch software products to test with real users." },
-      { name: "Internal Dashboards", desc: "Custom admin panels that centralize your data, inventory, or workflow." },
-      { name: "API & Tool Integrations", desc: "Seamlessly connecting your payment systems, CRMs, and email tools." },
-      { name: "Database Architecture", desc: "Fast, reliable, and secure database design that scales effortlessly." },
-      { name: "Automated Reporting", desc: "Generate PDF reports and analytics automatically without manual work." }
-    ],
-    approach: [
-      { step: "01. Requirements Scoping", detail: "Defining exact features, user roles, and business goals to prevent scope creep." },
-      { step: "02. UX Architecture", detail: "Designing intuitive screens and testing user flows before writing code." },
-      { step: "03. Agile Development", detail: "Building in clean iterative sprints with regular demos and updates." },
-      { step: "04. Deployment & Support", detail: "Deploying to secure cloud servers with automated backups and maintenance." }
-    ],
-    solutionsDeliverables: [
-      "Production-Ready Web Application",
-      "Secure Client & Admin Authentication",
-      "Custom Database & API Integrations",
-      "Automated Testing & Security Review",
-      "Hosting & Deployment Setup",
-      "Technical Documentation & Training"
-    ],
-    caseHighlight: {
-      client: "Meridian Logistics",
-      outcome: "92% Faster Customer Onboarding",
-      desc: "Built a custom client booking and shipment dashboard that cut onboarding time from 4 days to 18 minutes."
+      client: "Regional Commercial Fleet Operator",
+      outcome: "92% Reduction in Onboarding Time",
+      desc: "Replaced manual 4-day customs paperwork with an automated 18-minute self-service client portal."
     }
   },
   {
     id: "ai-automation",
     slug: "ai-automation",
-    number: "05",
-    title: "AI Automation & Smart Workflows",
-    tagline: "Automate repetitive tasks and scale your business",
-    shortDesc: "We implement practical AI tools and automated pipelines that answer inquiries, process data, and save your team dozens of hours each week.",
-    heroLead: "AI shouldn't be a gimmick. We build practical AI automations that handle repetitive administrative tasks, reply to customer inquiries 24/7, and let your team focus on high-value work.",
+    number: "04",
+    title: "AI & Automation",
+    tagline: "Leverage artificial intelligence to compound operational leverage",
+    shortDesc: "We use artificial intelligence and automation to improve productivity, customer service, marketing, sales, and internal business processes.",
+    heroLead: "Turn AI from a buzzword into an unfair commercial advantage. We design and deploy autonomous AI agents, automated sales pipelines, and intelligent workflow systems that eliminate administrative drag and multiply team productivity.",
     whatWeOffer: [
-      { name: "24/7 AI Customer Assistants", desc: "Smart chat agents trained on your business data to answer inquiries instantly." },
-      { name: "Automated Lead Routing", desc: "Automatically qualify leads and sync them straight into your CRM or email." },
-      { name: "Document Extraction", desc: "Read invoices, contracts, or forms automatically and extract key data." },
-      { name: "Smart Email Automation", desc: "Draft responses and categorize client emails automatically." },
-      { name: "Workflow Integration", desc: "Connecting your favorite apps via Zapier, Make, and custom webhooks." },
-      { name: "Team Training & Strategy", desc: "Hands-on workshops to help your team leverage modern AI tools safely." }
+      { name: "AI Strategy & Readiness", desc: "Identify high-ROI opportunities to deploy practical machine intelligence." },
+      { name: "AI Assistants & Custom Agents", desc: "Deploy 24/7 intelligent agents for lead qualification, triage, and customer support." },
+      { name: "End-to-End Workflow Automation", desc: "Connect disjointed apps into automated, zero-touch operational sequences." },
+      { name: "Customer Service Automation", desc: "Resolve repetitive customer inquiries instantly with generative AI context." },
+      { name: "Marketing & Sales Automation", desc: "Automate outbound prospecting, follow-ups, meeting booking, and lead scoring." },
+      { name: "Internal Productivity Engines", desc: "Equip knowledge workers with tailored LLM assistants to draft docs and analyze data." }
     ],
     approach: [
-      { step: "01. Workflow Audit", detail: "Identifying where your team wastes time on repetitive, manual tasks." },
-      { step: "02. Solution Blueprint", detail: "Selecting the right AI models and automation triggers for highest ROI." },
-      { step: "03. Building & Testing", detail: "Configuring and testing automations with real data to guarantee accuracy." },
-      { step: "04. Deployment & Monitoring", detail: "Going live with error monitoring and simple dashboards to verify time saved." }
+      { step: "01. Automation Audit", detail: "Identify repetitive tasks, data re-entry, and human bottlenecks in daily operations." },
+      { step: "02. Agent & Pipeline Design", detail: "Select optimal models, vector stores, webhooks, and trigger architectures." },
+      { step: "03. Sandbox Testing", detail: "Rigorously validate AI accuracy, error fallbacks, and security protocols." },
+      { step: "04. Production Deployment", detail: "Integrate into live CRM, email, and ERP systems with real-time logging." }
     ],
     solutionsDeliverables: [
-      "Custom AI Chat Assistant for Your Website",
-      "Automated CRM & Lead Notification Pipelines",
-      "Document & Data Processing Automation",
-      "Zapier / Make Automation Architecture",
-      "Security & Data Privacy Safeguards",
-      "Team SOPs & Automation Playbook"
+      "Autonomous 24/7 Conversational AI Agent for Lead Qualification",
+      "Multi-App Webhook Automation Engine (CRM, Forms, Alerts)",
+      "Automated Meeting Scheduling & Calendar Routing Matrix",
+      "AI Knowledge Base & Enterprise Retrieval-Augmented System",
+      "Internal Team Productivity Prompts & Workflow Manuals",
+      "Real-Time Error Monitoring & Fallback Failsafe System"
     ],
     caseHighlight: {
-      client: "Kauri Healthcare",
+      client: "Specialist Medical Network",
       outcome: "14+ Hours Saved Per Doctor Weekly",
-      desc: "Implemented an automated patient intake and summary system that saved doctors 14 hours of paperwork each week."
+      desc: "Designed and implemented clinical documentation AI assistant, drastically cutting administrative burnout."
     }
   },
   {
-    id: "growth-marketing",
-    slug: "growth-marketing",
-    number: "06",
-    title: "Growth & Performance Marketing",
-    tagline: "Consistent traffic, better leads, and higher ROI",
-    shortDesc: "We design data-driven lead generation campaigns and conversion funnels to systematically acquire your ideal clients.",
-    heroLead: "Traffic is useless without conversions. We build predictable marketing systems combining organic search, paid advertising, and conversion rate optimization to consistently generate qualified leads.",
+    id: "marketing-acquisition",
+    slug: "marketing-acquisition",
+    number: "05",
+    title: "Marketing & Customer Acquisition",
+    tagline: "High-intent customer attraction, conversion, and retention systems",
+    shortDesc: "We develop integrated marketing systems designed to predictably attract, convert, and retain high-value customers.",
+    heroLead: "Clicks mean nothing without customers. We construct predictable customer acquisition funnels that blend targeted organic content, paid acquisition, high-converting landing pages, and direct channels like SMS and WhatsApp to drive verified revenue.",
     whatWeOffer: [
-      { name: "Conversion Rate Optimization (CRO)", desc: "Testing headlines, buttons, and layouts to turn more visitors into leads." },
-      { name: "High-Intent SEO", desc: "Targeting keywords that actual buyers search for when ready to hire." },
-      { name: "Paid Advertising Campaigns", desc: "Setting up profitable Google Ads and LinkedIn lead generation campaigns." },
-      { name: "Lead Magnet Funnels", desc: "Creating valuable guides or tools that capture high-quality email leads." },
-      { name: "Analytics & Attribution", desc: "Crystal-clear dashboards showing exactly where your customers come from." },
-      { name: "Ongoing Growth Strategy", desc: "Monthly experiments and iterations to keep scaling your customer base." }
+      { name: "Social Media & Content Marketing", desc: "Produce high-authority video and editorial content that builds market trust." },
+      { name: "Search Engine Optimization (SEO & AEO)", desc: "Dominate search rankings and prepare your brand for AI search engines like Perplexity." },
+      { name: "High-Converting Paid Advertising", desc: "Laser-targeted Google, Meta, and LinkedIn ad campaigns optimized for ROAS." },
+      { name: "Direct SMS & WhatsApp Marketing", desc: "High-engagement direct messaging funnels with 90%+ open rates." },
+      { name: "Email Marketing & Nurture", desc: "Automated drip sequences that turn lukewarm prospects into ready buyers." },
+      { name: "Conversion Rate Optimization (CRO)", desc: "A/B testing, heatmapping, and UX tweaks that extract more sales from current traffic." }
     ],
     approach: [
-      { step: "01. Funnel Audit", detail: "Analyzing your current website traffic, drop-off points, and conversion rates." },
-      { step: "02. Strategy Roadmap", detail: "Defining priority growth channels based on your budget and industry." },
-      { step: "03. Campaign Launch", detail: "Deploying high-converting landing pages, ad creatives, and tracking tags." },
-      { step: "04. Iterate & Scale", detail: "Analyzing performance weekly and doubling down on what drives real revenue." }
+      { step: "01. Audience Targeting", detail: "Identify high-value buying segments, keyword search volume, and competitor ad strategies." },
+      { step: "02. Funnel Architecture", detail: "Design dedicated landing pages, opt-in hooks, and multi-channel retargeting paths." },
+      { step: "03. Creative Production", detail: "Produce persuasive ad creative, editorial articles, and direct messaging scripts." },
+      { step: "04. Channel Optimization", detail: "Daily ROAS tracking, bid management, conversion rate optimization, and scaling." }
     ],
     solutionsDeliverables: [
-      "Comprehensive Conversion Rate Audit",
-      "Full SEO Keyword & Content Strategy",
-      "Ad Campaign Setup & Creative Assets",
-      "Real-Time Analytics & Reporting Dashboard",
-      "Lead Capture Funnel & Automation",
-      "Monthly Growth Experiment Roadmap"
+      "Complete Omnichannel Customer Acquisition Blueprint",
+      "High-Converting Paid Ad Campaigns (Search, Social, Display)",
+      "Technical & Editorial SEO Package with AEO Structured Schema",
+      "Automated Email & WhatsApp Direct Nurture Sequences",
+      "Dedicated High-Converting Landing Pages",
+      "Real-Time Acquisition Cost & ROAS Analytics Dashboard"
     ],
     caseHighlight: {
-      client: "B2B SaaS Provider",
-      outcome: "3.4x Return on Ad Spend",
-      desc: "Optimized landing page conversion rates and targeted search ads to achieve a 3.4x return on advertising spend."
+      client: "Direct Commercial Logistics Provider",
+      outcome: "4.6x Return On Ad Spend (ROAS)",
+      desc: "Built unified Google Ads, dedicated landing pages, and automated WhatsApp follow-ups, reducing CAC by 42%."
+    }
+  },
+  {
+    id: "crm-cx",
+    slug: "crm-cx",
+    number: "06",
+    title: "CRM & Customer Experience",
+    tagline: "Organize relationships, build pipelines, and maximize lifetime value",
+    shortDesc: "We help businesses organize customer relationships, structure sales pipelines, and create seamless, loyal customer journeys.",
+    heroLead: "Losing track of leads is the most expensive mistake in business. We implement robust CRM ecosystems that segment prospects, trigger automated follow-ups, manage sales pipelines, and cultivate long-term customer loyalty.",
+    whatWeOffer: [
+      { name: "CRM Architecture & Setup", desc: "Configure modern CRM platforms (HubSpot, Salesforce, Pipedrive, custom)." },
+      { name: "Lead Management & Scoring", desc: "Score incoming inquiries automatically so reps prioritize high-intent deals." },
+      { name: "Customer Segmentation", desc: "Categorize clients by industry, spend, behavior, and lifecycle stage." },
+      { name: "Automated Multi-Touch Follow-Ups", desc: "Never let a lead go cold with coordinated email, SMS, and task reminders." },
+      { name: "Sales Pipeline Optimization", desc: "Visual deal stages that clarify sales velocity and bottleneck causes." },
+      { name: "Customer Retention & Loyalty Systems", desc: "Post-sale onboarding journeys and re-engagement campaigns that boost LTV." }
+    ],
+    approach: [
+      { step: "01. Pipeline Mapping", detail: "Map existing touchpoints from initial inquiry to closed deal and renewal." },
+      { step: "02. CRM Data Structure", detail: "Define custom properties, deal stages, pipeline permissions, and tags." },
+      { step: "03. Automation Triggers", detail: "Build automatic task assignments, follow-up notifications, and alert webhooks." },
+      { step: "04. Team Enablement", detail: "Train sales reps and account managers on CRM hygiene and closing workflows." }
+    ],
+    solutionsDeliverables: [
+      "Custom CRM Workspace Configuration & Pipeline Architecture",
+      "Automated Inbound Lead Qualification & Routing Engine",
+      "Lifecycle Customer Journey Stages & Segmentation Matrix",
+      "Multi-Channel Automated Follow-up Trigger Flows",
+      "Sales Rep Activity Tracking & Pipeline Forecasting",
+      "CRM Staff Operating Playbook & Video Walkthroughs"
+    ],
+    caseHighlight: {
+      client: "Industrial Equipment Distributor",
+      outcome: "+225% Repeat Customer Retention",
+      desc: "Implemented automated CRM lifecycle tagging, SMS dispatch, and automated quarterly check-in workflows."
+    }
+  },
+  {
+    id: "innovation-ideas",
+    slug: "innovation-ideas",
+    number: "07",
+    title: "Innovation & Idea Development",
+    tagline: "Transform conceptual sparks into validated, market-ready ventures",
+    shortDesc: "We help entrepreneurs and organizations transform raw ideas into structured concepts, validated products, and scalable business opportunities.",
+    heroLead: "An idea without structure remains a dream. Through our battle-tested 'From Idea to Market' framework, we guide founders and enterprises through validation, rapid prototyping, MVP strategy, and commercial rollout.",
+    whatWeOffer: [
+      { name: "Idea Development & Structuring", desc: "Pressure-test nascent ideas and shape them into viable commercial concepts." },
+      { name: "Product & Service Ideation", desc: "Brainstorm high-margin feature sets, user journeys, and competitive moats." },
+      { name: "From Idea to Market Framework", desc: "The complete 10-step incubation methodology from hypothesis to live launch." },
+      { name: "MVP Strategy & Rapid Prototyping", desc: "Build functional minimum viable products in weeks rather than months." },
+      { name: "New Business Opportunities", desc: "Identify adjacent revenue streams and digital business models for existing firms." },
+      { name: "Innovation Sprints & Workshops", desc: "Facilitate intensive leadership workshops that break through creative gridlock." }
+    ],
+    approach: [
+      { step: "01. Problem & Market Validation", detail: "Conduct customer discovery interviews and verify genuine willingness to pay." },
+      { step: "02. Product Blueprint", detail: "Define user personas, core feature sets, technical feasibility, and value metrics." },
+      { step: "03. Rapid MVP Build", detail: "Engineer functional clickable prototypes and testable minimum viable software." },
+      { step: "04. Launch & Iteration", detail: "Deploy to early adopters, collect behavioral analytics, and refine unit economics." }
+    ],
+    solutionsDeliverables: [
+      "Comprehensive Concept Validation & Feasibility Dossier",
+      "Interactive High-Fidelity MVP Prototype & Product Specs",
+      "'From Idea to Market' Commercialization Roadmap",
+      "Unit Economics & Monetization Modeling Workbook",
+      "Early Adopter Acquisition & Feedback Framework",
+      "Investor Pitch Deck for Venture Capital / Angel Backing"
+    ],
+    caseHighlight: {
+      client: "HealthTech Founder & Venture",
+      outcome: "90-Day MVP Rollout & 12,000 Users",
+      desc: "Structured raw healthcare workflow concept into a live compliance-ready web app that secured angel funding in 3 months."
+    }
+  },
+  {
+    id: "data-analytics",
+    slug: "data-analytics",
+    number: "08",
+    title: "Data, Analytics & Performance",
+    tagline: "Turn raw operational data into decisive, high-ROI commercial growth",
+    shortDesc: "We use data to measure performance, understand customer behavior, and guide intelligent, high-impact business decisions.",
+    heroLead: "You cannot scale what you do not measure. We eliminate guesswork by building real-time KPI dashboards, customer analytics models, and ROI tracking infrastructure that empower executives to make confident, data-driven decisions.",
+    whatWeOffer: [
+      { name: "Marketing & Acquisition Analytics", desc: "Track channel efficacy, cost per acquisition (CPA), and true marketing ROI." },
+      { name: "Customer Analytics & Cohorts", desc: "Unpack user behavior, churn risk, retention curves, and customer lifetime value." },
+      { name: "Executive KPI Dashboards", desc: "Clean, real-time dashboards consolidating sales, marketing, and operations." },
+      { name: "Campaign Performance Tracking", desc: "Granular attribution modeling to understand which ad campaigns drive bottom-line profits." },
+      { name: "Website & Funnel Analytics", desc: "Identify drop-off points in user journeys and optimize conversion stages." },
+      { name: "Data-Driven Decision Making", desc: "Translate complex metrics into clear executive priorities and strategic directives." }
+    ],
+    approach: [
+      { step: "01. Data Infrastructure Audit", detail: "Evaluate existing tracking tags, analytics tools, and CRM data integrity." },
+      { step: "02. Metrics Definition", detail: "Identify North Star metrics, leading indicators, and commercial attribution models." },
+      { step: "03. Dashboard Construction", detail: "Build unified, real-time dashboards integrating web, ad, and financial data." },
+      { step: "04. Continuous Optimization", detail: "Conduct monthly performance reviews, anomaly detection, and ROI reporting." }
+    ],
+    solutionsDeliverables: [
+      "Executive Unified KPI & Revenue Dashboard",
+      "Full-Funnel Conversion Attribution & Tracking Architecture",
+      "Customer Lifetime Value (LTV) & Cohort Churn Models",
+      "Google Analytics 4 & Server-Side Event Tracking Setup",
+      "Automated Weekly Performance Digest for Leadership",
+      "Quarterly Strategic Growth & ROI Diagnostic Reports"
+    ],
+    caseHighlight: {
+      client: "Multi-Location Services Group",
+      outcome: "+38% Profit Margin Improvement",
+      desc: "Built automated unit-economic dashboards that revealed unprofitable ad campaigns and reallocated budget to top performers."
     }
   }
 ];
