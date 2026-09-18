@@ -49,10 +49,11 @@ export function renderManifesto() {
             <div class="paradigm-switcher" role="tablist" aria-label="System vs Agency Model">
               <button class="paradigm-toggle-btn active" data-paradigm="nexa" role="tab" aria-selected="true">
                 <span class="paradigm-toggle-dot"></span>
-                <span>The NEXA Connected System</span>
+                <span class="paradigm-btn-text">The NEXA Connected System</span>
               </button>
               <button class="paradigm-toggle-btn" data-paradigm="conventional" role="tab" aria-selected="false">
-                <span>Conventional Agency Model</span>
+                <span class="paradigm-toggle-dot dot-conventional"></span>
+                <span class="paradigm-btn-text">Conventional Agency Model</span>
               </button>
             </div>
           </div>
