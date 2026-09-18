@@ -76,6 +76,21 @@ function bootstrapApp() {
   console.log('[NEXA GROWTH] Strategic Digital Platform Initialized Successfully.');
 }
 
+// Live Edge Sync Listener from Website CMS Suite
+window.addEventListener('nexa:cms-updated', () => {
+  console.log('[NEXA Live Sync] Content update received from CMS Suite.');
+  const disciplinesEl = document.getElementById('disciplines-stage');
+  if (disciplinesEl) {
+    const temp = document.createElement('div');
+    temp.innerHTML = renderDisciplines();
+    const newDisciplines = temp.firstElementChild;
+    if (newDisciplines) {
+      disciplinesEl.replaceWith(newDisciplines);
+      initDisciplinesEvents();
+    }
+  }
+});
+
 // Boot application upon DOM ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', bootstrapApp);

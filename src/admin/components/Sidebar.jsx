@@ -8,7 +8,8 @@ import {
   ShieldCheck, 
   LogOut, 
   X,
-  ExternalLink
+  ExternalLink,
+  FileText
 } from 'lucide-react';
 
 export function Sidebar({ activeTab, setActiveTab, mobileOpen, setMobileOpen }) {
@@ -29,11 +30,19 @@ export function Sidebar({ activeTab, setActiveTab, mobileOpen, setMobileOpen }) 
       ]
     },
     {
-      groupTitle: 'CONTENT ARCHITECTURE',
+      groupTitle: 'WEBSITE & CONTENT CMS',
       items: [
         { 
+          id: 'cms', 
+          label: 'Website CMS Suite', 
+          icon: FileText, 
+          badge: 'Live Sync',
+          badgeType: 'success',
+          roleReq: ['CREATIVE_EDITOR', 'SUPER_ADMIN'] 
+        },
+        { 
           id: 'ecosystem', 
-          label: '8-Pillars CMS', 
+          label: '8-Pillars Matrix', 
           icon: Layers, 
           badge: '8 Active',
           badgeType: 'default',

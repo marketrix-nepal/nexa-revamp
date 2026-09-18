@@ -4,6 +4,7 @@ import { Sidebar } from './components/Sidebar';
 import { Header } from './components/Header';
 import { LoginView } from './views/LoginView';
 import { CrmConsoleView } from './views/CrmConsoleView';
+import { WebsiteCmsView } from './views/WebsiteCmsView';
 import { EcosystemManagerView } from './views/EcosystemManagerView';
 import { DiscoverySuiteView } from './views/DiscoverySuiteView';
 import { AutomationTerminalView } from './views/AutomationTerminalView';
@@ -42,6 +43,7 @@ function AdminShell() {
           onToggleSidebar={() => setSidebarMobileOpen(prev => !prev)} 
         />
         {activeTab === 'crm' && <CrmConsoleView />}
+        {activeTab === 'cms' && <WebsiteCmsView />}
         {activeTab === 'ecosystem' && <EcosystemManagerView />}
         {activeTab === 'discovery' && <DiscoverySuiteView />}
         {activeTab === 'automation' && <AutomationTerminalView />}

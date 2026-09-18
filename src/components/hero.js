@@ -5,6 +5,8 @@
  * and high-converting climax CTA.
  */
 
+import { getCmsStore } from '../admin/data/cmsStore.js';
+
 export const CORE_SERVICES = [
   {
     index: '01',
@@ -65,22 +67,26 @@ export const CORE_SERVICES = [
 ];
 
 export function renderHero() {
-  const servicesCardsHtml = CORE_SERVICES.map((s, i) => `
+  const cms = getCmsStore();
+  const heroData = cms.hero || {};
+  const activeServices = (cms.services && cms.services.length > 0) ? cms.services : CORE_SERVICES;
+
+  const servicesCardsHtml = activeServices.map((s, i) => `
     <div class="service-spotlight-card glass-panel" data-service-idx="${i}">
       <div class="spotlight-card-top">
-        <span class="spotlight-num">${s.index}</span>
-        <span class="spotlight-pill">${s.pill}</span>
+        <span class="spotlight-num">${s.number || (i < 9 ? '0' + (i + 1) : i + 1)}</span>
+        <span class="spotlight-pill">${s.tagline ? s.tagline.split(' ')[0] : 'Capability'}</span>
       </div>
-      <div class="spotlight-kicker">${s.tagline}</div>
+      <div class="spotlight-kicker">${s.tagline || ''}</div>
       <h3 class="spotlight-title">${s.title}</h3>
-      <p class="spotlight-desc">${s.desc}</p>
+      <p class="spotlight-desc">${s.shortDesc || s.desc || ''}</p>
       <div class="spotlight-bar-progress">
         <div class="spotlight-bar-fill"></div>
       </div>
     </div>
   `).join('');
 
-  const hudDotsHtml = CORE_SERVICES.map((_, i) => `
+  const hudDotsHtml = activeServices.map((_, i) => `
     <span class="hud-dot ${i === 0 ? 'active' : ''}" data-dot="${i}"></span>
   `).join('');
 
@@ -113,9 +119,9 @@ export function renderHero() {
         <!-- Persistent Telemetry Header (Clocks) -->
         <header class="hero-persistent-header" aria-label="Global Studio Status">
           <div class="container-wide hero-telemetry-row">
-            <div class="hero-status-spacer">
+            <div class="hero-status-spacer" style="${heroData.showAnnouncement === false ? 'display:none;' : ''}">
               <span class="pulse-indicator-dot"></span>
-              <span class="mono-telemetry-text">OPERATIONAL · AUCKLAND HQ & SINGAPORE HUB</span>
+              <span class="mono-telemetry-text">${heroData.announcement || 'OPERATIONAL · AUCKLAND HQ & SINGAPORE HUB'}</span>
             </div>
 
             <div class="atomic-clocks-wrapper" id="atomic-clocks-container">
@@ -137,28 +143,20 @@ export function renderHero() {
           <!-- Phase 1: 0% - 15% Scroll (Primary Title & Strategic Positioning) -->
           <div class="hero-phase-block hero-phase-intro" id="hero-phase-intro">
             <div class="hero-sublabel">
-              STRATEGY · TECHNOLOGY · GROWTH
+              ${heroData.sublabel || 'STRATEGY · TECHNOLOGY · GROWTH'}
             </div>
 
             <h1 class="hero-main-title">
-              <span class="hero-title-gradient">Transforming Ideas Into Brands,</span><br/>
-              <span class="hero-title-accent">Digital Solutions & Growth Systems.</span>
+              <span class="hero-title-gradient">${heroData.titleGradient || 'Transforming Ideas Into Brands,'}</span><br/>
+              <span class="hero-title-accent">${heroData.titleAccent || 'Digital Solutions & Growth Systems.'}</span>
             </h1>
 
             <div class="hero-disciplines-strip">
-              <span class="hero-discipline-tag">Strategy</span>
-              <span class="hero-discipline-tag">Growth</span>
-              <span class="hero-discipline-tag">Brand</span>
-              <span class="hero-discipline-tag">Digital Transformation</span>
-              <span class="hero-discipline-tag">AI & Automation</span>
-              <span class="hero-discipline-tag">Marketing</span>
-              <span class="hero-discipline-tag">CRM</span>
-              <span class="hero-discipline-tag">Innovation</span>
-              <span class="hero-discipline-tag">Data</span>
+              ${(heroData.disciplinesStrip || ['Strategy', 'Growth', 'Brand', 'Digital Transformation', 'AI & Automation', 'Marketing', 'CRM', 'Innovation', 'Data']).map(tag => `<span class="hero-discipline-tag">${tag}</span>`).join('')}
             </div>
 
             <p class="hero-executive-lead">
-              NEXA GROWTH connects strategy, creativity, technology, AI, automation, marketing and data to help entrepreneurs, SMEs, institutions and organizations build stronger brands, better systems and sustainable growth.
+              ${heroData.executiveLead || 'NEXA GROWTH connects strategy, creativity, technology, AI, automation, marketing and data to help entrepreneurs, SMEs, institutions and organizations build stronger brands, better systems and sustainable growth.'}
             </p>
 
             <div class="hero-scroll-affordance">
@@ -200,15 +198,15 @@ export function renderHero() {
               </p>
 
               <div class="hero-climax-actions">
-                <a href="#concierge-stage" class="btn btn-primary btn-lg">
-                  <span>Start a Project</span>
+                <a href="${heroData.primaryCtaLink || '#concierge-stage'}" class="btn btn-primary btn-lg">
+                  <span>${heroData.primaryCtaText || 'Start a Project'}</span>
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </a>
 
-                <a href="#manifesto-stage" class="btn btn-ghost btn-lg" id="hero-manifesto-jump-btn">
-                  <span>Explore Company Overview</span>
+                <a href="${heroData.secondaryCtaLink || '#manifesto-stage'}" class="btn btn-ghost btn-lg" id="hero-manifesto-jump-btn">
+                  <span>${heroData.secondaryCtaText || 'Explore Company Overview'}</span>
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path d="M7 3V11M7 11L10.5 7.5M7 11L3.5 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>

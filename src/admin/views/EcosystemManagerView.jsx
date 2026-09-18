@@ -159,7 +159,7 @@ export function EcosystemManagerView() {
           {/* Pillar Identity & Details Card */}
           <div className="admin-card">
             <div className="admin-card-header">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <div className="ecosystem-card-title-zone">
                 <span className="status-pill status-pill-success">
                   PILLAR 0{activePillar.pillar_number}
                 </span>
@@ -267,7 +267,7 @@ export function EcosystemManagerView() {
           <div className="admin-card">
             <div className="admin-card-header">
               <h3 className="admin-card-title">Target Audience Copy Variants</h3>
-              <div style={{ display: 'flex', gap: '0.35rem' }}>
+              <div className="audience-tab-group">
                 {['entrepreneurs', 'smes', 'institutions', 'enterprises'].map((aud) => (
                   <button
                     key={aud}

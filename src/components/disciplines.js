@@ -1,4 +1,5 @@
 import { servicesData } from '../data/servicesData.js';
+import { getCmsStore } from '../admin/data/cmsStore.js';
 
 /**
  * 8 Core Service Pillars Component (Disciplines)
@@ -8,8 +9,14 @@ import { servicesData } from '../data/servicesData.js';
 
 let activeIndex = 0;
 
+function getActiveServices() {
+  const cms = getCmsStore();
+  return (cms && cms.services && cms.services.length > 0) ? cms.services : servicesData;
+}
+
 export function renderDisciplines() {
-  const tabsHtml = servicesData
+  const services = getActiveServices();
+  const tabsHtml = services
     .map((service, idx) => `
       <button 
         class="service-tab-btn ${idx === 0 ? 'active' : ''}" 
@@ -20,7 +27,7 @@ export function renderDisciplines() {
         aria-controls="service-panel-${idx}"
         id="service-tab-${idx}"
       >
-        <span class="tab-num">${service.number}</span>
+        <span class="tab-num">${service.number || (idx < 9 ? '0' + (idx + 1) : idx + 1)}</span>
         <span class="tab-title">${service.title}</span>
       </button>
     `)
@@ -61,11 +68,16 @@ export function renderDisciplines() {
  * Renders the content panel for the currently selected service pillar
  */
 export function renderServiceContent(index) {
-  const service = servicesData[index];
+  const services = getActiveServices();
+  const service = services[index];
   if (!service) return '';
 
-  // 6 Primary Capabilities
-  const capabilitiesHtml = service.whatWeOffer
+  const whatWeOffer = (service.whatWeOffer && service.whatWeOffer.length > 0) 
+    ? service.whatWeOffer 
+    : (servicesData[index]?.whatWeOffer || []);
+
+  // Capabilities
+  const capabilitiesHtml = whatWeOffer
     .map((item, i) => `
       <div class="capability-item-card">
         <div class="capability-num-tag">0${i + 1}</div>
@@ -75,13 +87,19 @@ export function renderServiceContent(index) {
     `)
     .join('');
 
+  const highlight = service.caseHighlight || servicesData[index]?.caseHighlight || {
+    client: "Enterprise Growth Initiative",
+    outcome: "+250% Commercial Velocity",
+    desc: "Deployed unified brand, web architecture, and automated acquisition systems."
+  };
+
   return `
     <div class="service-panel-fade">
       <!-- Service Header -->
       <div class="service-panel-header">
-        <div class="badge badge-crimson">PILLAR ${service.number} · ${service.tagline}</div>
+        <div class="badge badge-crimson">PILLAR ${service.number || (index < 9 ? '0' + (index + 1) : index + 1)} · ${service.tagline || ''}</div>
         <h3 class="service-panel-title">${service.title}</h3>
-        <p class="service-panel-lead">${service.shortDesc}</p>
+        <p class="service-panel-lead">${service.shortDesc || service.desc || ''}</p>
       </div>
 
       <!-- Key Capabilities Grid (All 6 displayed cleanly in 2x3 or 3x2) -->
@@ -93,8 +111,8 @@ export function renderServiceContent(index) {
       <div class="service-result-banner">
         <div class="result-info-block">
           <span class="result-highlight-badge">REAL-WORLD INTERVENTION OUTCOME</span>
-          <div class="result-client-name">${service.caseHighlight.client}</div>
-          <div class="result-metric-text">${service.caseHighlight.outcome}</div>
+          <div class="result-client-name">${highlight.client}</div>
+          <div class="result-metric-text">${highlight.outcome}</div>
         </div>
 
         <button 

@@ -8,7 +8,8 @@ export function Header({ activeTab, onToggleSidebar }) {
 
   const titles = {
     crm: 'CRM & Diagnostic Pipeline',
-    ecosystem: '8 Core Service Pillars CMS',
+    cms: 'Website CMS & Live Sync',
+    ecosystem: '8 Core Service Pillars Matrix',
     discovery: 'Discovery Suite (SEO / AEO / GEO)',
     automation: 'Automation & Dispatch Terminal',
     governance: 'Governance & RBAC Console'
