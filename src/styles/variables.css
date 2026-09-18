@@ -52,6 +52,7 @@
 
   /* Header Height */
   --nav-height: 80px;
+  --nav-height-mobile: 56px;
 
   /* Transitions & Timing */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);

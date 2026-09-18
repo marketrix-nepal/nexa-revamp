@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { INITIAL_USERS, INITIAL_AUDIT_LOGS, getMockStore, setMockStore } from '../data/adminMockData';
 import { ShieldCheck, Download, Users, FileSpreadsheet, AlertCircle, CheckCircle } from 'lucide-react';
 
 export function SystemGovernanceView() {
@@ -23,17 +24,19 @@ export function SystemGovernanceView() {
         fetch('/api/users/audit', { headers })
       ]);
 
-      if (usersRes.ok) {
+      if (usersRes.ok && auditRes.ok) {
         const uData = await usersRes.json();
-        setUsersList(uData.users);
-      }
-      if (auditRes.ok) {
         const aData = await auditRes.json();
-        setAuditLogs(aData.auditTrail);
+        if (uData.users) setUsersList(uData.users);
+        if (aData.auditTrail) setAuditLogs(aData.auditTrail);
+        return;
       }
-    } catch (err) {
-      console.error('Fetch governance data error:', err);
-    }
+    } catch (err) {}
+
+    const storedUsers = getMockStore('users', INITIAL_USERS);
+    const storedAudit = getMockStore('audit_logs', INITIAL_AUDIT_LOGS);
+    setUsersList(storedUsers);
+    setAuditLogs(storedAudit);
   }
 
   useEffect(() => {

@@ -13,6 +13,7 @@ import './styles/admin.css';
 function AdminShell() {
   const { user, loading } = useAuth();
   const [activeTab, setActiveTab] = useState('crm');
+  const [sidebarMobileOpen, setSidebarMobileOpen] = useState(false);
 
   if (loading) {
     return (
@@ -29,9 +30,17 @@ function AdminShell() {
 
   return (
     <div className="admin-app-shell">
-      <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
+      <Sidebar 
+        activeTab={activeTab} 
+        setActiveTab={setActiveTab} 
+        mobileOpen={sidebarMobileOpen} 
+        setMobileOpen={setSidebarMobileOpen} 
+      />
       <main className="admin-main-stage">
-        <Header activeTab={activeTab} />
+        <Header 
+          activeTab={activeTab} 
+          onToggleSidebar={() => setSidebarMobileOpen(prev => !prev)} 
+        />
         {activeTab === 'crm' && <CrmConsoleView />}
         {activeTab === 'ecosystem' && <EcosystemManagerView />}
         {activeTab === 'discovery' && <DiscoverySuiteView />}

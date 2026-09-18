@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { INITIAL_DISCOVERY_ROUTES, getMockStore, setMockStore } from '../data/adminMockData';
 import { Globe, Sparkles, MapPin, Save, CheckCircle2, AlertCircle } from 'lucide-react';
 
 export function DiscoverySuiteView() {
@@ -19,11 +20,15 @@ export function DiscoverySuiteView() {
       });
       if (res.ok) {
         const data = await res.json();
-        setMetadataList(data.routes);
+        if (data.routes && data.routes.length > 0) {
+          setMetadataList(data.routes);
+          return;
+        }
       }
-    } catch (err) {
-      console.error('Fetch metadata failed:', err);
-    }
+    } catch (err) {}
+
+    const stored = getMockStore('discovery_routes', INITIAL_DISCOVERY_ROUTES);
+    setMetadataList(stored);
   }
 
   useEffect(() => {

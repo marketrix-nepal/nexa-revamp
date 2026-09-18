@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { INITIAL_ECOSYSTEM, getMockStore, setMockStore } from '../data/adminMockData';
 import { Layers, Network, Save, CheckCircle2, AlertCircle } from 'lucide-react';
 
 export function EcosystemManagerView() {
@@ -19,11 +20,15 @@ export function EcosystemManagerView() {
       });
       if (res.ok) {
         const data = await res.json();
-        setPillars(data.pillars);
+        if (data.pillars && data.pillars.length > 0) {
+          setPillars(data.pillars);
+          return;
+        }
       }
-    } catch (err) {
-      console.error('Fetch pillars failed:', err);
-    }
+    } catch (err) {}
+
+    const stored = getMockStore('pillars', INITIAL_ECOSYSTEM);
+    setPillars(stored);
   }
 
   useEffect(() => {

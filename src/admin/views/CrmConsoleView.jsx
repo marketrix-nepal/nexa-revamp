@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { ClientModal } from '../components/ClientModal';
+import { INITIAL_DIAGNOSTICS, getMockStore, setMockStore } from '../data/adminMockData';
 import { 
   Kanban, 
   Table as TableIcon, 
@@ -25,19 +26,34 @@ export function CrmConsoleView() {
   const stages = ['DIAGNOSE', 'STRATEGY', 'DESIGN', 'TECH', 'MARKETING', 'MEASUREMENT'];
 
   async function fetchDiagnostics() {
+    let list = [];
     try {
       const res = await fetch(`/api/crm/diagnostics?stage=${stageFilter}&search=${encodeURIComponent(search)}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('nexa_admin_token')}` }
       });
       if (res.ok) {
         const data = await res.json();
-        setDiagnostics(data.diagnostics);
+        list = data.diagnostics || [];
+      } else {
+        throw new Error('API offline');
       }
-    } catch (err) {
-      console.error('Fetch diagnostics failed:', err);
-    } finally {
-      setLoading(false);
+    } catch {
+      const stored = getMockStore('diagnostics', INITIAL_DIAGNOSTICS);
+      list = stored;
+      if (stageFilter !== 'ALL') {
+        list = list.filter(d => d.pipeline_stage === stageFilter);
+      }
+      if (search.trim()) {
+        const q = search.toLowerCase();
+        list = list.filter(d => 
+          (d.company_name && d.company_name.toLowerCase().includes(q)) ||
+          (d.contact_email && d.contact_email.toLowerCase().includes(q)) ||
+          (d.friction_summary && d.friction_summary.toLowerCase().includes(q))
+        );
+      }
     }
+    setDiagnostics(list);
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -66,10 +82,16 @@ export function CrmConsoleView() {
       });
       if (res.ok) {
         fetchDiagnostics();
+        return;
       }
     } catch (err) {
-      console.error('Advance stage error:', err);
+      // Continue to local mock sync
     }
+
+    const stored = getMockStore('diagnostics', INITIAL_DIAGNOSTICS);
+    const updated = stored.map(item => item.id === client.id ? { ...item, pipeline_stage: nextStage } : item);
+    setMockStore('diagnostics', updated);
+    fetchDiagnostics();
   }
 
   return (

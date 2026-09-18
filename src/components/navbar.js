@@ -35,42 +35,96 @@ export function renderNavbar() {
 
         <!-- Right Actions -->
         <div class="nav-actions">
-          <a href="#concierge-stage" class="btn btn-primary btn-sm">
+          <a href="#concierge-stage" class="btn btn-primary btn-sm nav-cta-desktop">
             <span>Start a Project</span>
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
               <path d="M2.5 6H9.5M9.5 6L6.5 3M9.5 6L6.5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
 
+          <a href="#concierge-stage" class="nav-cta-mobile" aria-label="Start Inquiry">
+            <span>Inquire</span>
+            <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+              <path d="M2.5 6H9.5M9.5 6L6.5 3M9.5 6L6.5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+
           <!-- Mobile Toggle -->
           <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle Menu" aria-expanded="false">
-            <span></span>
-            <span></span>
+            <span class="toggle-bar"></span>
+            <span class="toggle-bar"></span>
           </button>
         </div>
       </div>
 
-      <!-- Mobile Menu Drawer -->
-      <div class="mobile-drawer" id="mobile-drawer">
-        <ul class="mobile-nav-list">
-          <li><a href="#manifesto-stage" class="mobile-nav-link">Company Overview & Vision</a></li>
-          <li><a href="#methodology-stage" class="mobile-nav-link">Transformation Methodology</a></li>
-          <li><a href="#disciplines-stage" class="mobile-nav-link">8 Core Service Pillars</a></li>
-          <li><a href="#dossiers-stage" class="mobile-nav-link">Intervention Case Studies</a></li>
-          <li><a href="#training-stage" class="mobile-nav-link">Training & Consulting</a></li>
-          <li><a href="#ideas-lab-stage" class="mobile-nav-link">Insights & Guides</a></li>
-          <li><a href="#concierge-stage" class="mobile-nav-link">Contact & Inquiries</a></li>
-        </ul>
+      <!-- Mobile Menu Drawer (Executive Spatial Drawer) -->
+      <div class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+        <div class="mobile-drawer-header">
+          <span class="drawer-status-dot"></span>
+          <span class="drawer-status-text">AUCKLAND HQ · SINGAPORE HUB · ONLINE</span>
+        </div>
 
-        <div style="padding-top: 2rem; border-top: 1px solid var(--border-subtle);">
-          <p style="font-family: var(--font-body); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">
-            Auckland, New Zealand (HQ) · Singapore (Hub)
-          </p>
-          <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--crimson); margin-bottom: 1.25rem;">
-            nexaafricadigital@gmail.com
-          </p>
-          <a href="#concierge-stage" class="btn btn-primary" style="width: 100%;">
-            <span>Start a Project →</span>
+        <nav class="mobile-drawer-nav">
+          <ul class="mobile-nav-list">
+            <li>
+              <a href="#manifesto-stage" class="mobile-nav-link">
+                <span class="drawer-num">01</span>
+                <span class="drawer-title">Overview & Vision</span>
+                <span class="drawer-arrow">↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="#methodology-stage" class="mobile-nav-link">
+                <span class="drawer-num">02</span>
+                <span class="drawer-title">Methodology</span>
+                <span class="drawer-arrow">↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="#disciplines-stage" class="mobile-nav-link">
+                <span class="drawer-num">03</span>
+                <span class="drawer-title">8 Service Pillars</span>
+                <span class="drawer-arrow">↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="#dossiers-stage" class="mobile-nav-link">
+                <span class="drawer-num">04</span>
+                <span class="drawer-title">Case Studies</span>
+                <span class="drawer-arrow">↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="#training-stage" class="mobile-nav-link">
+                <span class="drawer-num">05</span>
+                <span class="drawer-title">Executive Training</span>
+                <span class="drawer-arrow">↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="#ideas-lab-stage" class="mobile-nav-link">
+                <span class="drawer-num">06</span>
+                <span class="drawer-title">Insights Lab</span>
+                <span class="drawer-arrow">↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="#concierge-stage" class="mobile-nav-link">
+                <span class="drawer-num">07</span>
+                <span class="drawer-title">Scoping Terminal</span>
+                <span class="drawer-arrow">↗</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="mobile-drawer-footer">
+          <div class="drawer-contact-meta">
+            <span class="drawer-meta-label">DIRECT INQUIRIES</span>
+            <a href="mailto:nexaafricadigital@gmail.com" class="drawer-email-link">nexaafricadigital@gmail.com</a>
+          </div>
+          <a href="#concierge-stage" class="btn btn-primary drawer-action-btn">
+            <span>Initiate Project Consultation →</span>
           </a>
         </div>
       </div>
@@ -85,11 +139,14 @@ export function initNavbarEvents() {
   if (toggleBtn && drawer) {
     toggleBtn.addEventListener('click', () => {
       const isOpen = drawer.classList.toggle('open');
+      toggleBtn.classList.toggle('is-active', isOpen);
       toggleBtn.setAttribute('aria-expanded', isOpen);
       if (isOpen) {
         if (window.lenis) window.lenis.stop();
+        document.body.classList.add('nav-drawer-open');
       } else {
         if (window.lenis) window.lenis.start();
+        document.body.classList.remove('nav-drawer-open');
       }
     });
 
@@ -98,7 +155,9 @@ export function initNavbarEvents() {
     mobileLinks.forEach((link) => {
       link.addEventListener('click', () => {
         drawer.classList.remove('open');
+        toggleBtn.classList.remove('is-active');
         toggleBtn.setAttribute('aria-expanded', false);
+        document.body.classList.remove('nav-drawer-open');
         if (window.lenis) window.lenis.start();
       });
     });

@@ -7,11 +7,11 @@ import {
   Activity, 
   ShieldCheck, 
   LogOut, 
-  ExternalLink 
+  X
 } from 'lucide-react';
 
-export function Sidebar({ activeTab, setActiveTab }) {
-  const { user, logout, role } = useAuth();
+export function Sidebar({ activeTab, setActiveTab, mobileOpen, setMobileOpen }) {
+  const { user, logout } = useAuth();
 
   const navItems = [
     { id: 'crm', label: 'CRM & Pipeline', icon: Users, roleReq: ['STRATEGIC_CONSULTANT', 'SUPER_ADMIN'] },
@@ -21,61 +21,85 @@ export function Sidebar({ activeTab, setActiveTab }) {
     { id: 'governance', label: 'System Governance', icon: ShieldCheck, roleReq: ['SUPER_ADMIN'] }
   ];
 
+  function handleNavClick(tabId) {
+    setActiveTab(tabId);
+    if (setMobileOpen) setMobileOpen(false);
+  }
+
   return (
-    <aside className="admin-sidebar">
-      {/* Brand Lockup */}
-      <div className="sidebar-brand-header">
-        <img 
-          src="/logo.png" 
-          alt="NEXA GROWTH" 
-          className="sidebar-logo-img" 
-        />
-        <span className="sidebar-badge">OPS CONSOLE</span>
-      </div>
+    <>
+      {/* Mobile Backdrop Overlay */}
+      <div 
+        className={`admin-sidebar-backdrop ${mobileOpen ? 'open' : ''}`}
+        onClick={() => setMobileOpen && setMobileOpen(false)}
+        aria-hidden="true"
+      />
 
-      {/* Navigation Links */}
-      <nav className="sidebar-nav">
-        {navItems.map((item) => {
-          const Icon = item.icon;
-          const isActive = activeTab === item.id;
-          return (
-            <button
-              key={item.id}
-              className={`sidebar-nav-item ${isActive ? 'active' : ''}`}
-              onClick={() => setActiveTab(item.id)}
-            >
-              <Icon size={16} />
-              <span>{item.label}</span>
-            </button>
-          );
-        })}
-      </nav>
+      <aside className={`admin-sidebar ${mobileOpen ? 'mobile-open' : ''}`}>
+        {/* Brand Lockup & Mobile Close Button */}
+        <div className="sidebar-brand-header">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+            <img 
+              src="/logo.png" 
+              alt="NEXA GROWTH" 
+              className="sidebar-logo-img" 
+            />
+            <span className="sidebar-badge">OPS CONSOLE</span>
+          </div>
 
-      {/* Operator Profile & Return */}
-      <div className="sidebar-footer">
-        <div className="operator-profile-card">
-          <div className="operator-avatar">
-            {user?.name ? user.name[0].toUpperCase() : 'O'}
-          </div>
-          <div className="operator-info">
-            <div className="operator-name">{user?.name || 'Operator'}</div>
-            <div className="operator-role">{user?.role || 'SUPER_ADMIN'}</div>
-          </div>
+          <button 
+            className="sidebar-mobile-close-btn" 
+            onClick={() => setMobileOpen && setMobileOpen(false)}
+            aria-label="Close Sidebar"
+          >
+            <X size={18} />
+          </button>
         </div>
 
-        <button 
-          onClick={logout} 
-          className="btn-admin btn-admin-secondary" 
-          style={{ width: '100%', justifyContent: 'center', marginBottom: '0.75rem' }}
-        >
-          <LogOut size={14} />
-          <span>Exit Session</span>
-        </button>
+        {/* Navigation Links */}
+        <nav className="sidebar-nav">
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = activeTab === item.id;
+            return (
+              <button
+                key={item.id}
+                className={`sidebar-nav-item ${isActive ? 'active' : ''}`}
+                onClick={() => handleNavClick(item.id)}
+              >
+                <Icon size={16} />
+                <span>{item.label}</span>
+              </button>
+            );
+          })}
+        </nav>
 
-        <a href="/" className="sidebar-return-link">
-          <span>← Return to Public Website</span>
-        </a>
-      </div>
-    </aside>
+        {/* Operator Profile & Return */}
+        <div className="sidebar-footer">
+          <div className="operator-profile-card">
+            <div className="operator-avatar">
+              {user?.name ? user.name[0].toUpperCase() : 'O'}
+            </div>
+            <div className="operator-info">
+              <div className="operator-name">{user?.name || 'Operator'}</div>
+              <div className="operator-role">{user?.role || 'SUPER_ADMIN'}</div>
+            </div>
+          </div>
+
+          <button 
+            onClick={logout} 
+            className="btn-admin btn-admin-secondary" 
+            style={{ width: '100%', justifyContent: 'center', marginBottom: '0.75rem' }}
+          >
+            <LogOut size={14} />
+            <span>Exit Session</span>
+          </button>
+
+          <a href="/" className="sidebar-return-link">
+            <span>← Return to Public Website</span>
+          </a>
+        </div>
+      </aside>
+    </>
   );
 }
