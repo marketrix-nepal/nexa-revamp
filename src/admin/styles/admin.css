@@ -69,80 +69,170 @@ body.admin-body {
   width: auto;
 }
 
+.sidebar-brand-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.15rem 1.15rem;
+  border-bottom: 1px solid var(--admin-border-subtle);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.sidebar-brand-left {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
 .sidebar-badge {
   font-family: var(--admin-font-mono);
-  font-size: 0.65rem;
-  padding: 0.2rem 0.5rem;
-  border-radius: 3px;
-  background: var(--admin-crimson-dim);
-  border: 1px solid rgba(229, 25, 45, 0.4);
+  font-size: 0.62rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  background: rgba(225, 29, 72, 0.12);
+  border: 1px solid rgba(225, 29, 72, 0.3);
   color: var(--admin-crimson);
   font-weight: 700;
   letter-spacing: 0.05em;
 }
 
 .sidebar-nav {
-  padding: 1.25rem 0.75rem;
+  padding: 1.25rem 0.85rem;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sidebar-nav-group {
+  margin-bottom: 1.15rem;
+}
+
+.sidebar-group-label {
+  font-family: var(--admin-font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  color: var(--admin-text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0 0.5rem 0.45rem 0.5rem;
+}
+
+.sidebar-group-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .sidebar-nav-item {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.65rem 0.85rem;
-  border-radius: var(--admin-radius);
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
   color: var(--admin-text-secondary);
   font-size: 0.85rem;
   font-weight: 500;
   background: transparent;
-  border: none;
-  width: 100%;
+  border: 1px solid transparent;
   text-align: left;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all 0.16s ease;
+}
+
+.sidebar-nav-item-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sidebar-nav-icon {
+  color: var(--admin-text-muted);
+  transition: color 0.16s ease;
 }
 
 .sidebar-nav-item:hover {
-  background: var(--admin-bg-hover);
+  background: rgba(255, 255, 255, 0.04);
+  color: #FFFFFF;
+}
+
+.sidebar-nav-item:hover .sidebar-nav-icon {
   color: #FFFFFF;
 }
 
 .sidebar-nav-item.active {
-  background: var(--admin-bg-card);
+  background: linear-gradient(135deg, #E11D48 0%, #BE123C 100%);
   color: #FFFFFF;
-  border-left: 3px solid var(--admin-crimson);
   font-weight: 600;
+  border-color: rgba(244, 63, 94, 0.35);
+  box-shadow: 0 4px 14px rgba(225, 29, 72, 0.28);
+}
+
+.sidebar-nav-item.active .sidebar-nav-icon {
+  color: #FFFFFF;
+}
+
+.sidebar-nav-badge {
+  font-family: var(--admin-font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--admin-text-muted);
+}
+
+.sidebar-nav-item.active .sidebar-nav-badge {
+  background: rgba(0, 0, 0, 0.25);
+  border-color: transparent;
+  color: #FFFFFF;
+}
+
+.sidebar-nav-badge.badge-warning {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.3);
+  color: var(--admin-yellow);
+}
+
+.sidebar-nav-badge.badge-success {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: var(--admin-green);
 }
 
 .sidebar-footer {
-  padding: 1.25rem;
+  padding: 1.15rem;
   border-top: 1px solid var(--admin-border-subtle);
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.25);
 }
 
 .operator-profile-card {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-bottom: 0.85rem;
+  padding: 0.65rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--admin-border-subtle);
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
 }
 
 .operator-avatar {
   width: 34px;
   height: 34px;
-  border-radius: 50%;
-  background: var(--admin-crimson-dim);
-  border: 1px solid var(--admin-crimson);
+  border-radius: 6px;
+  background: var(--admin-crimson);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 0.8rem;
-  color: var(--admin-crimson);
+  font-size: 0.82rem;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(225, 29, 72, 0.3);
 }
 
 .operator-info {
@@ -159,21 +249,32 @@ body.admin-body {
 
 .operator-role {
   font-family: var(--admin-font-mono);
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   color: var(--admin-amber);
 }
 
-.sidebar-return-link {
-  display: block;
+.sidebar-logout-btn {
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 0.65rem;
   font-size: 0.78rem;
+  padding: 0.45rem;
+}
+
+.sidebar-return-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-family: var(--admin-font-mono);
   color: var(--admin-text-muted);
   text-decoration: none;
-  margin-top: 0.5rem;
   transition: color 0.15s ease;
 }
 
 .sidebar-return-link:hover {
-  color: var(--admin-crimson);
+  color: #FFFFFF;
 }
 
 /* Main Content Area */
@@ -674,19 +775,394 @@ body.admin-body {
   gap: 0.75rem;
 }
 
-.header-role-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
+.live-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--admin-green);
+  box-shadow: 0 0 6px var(--admin-green);
+  animation: admin-pulse 2s infinite;
 }
 
-.role-label {
+@keyframes admin-pulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+/* ==========================================================================
+   STEAM CLEANING SYDNEY INSPIRED CARD-FIRST ARCHITECTURE & KPI MODULES
+   ========================================================================== */
+
+/* 1. CRM Executive KPI Metric Strip */
+.crm-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.crm-kpi-card {
+  background: var(--admin-bg-card);
+  border: 1px solid var(--admin-border-subtle);
+  border-radius: 12px;
+  padding: 1rem 1.15rem;
+  transition: border-color 0.15s ease;
+}
+
+.crm-kpi-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.crm-kpi-label {
+  font-family: var(--admin-font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  color: var(--admin-text-muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.35rem;
+}
+
+.crm-kpi-val {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  font-family: var(--font-display, sans-serif);
+  line-height: 1.15;
+  margin-bottom: 0.25rem;
+}
+
+.crm-kpi-sub {
+  font-size: 0.72rem;
+  color: var(--admin-text-secondary);
+}
+
+/* 2. Controls & Segmented Horizontal Stage Filter Chips */
+.crm-controls-card {
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.25rem;
+  border-radius: 12px;
+}
+
+.crm-controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.crm-search-box {
+  position: relative;
+  flex: 1;
+  min-width: 220px;
+}
+
+.crm-search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--admin-text-muted);
+}
+
+.crm-search-input {
+  padding-left: 32px;
+  width: 100%;
+}
+
+.crm-view-switch-group {
+  display: flex;
+  background: var(--admin-bg-surface);
+  padding: 2px;
+  border-radius: var(--admin-radius);
+  border: 1px solid var(--admin-border-subtle);
+}
+
+.crm-stage-chips-bar {
+  display: flex;
+  gap: 0.45rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.crm-stage-chips-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.stage-chip {
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-family: var(--admin-font-mono);
+  font-weight: 500;
+  border: 1px solid var(--admin-border-subtle);
+  background: var(--admin-bg-surface);
+  color: var(--admin-text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.stage-chip:hover {
+  background: var(--admin-bg-hover);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.stage-chip.active {
+  background: var(--admin-crimson);
+  color: #FFFFFF;
+  border-color: var(--admin-crimson);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(225, 29, 72, 0.35);
+}
+
+/* 3. Mobile Card Feed (Hidden on desktop, shown on mobile) */
+.crm-mobile-card-feed {
+  display: none;
+  flex-direction: column;
+  gap: 0.85rem;
+  width: 100%;
+}
+
+.crm-touch-card {
+  background: var(--admin-bg-card);
+  border: 1px solid var(--admin-border-subtle);
+  border-radius: 12px;
+  padding: 1.15rem;
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.crm-touch-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.crm-touch-card:active {
+  background: var(--admin-bg-hover);
+  border-color: var(--admin-crimson);
+}
+
+.crm-touch-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.crm-touch-company {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 0 0 0.15rem 0;
+}
+
+.crm-touch-email {
   font-size: 0.75rem;
   color: var(--admin-text-muted);
   font-family: var(--admin-font-mono);
 }
 
-/* Tablet & Mobile Breakpoint (<= 1024px) */
+.crm-touch-card-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  padding: 0.65rem 0.75rem;
+  background: var(--admin-bg-surface);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.crm-meta-k {
+  display: block;
+  font-family: var(--admin-font-mono);
+  font-size: 0.6rem;
+  color: var(--admin-text-muted);
+  margin-bottom: 0.1rem;
+}
+
+.crm-meta-v {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.crm-touch-friction {
+  font-size: 0.82rem;
+  color: var(--admin-text-secondary);
+  line-height: 1.45;
+  margin: 0 0 0.85rem 0;
+}
+
+.crm-touch-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 0.75rem;
+}
+
+.crm-touch-action-btn {
+  flex: 1;
+  justify-content: center;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.78rem;
+}
+
+/* 4. Ecosystem Responsive Manager Grid */
+.ecosystem-manager-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1.5rem;
+}
+
+.ecosystem-selector-card {
+  padding: 1rem;
+}
+
+.ecosystem-pillars-track {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.ecosystem-pillar-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--admin-text-secondary);
+  font-size: 0.82rem;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+}
+
+.ecosystem-pillar-chip:hover {
+  background: var(--admin-bg-hover);
+  color: #FFFFFF;
+}
+
+.ecosystem-pillar-chip.active {
+  background: rgba(225, 29, 72, 0.15);
+  border-color: rgba(225, 29, 72, 0.4);
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.pillar-chip-num {
+  font-family: var(--admin-font-mono);
+  font-size: 0.72rem;
+  color: var(--admin-crimson);
+  font-weight: 700;
+}
+
+.pillar-chip-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.dependencies-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+/* 5. Webhooks & Automation Terminal */
+.webhook-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.webhook-card {
+  padding: 1rem;
+  background: var(--admin-bg-surface);
+  border: 1px solid var(--admin-border-subtle);
+  border-radius: 12px;
+}
+
+.automation-mobile-feed {
+  display: none;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.85rem;
+}
+
+.log-touch-card {
+  background: var(--admin-bg-surface);
+  border: 1px solid var(--admin-border-subtle);
+  border-radius: 10px;
+  padding: 0.85rem;
+}
+
+/* 6. Governance & Discovery */
+.governance-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.discovery-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.discovery-route-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.discovery-route-chips {
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.discovery-subtabs-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (Mobile & Tablet)
+   ========================================================================== */
+
+/* Tablet Breakpoint (<= 1024px) */
 @media (max-width: 1024px) {
   .admin-sidebar {
     position: fixed;
@@ -715,6 +1191,8 @@ body.admin-body {
   .admin-main-stage {
     width: 100%;
     min-width: 0;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 
   .admin-top-header {
@@ -724,11 +1202,30 @@ body.admin-body {
 
   .admin-view-canvas {
     padding: 1.25rem 1rem;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .governance-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .webhook-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ecosystem-manager-grid {
+    grid-template-columns: 1fr;
   }
 }
 
 /* Phone Breakpoint (<= 768px) */
 @media (max-width: 768px) {
+  .admin-app-root {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
   .admin-top-header {
     height: 56px;
     padding: 0 0.75rem;
@@ -736,14 +1233,15 @@ body.admin-body {
 
   .header-view-title {
     font-size: 0.92rem;
-    max-width: 160px;
+    max-width: 140px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  .header-title-zone .status-pill {
-    display: none;
+  .header-sync-badge {
+    padding: 0.15rem 0.4rem;
+    font-size: 0.65rem;
   }
 
   .telemetry-clock-tag.clock-singapore {
@@ -766,17 +1264,69 @@ body.admin-body {
   }
 
   .admin-view-canvas {
-    padding: 0.85rem 0.65rem;
+    padding: 0.75rem 0.5rem;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 
-  /* Compact Kanban */
-  .kanban-board-container {
-    gap: 0.75rem;
-    padding-bottom: 0.75rem;
+  /* Switch CRM to Mobile Card Feed */
+  .crm-kpi-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
   }
 
-  .kanban-column {
-    min-width: 250px;
+  .crm-view-switch-group {
+    display: none;
+  }
+
+  .crm-desktop-view-container {
+    display: none;
+  }
+
+  .crm-mobile-card-feed {
+    display: flex;
+  }
+
+  /* Switch Automation Logs to Mobile Feed */
+  .automation-desktop-table {
+    display: none;
+  }
+
+  .automation-mobile-feed {
+    display: flex;
+  }
+
+  /* Ecosystem Pillars Track: Horizontal scroll chips on mobile */
+  .ecosystem-pillars-track {
+    flex-direction: row;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.4rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .ecosystem-pillars-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ecosystem-pillar-chip {
+    flex-shrink: 0;
+    width: auto;
+    background: var(--admin-bg-surface);
+    border: 1px solid var(--admin-border-subtle);
+  }
+
+  .admin-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .dependencies-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .webhook-grid {
+    grid-template-columns: 1fr;
   }
 
   .admin-modal-overlay {
@@ -785,6 +1335,7 @@ body.admin-body {
 
   .admin-modal-box {
     max-height: 94vh;
+    width: 100%;
   }
 
   .admin-modal-body {
@@ -794,12 +1345,29 @@ body.admin-body {
 
 /* Narrow Phone Breakpoint (<= 480px) */
 @media (max-width: 480px) {
-  .login-presets-grid {
+  .crm-kpi-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .crm-kpi-card {
+    padding: 0.75rem;
+  }
+
+  .crm-kpi-val {
+    font-size: 1.25rem;
+  }
+
+  .dependencies-grid {
     grid-template-columns: 1fr;
   }
 
   .telemetry-clock-tag {
     display: none;
+  }
+
+  .login-presets-grid {
+    grid-template-columns: 1fr;
   }
 }
 

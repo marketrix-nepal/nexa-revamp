@@ -368,37 +368,29 @@ body.nav-drawer-open {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.85rem 0.65rem;
-  border-radius: var(--r-badge, 4px);
+  padding: 0.8rem 0.85rem;
+  border-radius: 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   text-decoration: none;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
 
 .mobile-nav-link:active, .mobile-nav-link:hover {
-  background: rgba(255, 255, 255, 0.04);
-}
-
-.drawer-num {
-  font-family: var(--font-mono, monospace);
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--crimson);
-  letter-spacing: 0.06em;
-  min-width: 28px;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
 .drawer-title {
-  font-family: var(--font-display);
+  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
   font-size: 1.02rem;
-  font-weight: 600;
-  color: #FFFFFF;
+  font-weight: 500;
+  color: #F8FAFC;
   flex-grow: 1;
   letter-spacing: -0.01em;
 }
 
 .drawer-arrow {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: var(--text-dim);
   transition: transform var(--transition-fast), color var(--transition-fast);
 }
@@ -406,7 +398,7 @@ body.nav-drawer-open {
 .mobile-nav-link:hover .drawer-arrow,
 .mobile-nav-link:active .drawer-arrow {
   color: var(--crimson);
-  transform: translate(2px, -2px);
+  transform: translateX(3px);
 }
 
 .mobile-drawer-footer {
@@ -414,34 +406,46 @@ body.nav-drawer-open {
   border-top: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
-}
-
-.drawer-contact-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
-
-.drawer-meta-label {
-  font-family: var(--font-mono, monospace);
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
-  color: var(--text-dim);
-}
-
-.drawer-email-link {
-  font-family: var(--font-mono, monospace);
-  font-size: 0.78rem;
-  color: var(--amber);
-  text-decoration: none;
+  gap: 0.75rem;
 }
 
 .drawer-action-btn {
   width: 100%;
   justify-content: center;
-  padding: 0.75rem;
-  font-size: 0.86rem;
+  padding: 0.8rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+.drawer-quick-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.drawer-quick-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.65rem 0.75rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-hairline);
+  border-radius: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.drawer-quick-pill:hover,
+.drawer-quick-pill:active {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--border-subtle);
+  color: #FFFFFF;
 }
 
 /* 4. ACT 1: HERO COMPONENTS (KINETIC NEURAL MONOLITH) */

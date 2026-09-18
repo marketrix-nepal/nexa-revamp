@@ -111,16 +111,16 @@ export function DiscoverySuiteView() {
       )}
 
       {/* Top Route Selector & Save Trigger */}
-      <div className="admin-card" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <label style={{ fontSize: '0.78rem', fontFamily: 'var(--admin-font-mono)', color: 'var(--admin-text-muted)' }}>TARGET ROUTE:</label>
-          <div style={{ display: 'flex', gap: '0.4rem' }}>
+      <div className="admin-card discovery-top-bar">
+        <div className="discovery-route-group">
+          <label style={{ fontSize: '0.78rem', fontFamily: 'var(--admin-font-mono)', color: 'var(--admin-text-muted)', whiteSpace: 'nowrap' }}>TARGET ROUTE:</label>
+          <div className="discovery-route-chips">
             {metadataList.map(m => (
               <button
                 key={m.id}
                 onClick={() => setActiveRouteId(m.id)}
                 className={`btn-admin ${activeRouteId === m.id ? 'btn-admin-primary' : 'btn-admin-secondary'}`}
-                style={{ fontSize: '0.78rem', fontFamily: 'var(--admin-font-mono)' }}
+                style={{ fontSize: '0.78rem', fontFamily: 'var(--admin-font-mono)', whiteSpace: 'nowrap' }}
               >
                 {m.page_route}
               </button>
@@ -129,7 +129,7 @@ export function DiscoverySuiteView() {
         </div>
 
         {isEditorOrAdmin && (
-          <button onClick={handleSave} disabled={saving} className="btn-admin btn-admin-primary">
+          <button onClick={handleSave} disabled={saving} className="btn-admin btn-admin-primary discovery-save-btn">
             <Save size={14} />
             <span>{saving ? 'Deploying...' : 'Deploy Discovery Updates'}</span>
           </button>
@@ -137,7 +137,7 @@ export function DiscoverySuiteView() {
       </div>
 
       {/* Sub-Tabs: Traditional SEO / AEO Schema / GEO Citation */}
-      <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem' }}>
+      <div className="discovery-subtabs-bar">
         <button
           onClick={() => setSubTab('seo')}
           className={`btn-admin ${subTab === 'seo' ? 'btn-admin-primary' : 'btn-admin-secondary'}`}

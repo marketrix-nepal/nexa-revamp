@@ -57,75 +57,74 @@ export function renderNavbar() {
         </div>
       </div>
 
-      <!-- Mobile Menu Drawer (Executive Spatial Drawer) -->
+      <!-- Mobile Menu Drawer (Sleek Spatial Drawer) -->
       <div class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
         <div class="mobile-drawer-header">
           <span class="drawer-status-dot"></span>
-          <span class="drawer-status-text">AUCKLAND HQ · SINGAPORE HUB · ONLINE</span>
+          <span class="drawer-status-text">AUCKLAND HQ · SINGAPORE HUB · ACTIVE</span>
         </div>
 
         <nav class="mobile-drawer-nav">
           <ul class="mobile-nav-list">
             <li>
               <a href="#manifesto-stage" class="mobile-nav-link">
-                <span class="drawer-num">01</span>
-                <span class="drawer-title">Overview & Vision</span>
-                <span class="drawer-arrow">↗</span>
+                <span class="drawer-title">Overview</span>
+                <span class="drawer-arrow">→</span>
               </a>
             </li>
             <li>
               <a href="#methodology-stage" class="mobile-nav-link">
-                <span class="drawer-num">02</span>
                 <span class="drawer-title">Methodology</span>
-                <span class="drawer-arrow">↗</span>
+                <span class="drawer-arrow">→</span>
               </a>
             </li>
             <li>
               <a href="#disciplines-stage" class="mobile-nav-link">
-                <span class="drawer-num">03</span>
                 <span class="drawer-title">8 Service Pillars</span>
-                <span class="drawer-arrow">↗</span>
+                <span class="drawer-arrow">→</span>
               </a>
             </li>
             <li>
               <a href="#dossiers-stage" class="mobile-nav-link">
-                <span class="drawer-num">04</span>
-                <span class="drawer-title">Case Studies</span>
-                <span class="drawer-arrow">↗</span>
+                <span class="drawer-title">Case Interventions</span>
+                <span class="drawer-arrow">→</span>
               </a>
             </li>
             <li>
               <a href="#training-stage" class="mobile-nav-link">
-                <span class="drawer-num">05</span>
                 <span class="drawer-title">Executive Training</span>
-                <span class="drawer-arrow">↗</span>
+                <span class="drawer-arrow">→</span>
               </a>
             </li>
             <li>
               <a href="#ideas-lab-stage" class="mobile-nav-link">
-                <span class="drawer-num">06</span>
                 <span class="drawer-title">Insights Lab</span>
-                <span class="drawer-arrow">↗</span>
+                <span class="drawer-arrow">→</span>
               </a>
             </li>
             <li>
               <a href="#concierge-stage" class="mobile-nav-link">
-                <span class="drawer-num">07</span>
-                <span class="drawer-title">Scoping Terminal</span>
-                <span class="drawer-arrow">↗</span>
+                <span class="drawer-title">Contact & Scoping</span>
+                <span class="drawer-arrow">→</span>
               </a>
             </li>
           </ul>
         </nav>
 
         <div class="mobile-drawer-footer">
-          <div class="drawer-contact-meta">
-            <span class="drawer-meta-label">DIRECT INQUIRIES</span>
-            <a href="mailto:nexaafricadigital@gmail.com" class="drawer-email-link">nexaafricadigital@gmail.com</a>
-          </div>
           <a href="#concierge-stage" class="btn btn-primary drawer-action-btn">
-            <span>Initiate Project Consultation →</span>
+            <span>Start a Project →</span>
           </a>
+          <div class="drawer-quick-actions">
+            <a href="mailto:nexaafricadigital@gmail.com" class="drawer-quick-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>Email Desk</span>
+            </a>
+            <a href="tel:+64210000000" class="drawer-quick-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>Direct Call</span>
+            </a>
+          </div>
         </div>
       </div>
     </header>

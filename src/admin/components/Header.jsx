@@ -40,9 +40,9 @@ export function Header({ activeTab, onToggleSidebar }) {
 
         <div className="header-title-zone">
           <h1 className="header-view-title">{titles[activeTab] || 'Operations'}</h1>
-          <span className="status-pill status-pill-success" title="Audit middleware actively logging mutations">
-            <Shield size={11} />
-            <span>Audit Active</span>
+          <span className="status-pill status-pill-success header-sync-badge" title="Edge Sync active across Auckland & Singapore runtimes">
+            <span className="live-pulse-dot"></span>
+            <span>Edge Sync</span>
           </span>
         </div>
       </div>

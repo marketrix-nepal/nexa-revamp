@@ -127,28 +127,27 @@ export function EcosystemManagerView() {
         </div>
       )}
 
-      <div style={{ display: 'grid', gridTemplateColumns: '280px 1fr', gap: '1.5rem' }}>
+      <div className="ecosystem-manager-grid">
         
         {/* Left Column: 8 Pillars Selector */}
-        <div className="admin-card" style={{ padding: '1rem' }}>
+        <div className="admin-card ecosystem-selector-card" style={{ padding: '1rem' }}>
           <div style={{ fontSize: '0.75rem', fontFamily: 'var(--admin-font-mono)', color: 'var(--admin-text-muted)', marginBottom: '0.75rem', textTransform: 'uppercase' }}>
             THE 8 CORE SERVICE PILLARS
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+          <div className="ecosystem-pillars-track">
             {pillars.map((p) => {
               const isSelected = p.pillar_number === selectedPillarId;
               return (
                 <button
                   key={p.pillar_number}
                   onClick={() => setSelectedPillarId(p.pillar_number)}
-                  className={`sidebar-nav-item ${isSelected ? 'active' : ''}`}
-                  style={{ fontSize: '0.82rem' }}
+                  className={`ecosystem-pillar-chip ${isSelected ? 'active' : ''}`}
                 >
-                  <span style={{ fontFamily: 'var(--admin-font-mono)', color: isSelected ? 'var(--admin-crimson)' : 'var(--admin-text-muted)' }}>
+                  <span className="pillar-chip-num">
                     0{p.pillar_number}
                   </span>
-                  <span>{p.title}</span>
+                  <span className="pillar-chip-title">{p.title}</span>
                 </button>
               );
             })}
@@ -179,7 +178,7 @@ export function EcosystemManagerView() {
               )}
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+            <div className="admin-grid-2" style={{ marginBottom: '1rem' }}>
               <div>
                 <label style={{ display: 'block', fontSize: '0.75rem', fontFamily: 'var(--admin-font-mono)', color: 'var(--admin-text-muted)', marginBottom: '0.35rem' }}>
                   PILLAR TITLE
@@ -207,12 +206,12 @@ export function EcosystemManagerView() {
               </div>
             </div>
 
-            <div style={{ marginBottom: '1.25rem' }}>
+            <div style={{ marginBottom: '1rem' }}>
               <label style={{ display: 'block', fontSize: '0.75rem', fontFamily: 'var(--admin-font-mono)', color: 'var(--admin-text-muted)', marginBottom: '0.35rem' }}>
-                EXECUTIVE DESCRIPTION
+                EXECUTIVE THESIS & VALUE PROPOSITION
               </label>
               <textarea
-                rows={3}
+                rows={4}
                 value={activePillar.description}
                 disabled={!isEditorOrAdmin}
                 onChange={(e) => handleFieldChange('description', e.target.value)}
@@ -230,7 +229,7 @@ export function EcosystemManagerView() {
                 Toggle which other pillars are architecturally required to support or compound Pillar 0{activePillar.pillar_number}.
               </p>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.5rem' }}>
+              <div className="dependencies-grid">
                 {pillars.map((p) => {
                   if (p.pillar_number === activePillar.pillar_number) return null;
                   const isLinked = (activePillar.dependent_pillar_ids || []).includes(p.pillar_number);

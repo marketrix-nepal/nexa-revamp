@@ -98,7 +98,7 @@ export function SystemGovernanceView() {
       )}
 
       {/* Grid: Operator Role Matrix (Left) & Export Utility (Right) */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '1.5rem', marginBottom: '1.5rem' }}>
+      <div className="governance-grid">
         
         {/* User Management Table */}
         <div className="admin-card" style={{ margin: 0 }}>
